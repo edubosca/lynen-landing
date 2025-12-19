@@ -1,16 +1,15 @@
 {
-  "applinks": {
-    "apps": [],
-    "details": [
-      {
-        "appID": "TZVNHDQXW6.com.lynen.app",
-        "appID": "TZVNHDQXW6.com.lynen.app",
-        "paths": [
-          "/invite/*",
-          "/auth/verified*",
-          "/auth/callback*"
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "TZVNHDQXW6.com.lynen.app",
+                "paths": [
+                    "/invite/*",
+                    "/auth/verified*",
+                    "/auth/callback*"
+                ]
+            }
         ]
-      }
-    ]
-  }
+    }
 }
