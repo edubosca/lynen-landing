@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lynen.app",
+      "sha256_cert_fingerprints": [
+      "12:26:95:10:44:D5:0D:CF:85:B1:F5:29:EA:9B:94:01:AD:31:24:8B:5D:E6:C4:BD:15:D5:BA:E9:FA:A6:A5:0C"
+      ]
+    }
+  }
+]
