@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join Competition – Lynen</title>
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../lynen-logo.png" />
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Playfair+Display:wght@400&display=swap"
+    rel="stylesheet">
+
   <!-- TailwindCSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -35,7 +38,7 @@
       }
     }
   </script>
-  
+
   <style>
     body {
       background-color: #f9f6f0;
@@ -46,97 +49,97 @@
 </head>
 
 <body class="min-h-screen flex items-center justify-center px-4 py-8">
-  
+
   <div class="max-w-md w-full bg-white rounded-[32px] shadow-lg p-8 text-center space-y-6">
-    
+
     <!-- Logo -->
     <div class="flex justify-center">
       <img src="../lynen-logo.png" alt="Lynen logo" class="h-20 w-auto" />
     </div>
-    
+
     <!-- Title -->
     <h1 class="text-2xl sm:text-3xl font-bold text-lynTitle">
       You've been invited!
     </h1>
-    
+
     <!-- Description -->
     <p class="text-sm sm:text-base text-lynText">
       Join this outfit competition and show off your style. Download the Lynen app to participate.
     </p>
-    
+
     <!-- Competition Code (if available) -->
     <div id="competition-code" class="hidden bg-lynSoft/50 rounded-2xl px-4 py-3">
       <p class="text-xs text-lynText/70 uppercase tracking-wider mb-1">Competition Code</p>
       <p id="code-display" class="text-lg font-semibold text-lynTitle"></p>
     </div>
-    
+
     <!-- Store Buttons -->
     <div class="flex flex-col gap-3 pt-4">
-      <a id="app-store-link" href="https://placeholder-appstore-link.com" class="inline-flex items-center justify-center">
+      <a id="app-store-link" href="https://placeholder-appstore-link.com"
+        class="inline-flex items-center justify-center">
         <img src="../apple-store.svg" alt="Download on the App Store" class="h-12 w-auto" />
       </a>
-      <a id="play-store-link" href="https://placeholder-googleplay-link.com" class="inline-flex items-center justify-center">
+      <a id="play-store-link" href="https://placeholder-googleplay-link.com"
+        class="inline-flex items-center justify-center">
         <img src="../google-store.png" alt="Get it on Google Play" class="h-12 w-auto" />
       </a>
     </div>
-    
+
     <!-- Redirecting message (hidden by default) -->
     <p id="redirect-message" class="hidden text-xs text-lynText/60">
       Redirecting to store...
     </p>
-    
+
   </div>
 
   <script>
-    (function() {
-      // Extract competition code from URL path
-      const pathParts = window.location.pathname.split('/').filter(p => p);
-      const inviteIndex = pathParts.indexOf('invite');
-      const competitionCode = inviteIndex >= 0 && pathParts[inviteIndex + 1] 
-        ? pathParts[inviteIndex + 1] 
-        : null;
-      
-      // Display competition code if available
-      if (competitionCode) {
-        document.getElementById('code-display').textContent = competitionCode;
-        document.getElementById('competition-code').classList.remove('hidden');
-      }
-      
-      // Platform detection
-      function detectPlatform() {
-        const ua = navigator.userAgent.toLowerCase();
-        if (/iphone|ipad|ipod/.test(ua)) return 'ios';
-        if (/android/.test(ua)) return 'android';
-        return 'desktop';
-      }
-      
-      const platform = detectPlatform();
-      const appStoreUrl = 'https://placeholder-appstore-link.com';
-      const playStoreUrl = 'https://placeholder-googleplay-link.com';
-      
-      // Smart redirect logic for mobile platforms
-      if (platform === 'ios') {
-        // Show redirect message
-        document.getElementById('redirect-message').classList.remove('hidden');
-        
-        // Wait 1.5 seconds to allow Universal Links to trigger
-        // If the app is installed, it will open and this redirect won't happen
-        setTimeout(function() {
-          window.location.href = appStoreUrl;
-        }, 1500);
-      } else if (platform === 'android') {
-        // Show redirect message
-        document.getElementById('redirect-message').classList.remove('hidden');
-        
-        // Wait 1.5 seconds to allow App Links to trigger
-        // If the app is installed, it will open and this redirect won't happen
-        setTimeout(function() {
-          window.location.href = playStoreUrl;
-        }, 1500);
-      }
-      // Desktop users see the page with both store buttons (no redirect)
-    })();
+      (function () {
+        // Extract competition code from query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const competitionCode = urlParams.get('code');
+
+        // Display competition code if available
+        if (competitionCode) {
+          document.getElementById('code-display').textContent = competitionCode;
+          document.getElementById('competition-code').classList.remove('hidden');
+        }
+
+        // Platform detection
+        function detectPlatform() {
+          const ua = navigator.userAgent.toLowerCase();
+          if (/iphone|ipad|ipod/.test(ua)) return 'ios';
+          if (/android/.test(ua)) return 'android';
+          return 'desktop';
+        }
+
+        const platform = detectPlatform();
+        const appStoreUrl = 'https://placeholder-appstore-link.com';
+        const playStoreUrl = 'https://placeholder-googleplay-link.com';
+
+        // Smart redirect logic for mobile platforms
+        if (platform === 'ios') {
+          // Show redirect message
+          document.getElementById('redirect-message').classList.remove('hidden');
+
+          // Wait 1.5 seconds to allow Universal Links to trigger
+          // If the app is installed, it will open and this redirect won't happen
+          setTimeout(function () {
+            window.location.href = appStoreUrl;
+          }, 1500);
+        } else if (platform === 'android') {
+          // Show redirect message
+          document.getElementById('redirect-message').classList.remove('hidden');
+
+          // Wait 1.5 seconds to allow App Links to trigger
+          // If the app is installed, it will open and this redirect won't happen
+          setTimeout(function () {
+            window.location.href = playStoreUrl;
+          }, 1500);
+        }
+        // Desktop users see the page with both store buttons (no redirect)
+      })();
   </script>
 
 </body>
+
 </html>
