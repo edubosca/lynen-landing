@@ -91,13 +91,18 @@
     }
     #navbar.scrolled .nav-link  { color: #4a4a4a; }
     #navbar.scrolled .nav-link:hover { color: #0a0a0a; }
-    #navbar.scrolled .nav-logo  { filter: none !important; opacity: 1 !important; }
+    #navbar.scrolled .nav-logo  { filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; }
     #navbar.scrolled .nav-cta   { background: #0a0a0a !important; color: #fff !important; }
     #navbar.scrolled .nav-cta:hover { background: #2a2a2a !important; }
     #navbar.scrolled .nav-lang  { color: #999 !important; }
     #navbar.scrolled .nav-lang:hover { color: #0a0a0a !important; }
     #navbar.scrolled .hb-line   { background: #0a0a0a !important; }
-    #navbar.scrolled #mobile-menu { background: rgba(255,255,255,0.98); }
+    #navbar.scrolled #mobile-menu { background: rgba(255,255,255,0.98) !important; }
+    #navbar.scrolled #mobile-menu a { color: #4a4a4a !important; }
+    #navbar.scrolled #mobile-menu .btn-download-m { color: #0a0a0a !important; }
+
+    /* Mobile menu always has a readable background */
+    #mobile-menu { background: rgba(8,8,8,0.96); }
 
     /* ── Phone frame ── */
     .phone-frame {
@@ -199,7 +204,7 @@
     <div class="flex items-center justify-between h-18 sm:h-20" style="height:72px;">
 
       <a href="/" class="flex-shrink-0">
-        <img src="lynen-logo.png" alt="Lynen – AI Outfit Generator" class="nav-logo h-8 w-auto" style="filter:brightness(0) invert(1);opacity:0.92;" />
+        <img src="lynen-logo.png" alt="Lynen – AI Outfit Generator" class="nav-logo h-10 w-auto" style="filter:invert(1) saturate(0) brightness(1.3);opacity:0.95;" />
       </a>
 
       <div class="hidden md:flex items-center gap-8">
@@ -250,7 +255,7 @@
         </a>
         <a href="#faq" data-mob-link class="text-sm font-medium text-white/85 py-1">FAQ</a>
         <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
-           class="bg-white text-lynDark text-sm font-semibold py-3.5 rounded-full text-center mt-2">
+           class="btn-download-m bg-white text-lynDark text-sm font-semibold py-3.5 rounded-full text-center mt-2 block">
           <span data-lang-text="en">Download free</span><span data-lang-text="es">Descargar gratis</span>
         </a>
       </div>
@@ -294,18 +299,16 @@
         </p>
 
         <!-- Store CTAs -->
-        <div class="flex flex-wrap gap-3 mb-10 sm:mb-12">
+        <div class="flex flex-wrap items-center gap-3 mb-10 sm:mb-12">
           <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener" class="btn-store btn-store-light">
             <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
             </svg>
             App Store
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.lynen.app&pcampaignid=web_share" target="_blank" rel="noopener" class="btn-store btn-store-dark">
-            <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3.18 23.76c.37.2.8.2 1.17 0L15.34 12 4.35.24C3.98.04 3.55.04 3.18.24 2.46.64 2 1.4 2 2.23v19.54c0 .83.46 1.59 1.18 1.99zM16.5 10.73l2.6-2.6L6.3 1.36 16.5 10.73zm0 2.54L6.3 22.64l12.8-6.77-2.6-2.6zM20.84 10.33l-2.77-1.47L15.9 12l2.17 2.14 2.77-1.47c.79-.42.79-1.46 0-1.88v-.46z"/>
-            </svg>
-            Google Play
+          <a href="https://play.google.com/store/apps/details?id=com.lynen.app&pcampaignid=web_share" target="_blank" rel="noopener"
+             class="transition-all hover:scale-[1.03] active:scale-[0.97]">
+            <img src="google-store.png" alt="Get it on Google Play" class="h-[50px] w-auto" />
           </a>
         </div>
 
@@ -405,7 +408,7 @@
           <div class="tilt-l phone-frame" style="max-width:270px;">
             <div class="phone-screen">
               <div class="phone-notch"><div class="phone-island"></div></div>
-              <img src="feature2-refined-casual.png" alt="AI outfit generation" class="phone-img" />
+              <img src="find-your-vibe-initial.png" alt="AI outfit generation" class="phone-img" />
               <div class="phone-bar"><div class="phone-ind"></div></div>
             </div>
           </div>
@@ -475,7 +478,7 @@
           <div class="tilt-r phone-frame" style="max-width:270px;">
             <div class="phone-screen">
               <div class="phone-notch"><div class="phone-island"></div></div>
-              <img src="rate-outfit-initial.png" alt="Rate outfit AI feedback" class="phone-img" />
+              <img src="feature3-office-rating.png" alt="Rate outfit AI feedback" class="phone-img" />
               <div class="phone-bar"><div class="phone-ind"></div></div>
             </div>
           </div>
@@ -489,11 +492,22 @@
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="flex justify-center reveal">
-          <div class="tilt-l phone-frame" style="max-width:270px;">
-            <div class="phone-screen">
-              <div class="phone-notch"><div class="phone-island"></div></div>
-              <img src="special-event-recommendation.png" alt="Special events outfit" class="phone-img" />
-              <div class="phone-bar"><div class="phone-ind"></div></div>
+          <div class="relative" style="width:300px;height:560px;">
+            <!-- Main phone -->
+            <div class="tilt-l phone-frame absolute left-0 top-0" style="max-width:255px;">
+              <div class="phone-screen">
+                <div class="phone-notch"><div class="phone-island"></div></div>
+                <img src="special-events-popup.png" alt="Special events popup" class="phone-img" />
+                <div class="phone-bar"><div class="phone-ind"></div></div>
+              </div>
+            </div>
+            <!-- Secondary phone -->
+            <div class="tilt-r phone-frame absolute right-0 bottom-4 opacity-85" style="max-width:195px;">
+              <div class="phone-screen">
+                <div class="phone-notch"><div class="phone-island"></div></div>
+                <img src="special-event-recommendation.png" alt="Special event recommendation" class="phone-img" />
+                <div class="phone-bar"><div class="phone-ind"></div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -710,10 +724,6 @@
         <span data-lang-text="en">Start free. Upgrade when ready.</span>
         <span data-lang-text="es">Empieza gratis. Mejora cuando quieras.</span>
       </h2>
-      <p class="text-lynText text-sm">
-        <span data-lang-text="en">1 outfit generation = 8 credits &nbsp;·&nbsp; 1 rating = 4 credits</span>
-        <span data-lang-text="es">1 generación de outfit = 8 créditos &nbsp;·&nbsp; 1 valoración = 4 créditos</span>
-      </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-4xl mx-auto">
@@ -919,18 +929,16 @@
       <span data-lang-text="en">Download Lynen free. No sign-up needed to start generating outfits.</span>
       <span data-lang-text="es">Descarga Lynen gratis. No necesitas registro para empezar a generar outfits.</span>
     </p>
-    <div class="flex flex-wrap gap-3 sm:gap-4 justify-center">
+    <div class="flex flex-wrap items-center gap-3 sm:gap-4 justify-center">
       <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener" class="btn-store btn-store-light">
         <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
         </svg>
         App Store
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.lynen.app&pcampaignid=web_share" target="_blank" rel="noopener" class="btn-store btn-store-dark">
-        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3.18 23.76c.37.2.8.2 1.17 0L15.34 12 4.35.24C3.98.04 3.55.04 3.18.24 2.46.64 2 1.4 2 2.23v19.54c0 .83.46 1.59 1.18 1.99zM16.5 10.73l2.6-2.6L6.3 1.36 16.5 10.73zm0 2.54L6.3 22.64l12.8-6.77-2.6-2.6zM20.84 10.33l-2.77-1.47L15.9 12l2.17 2.14 2.77-1.47c.79-.42.79-1.46 0-1.88v-.46z"/>
-        </svg>
-        Google Play
+      <a href="https://play.google.com/store/apps/details?id=com.lynen.app&pcampaignid=web_share" target="_blank" rel="noopener"
+         class="transition-all hover:scale-[1.03] active:scale-[0.97]">
+        <img src="google-store.png" alt="Get it on Google Play" class="h-[50px] w-auto" />
       </a>
     </div>
   </div>
@@ -945,7 +953,7 @@
     <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 sm:mb-12">
 
       <div class="sm:col-span-2">
-        <img src="lynen-logo.png" alt="Lynen" class="h-7 w-auto mb-4" style="filter:brightness(0) invert(1);opacity:0.85;" />
+        <img src="lynen-logo.png" alt="Lynen" class="h-9 w-auto mb-4" style="filter:invert(1) saturate(0) brightness(1.2);opacity:0.85;" />
         <p class="text-white/60 text-sm leading-relaxed max-w-xs">
           <span data-lang-text="en">Your AI outfit generator and personal stylist. Free on iOS and Android.</span>
           <span data-lang-text="es">Tu generador de outfits con IA y estilista personal. Gratis en iOS y Android.</span>
