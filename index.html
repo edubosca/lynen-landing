@@ -3,49 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lynen – AI Personal Styling App | Outfit Generator &amp; Style Assistant</title>
+  <title>Lynen – AI Personal Styling App | Outfit Generator & Style Assistant</title>
 
-  <!-- SEO -->
   <meta name="description" content="Lynen is the AI styling assistant that helps men dress with intention. Generate outfits, rate your look, plan your week. Free on iOS and Android." />
   <link rel="canonical" href="https://www.lynenapp.com" />
   <link rel="alternate" hreflang="en" href="https://www.lynenapp.com" />
   <link rel="alternate" hreflang="es" href="https://www.lynenapp.com" />
   <link rel="alternate" hreflang="x-default" href="https://www.lynenapp.com" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.lynenapp.com" />
   <meta property="og:title" content="Lynen – AI Personal Styling App" />
-  <meta property="og:description" content="The AI styling assistant that helps men dress with intention. Generate outfits, rate your look, plan your week. Free on iOS and Android." />
+  <meta property="og:description" content="The AI styling assistant that helps men dress with intention. Free on iOS and Android." />
   <meta property="og:image" content="https://www.lynenapp.com/hero-picture.png" />
   <meta property="og:site_name" content="Lynen" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lynen – AI Personal Styling App" />
   <meta name="twitter:description" content="The AI styling assistant that helps men dress with intention. Free on iOS and Android." />
   <meta name="twitter:image" content="https://www.lynenapp.com/hero-picture.png" />
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
     "name": "Lynen",
-    "description": "AI-powered personal styling assistant. Get complete outfit recommendations, rate your look, and plan your week.",
+    "description": "AI-powered personal styling assistant. Generate outfits, rate your look, plan your week.",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "LifestyleApplication",
     "url": "https://www.lynenapp.com",
     "downloadUrl": "https://apps.apple.com/es/app/lynen/id6756376550",
-    "image": "https://www.lynenapp.com/lynen-logo.png",
-    "offers": [{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan"},{"@type":"Offer","price":"4.99","priceCurrency":"EUR","description":"Lynen Studio"}]
+    "offers": [
+      {"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan"},
+      {"@type":"Offer","price":"4.99","priceCurrency":"EUR","description":"Lynen Studio"}
+    ]
   }
   </script>
 
   <link rel="icon" type="image/png" href="lynen-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -53,22 +51,14 @@
       theme: {
         extend: {
           colors: {
-            lynBg:     '#faf8f5',
-            lynSoft:   '#f2e8e3',
-            lynTitle:  '#c05826',
+            lynBg:     '#f7f4f0',
+            lynDark:   '#0a0a0a',
             lynAccent: '#c05826',
-            lynText:   '#4a4a4a',
-            lynDark:   '#1a1a1a',
-            lynMid:    '#8a7d76'
+            lynText:   '#5a5a5a',
           },
           fontFamily: {
             sans:  ['Poppins', 'system-ui', 'sans-serif'],
-            serif: ['Playfair Display', 'Georgia', 'serif']
-          },
-          boxShadow: {
-            soft:   '0 4px 24px rgba(0,0,0,0.06)',
-            card:   '0 8px 40px rgba(0,0,0,0.08)',
-            phone:  '0 30px 70px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.12)'
+            serif: ['Playfair Display', 'Georgia', 'serif'],
           }
         }
       }
@@ -77,824 +67,958 @@
 
   <style>
     html { scroll-behavior: smooth; }
-    section[id], div[id="download"] { scroll-margin-top: 72px; }
+    section[id], div[id] { scroll-margin-top: 80px; }
 
     body {
-      background-color: #faf8f5;
-      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-      color: #4a4a4a;
+      font-family: 'Poppins', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
+      background: #fff;
+      color: #0a0a0a;
     }
 
-    /* ── Bilingual ── */
+    /* Bilingual */
     [data-lang="en"] [data-lang-text="es"],
     [data-lang="es"] [data-lang-text="en"] { display: none; }
 
-    /* ── Wardrobe animation ── */
-    .door { transition: transform 0.9s cubic-bezier(0.4,0,0.2,1); transform-origin: center left; }
-    .door-right { transform-origin: center right; }
-    .wardrobe-open .door-left  { transform: translateX(-100%); }
-    .wardrobe-open .door-right { transform: translateX(100%); }
-
-    /* ── Tap hint pulse ── */
-    @keyframes tap-pulse {
-      0%, 100% { opacity: 0.5; transform: translateY(0) translateX(-50%); }
-      50%       { opacity: 1;   transform: translateY(6px) translateX(-50%); }
+    /* Navbar */
+    #navbar { transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
     }
-    .tap-hint { animation: tap-pulse 1.8s ease-in-out infinite; }
+    #navbar.scrolled .nav-link { color: #5a5a5a; }
+    #navbar.scrolled .nav-link:hover { color: #0a0a0a; }
+    #navbar.scrolled .nav-logo { filter: none; opacity: 1; }
+    #navbar.scrolled .nav-cta {
+      background: #0a0a0a;
+      color: #fff;
+    }
+    #navbar.scrolled .nav-cta:hover { background: #222; }
+    #navbar.scrolled .nav-lang { color: #999; }
+    #navbar.scrolled .nav-lang:hover { color: #0a0a0a; }
+    #navbar.scrolled .hb-line { background: #0a0a0a; }
 
-    /* ── Phone mockup frame ── */
+    /* Phone frame */
     .phone-frame {
       background: #1c1c1e;
-      border-radius: 3.2rem;
+      border-radius: 3.4rem;
       padding: 10px;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.22), inset 0 0 0 1px rgba(255,255,255,0.10), 0 0 0 1px rgba(0,0,0,0.12);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.08), 0 0 0 1px rgba(0,0,0,0.18);
       display: inline-block;
       width: 100%;
-      max-width: 260px;
     }
-    .phone-screen {
-      background: #ffffff;
-      border-radius: 2.5rem;
-      overflow: hidden;
-    }
-    .phone-notch-bar {
-      height: 30px;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .phone-island {
-      width: 84px; height: 20px;
-      background: #1c1c1e;
-      border-radius: 999px;
-    }
-    .phone-home-bar {
-      height: 26px;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .phone-indicator {
-      width: 110px; height: 4px;
-      background: #1c1c1e;
-      border-radius: 999px;
-      opacity: 0.16;
-    }
+    .phone-screen { background: #fff; border-radius: 2.8rem; overflow: hidden; }
+    .phone-notch  { height: 28px; display: flex; align-items: center; justify-content: center; background: #fff; }
+    .phone-island { width: 84px; height: 20px; background: #1c1c1e; border-radius: 999px; }
+    .phone-bar    { height: 24px; display: flex; align-items: center; justify-content: center; background: #fff; }
+    .phone-ind    { width: 100px; height: 4px; background: #1c1c1e; border-radius: 999px; opacity: 0.14; }
 
-    /* ── FAQ accordion ── */
+    /* Marquee */
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-inner { animation: marquee 28s linear infinite; white-space: nowrap; display: flex; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.12s; }
+    .reveal-d2 { transition-delay: 0.24s; }
+    .reveal-d3 { transition-delay: 0.36s; }
+
+    /* Scroll bounce */
+    @keyframes sb { 0%,100% { transform: translateX(-50%) translateY(0); opacity:.35; } 50% { transform: translateX(-50%) translateY(8px); opacity:.8; } }
+    .scroll-bounce { animation: sb 2.2s ease-in-out infinite; }
+
+    /* FAQ */
     details summary { cursor: pointer; list-style: none; }
     details summary::-webkit-details-marker { display: none; }
-    details[open] .faq-chevron { transform: rotate(180deg); }
-    .faq-chevron { transition: transform 0.2s ease; flex-shrink: 0; }
+    details[open] .faq-plus { transform: rotate(45deg); }
+    .faq-plus { transition: transform 0.28s ease; display: inline-block; }
 
-    /* ── Mobile menu ── */
-    #mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    #mobile-menu.open { max-height: 400px; }
+    /* Mobile menu */
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    #mobile-menu.open { max-height: 480px; }
 
-    /* ── Feature card hover ── */
-    .feature-compact { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .feature-compact:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.10); }
+    /* Accent line */
+    .accent-line { display: block; width: 36px; height: 2px; background: #c05826; margin-bottom: 1.5rem; }
 
-    /* ── Step number ── */
-    .step-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      line-height: 1;
-      color: #c05826;
-      opacity: 0.12;
-      font-weight: 400;
-      user-select: none;
-    }
+    /* Feature card hover */
+    .feat-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
   </style>
 </head>
 
 <body>
 
-<!-- ═══════════════════════ WARDROBE ═══════════════════════ -->
-<div id="wardrobe-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-lynBg">
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-20">
 
-  <div class="absolute top-8 w-full flex flex-col items-center text-center pointer-events-none px-6 gap-3">
-    <img src="lynen-logo.png" alt="Lynen" class="h-20 sm:h-24 drop-shadow-sm" />
-    <p class="text-xs tracking-[0.25em] uppercase text-lynText/50" data-lang-text="en">Your AI Styling Assistant</p>
-    <p class="text-xs tracking-[0.25em] uppercase text-lynText/50" data-lang-text="es">Tu Asistente de Estilo IA</p>
-  </div>
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0">
+        <img src="lynen-logo.png" alt="Lynen" class="nav-logo h-8 w-auto brightness-0 invert opacity-90 transition-all duration-400" />
+      </a>
 
-  <div id="wardrobe"
-       class="relative w-72 h-96 sm:w-80 sm:h-[26rem] bg-[#EDE0D4] rounded-[2rem] shadow-card overflow-hidden cursor-pointer">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <img src="logo-lynen-loading.png" alt="" class="w-32 sm:w-40 h-auto" loading="eager" decoding="async" />
-    </div>
-    <div class="absolute inset-y-0 left-0 w-1/2 bg-cover bg-center border-r border-white/30 door door-left"
-         style="background-image:url('wardrobe-left.png')"></div>
-    <div class="absolute inset-y-0 right-0 w-1/2 bg-cover bg-center border-l border-white/30 door door-right"
-         style="background-image:url('wardrobe-right.png')"></div>
-  </div>
-
-  <!-- Tap hint -->
-  <div class="tap-hint absolute bottom-12 left-1/2 flex flex-col items-center gap-1.5 pointer-events-none">
-    <p class="text-[10px] tracking-[0.2em] uppercase text-lynText/40" data-lang-text="en">tap to open</p>
-    <p class="text-[10px] tracking-[0.2em] uppercase text-lynText/40" data-lang-text="es">toca para abrir</p>
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="text-lynText/30">
-      <path d="M8 3v10M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-</div>
-
-<!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
-<div id="main-content" class="hidden flex flex-col min-h-screen">
-
-  <!-- ── NAVBAR ── -->
-  <header class="sticky top-0 z-40 bg-lynBg/96 backdrop-blur-md border-b border-black/5" id="site-header">
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
-
-      <img src="lynen-logo.png" alt="Lynen" class="h-11 w-auto flex-shrink-0" loading="eager" decoding="async" />
-
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-8 text-[13px] font-medium text-lynText/60">
-        <a href="#features" class="hover:text-lynDark transition-colors">
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="nav-link text-sm font-medium text-white/70 hover:text-white transition-colors duration-200">
           <span data-lang-text="en">Features</span><span data-lang-text="es">Funciones</span>
         </a>
-        <a href="#how-it-works" class="hover:text-lynDark transition-colors">
+        <a href="#how" class="nav-link text-sm font-medium text-white/70 hover:text-white transition-colors duration-200">
           <span data-lang-text="en">How it works</span><span data-lang-text="es">Cómo funciona</span>
         </a>
-        <a href="#pricing" class="hover:text-lynDark transition-colors">
-          <span data-lang-text="en">Pricing</span><span data-lang-text="es">Planes</span>
+        <a href="#pricing" class="nav-link text-sm font-medium text-white/70 hover:text-white transition-colors duration-200">
+          <span data-lang-text="en">Pricing</span><span data-lang-text="es">Precios</span>
         </a>
-        <a href="#faq" class="hover:text-lynDark transition-colors">FAQ</a>
-      </nav>
+        <a href="#faq" class="nav-link text-sm font-medium text-white/70 hover:text-white transition-colors duration-200">FAQ</a>
+      </div>
 
-      <div class="flex items-center gap-2.5">
-        <button id="lang-toggle"
-                class="text-[11px] font-semibold tracking-widest border border-lynAccent/40 text-lynAccent px-3 py-1.5 rounded-full hover:bg-lynAccent/8 transition-colors">
-          ES
+      <!-- Desktop right -->
+      <div class="hidden md:flex items-center gap-4">
+        <button id="lang-toggle" class="nav-lang text-xs font-semibold tracking-widest text-white/50 hover:text-white transition-colors duration-200 uppercase">
+          <span data-lang-text="en">ES</span><span data-lang-text="es">EN</span>
         </button>
-        <a href="#download"
-           class="hidden sm:inline-flex text-[13px] font-semibold bg-lynDark text-white px-5 py-2.5 rounded-full hover:bg-lynDark/85 transition-colors">
-          <span data-lang-text="en">Get the app</span>
-          <span data-lang-text="es">Descargar</span>
-        </a>
-        <!-- Mobile hamburger -->
-        <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-[5px] p-1.5" aria-label="Menu">
-          <span class="w-5 h-[1.5px] bg-lynDark block transition-all" id="hb1"></span>
-          <span class="w-5 h-[1.5px] bg-lynDark block transition-all" id="hb2"></span>
-          <span class="w-3.5 h-[1.5px] bg-lynDark block transition-all" id="hb3"></span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile dropdown -->
-    <div id="mobile-menu" class="md:hidden border-t border-black/5 bg-lynBg/98">
-      <nav class="max-w-6xl mx-auto px-5 py-5 flex flex-col gap-4 text-[15px] font-medium text-lynText/70">
-        <a href="#features"    class="hover:text-lynDark transition-colors" onclick="closeMobileMenu()"><span data-lang-text="en">Features</span><span data-lang-text="es">Funciones</span></a>
-        <a href="#how-it-works" class="hover:text-lynDark transition-colors" onclick="closeMobileMenu()"><span data-lang-text="en">How it works</span><span data-lang-text="es">Cómo funciona</span></a>
-        <a href="#pricing"     class="hover:text-lynDark transition-colors" onclick="closeMobileMenu()"><span data-lang-text="en">Pricing</span><span data-lang-text="es">Planes</span></a>
-        <a href="#faq"         class="hover:text-lynDark transition-colors" onclick="closeMobileMenu()">FAQ</a>
-        <a href="#download"    class="inline-flex items-center justify-center bg-lynDark text-white text-[13px] font-semibold px-5 py-2.5 rounded-full hover:bg-lynDark/85 transition-colors mt-1" onclick="closeMobileMenu()">
-          <span data-lang-text="en">Get the app</span><span data-lang-text="es">Descargar</span>
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ── HERO ── -->
-  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-20 flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
-    <div class="w-full lg:w-[52%] space-y-7">
-
-      <div>
-        <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-5" data-lang-text="en">Your AI Styling Assistant</p>
-        <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-5" data-lang-text="es">Tu Asistente de Estilo IA</p>
-
-        <h1 class="text-4xl sm:text-5xl lg:text-[3.6rem] font-bold leading-[1.1] tracking-tight text-lynDark">
-          <span data-lang-text="en">Dress with<br/>intention.<br/><em class="font-serif font-normal not-italic text-lynAccent">Every time.</em></span>
-          <span data-lang-text="es">Viste con<br/>intención.<br/><em class="font-serif font-normal not-italic text-lynAccent">Siempre.</em></span>
-        </h1>
-      </div>
-
-      <p class="text-base text-lynText/70 max-w-lg leading-relaxed" data-lang-text="en">
-        Lynen is the AI styling assistant built for men who care how they show up. Generate a complete outfit, rate what you're wearing, or plan your whole week — in minutes.
-      </p>
-      <p class="text-base text-lynText/70 max-w-lg leading-relaxed" data-lang-text="es">
-        Lynen es el asistente de estilo con IA diseñado para los hombres que cuidan cómo se presentan. Genera un outfit completo, valora lo que llevas o planifica tu semana — en minutos.
-      </p>
-
-      <div class="flex flex-wrap gap-3 items-center">
-        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener noreferrer">
-          <img src="apple-store.svg" alt="Download on the App Store" class="h-11 w-auto" loading="eager" decoding="async" />
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.lynen.app" target="_blank" rel="noopener noreferrer">
-          <img src="google-store.png" alt="Get it on Google Play" class="h-11 w-auto" loading="eager" decoding="async" />
-        </a>
-      </div>
-
-      <p class="text-[11px] text-lynText/40 tracking-wide" data-lang-text="en">Free to use · No account required to start</p>
-      <p class="text-[11px] text-lynText/40 tracking-wide" data-lang-text="es">Gratis · Sin cuenta para empezar</p>
-    </div>
-
-    <!-- Hero visual -->
-    <div class="w-full lg:w-[48%] flex justify-center lg:justify-end">
-      <div class="relative">
-        <!-- Main phone -->
-        <div class="phone-frame mx-auto" style="max-width:240px">
-          <div class="phone-screen">
-            <div class="phone-notch-bar"><div class="phone-island"></div></div>
-            <img src="feature-weekly-planner.png" alt="Lynen weekly outfit planner showing a well-dressed man" class="w-full block" loading="eager" decoding="async" />
-            <div class="phone-home-bar"><div class="phone-indicator"></div></div>
-          </div>
-        </div>
-        <!-- Floating second phone (offset) -->
-        <div class="phone-frame absolute -right-4 sm:-right-12 bottom-10 opacity-90" style="max-width:180px;transform:rotate(4deg)">
-          <div class="phone-screen">
-            <div class="phone-notch-bar"><div class="phone-island"></div></div>
-            <img src="feature-refine-color.png" alt="Lynen color picker" class="w-full block" loading="lazy" decoding="async" />
-            <div class="phone-home-bar"><div class="phone-indicator"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── MISSION STRIP ── -->
-  <section class="border-y border-black/6 bg-white">
-    <div class="max-w-5xl mx-auto px-5 sm:px-8 py-10 flex flex-col md:flex-row gap-8 md:gap-16">
-      <div class="md:w-1/2 space-y-2">
-        <p class="text-[10px] font-semibold tracking-[0.25em] uppercase text-lynAccent" data-lang-text="en">The Problem</p>
-        <p class="text-[10px] font-semibold tracking-[0.25em] uppercase text-lynAccent" data-lang-text="es">El Problema</p>
-        <p class="text-lynDark font-medium leading-snug" data-lang-text="en">"Is this outfit right for the occasion?" — you pause, unsure, and leave anyway.</p>
-        <p class="text-lynDark font-medium leading-snug" data-lang-text="es">"¿Es el outfit adecuado para esto?" — dudas, no estás seguro, y sales igual.</p>
-      </div>
-      <div class="md:w-1/2 space-y-2">
-        <p class="text-[10px] font-semibold tracking-[0.25em] uppercase text-lynAccent" data-lang-text="en">Our Answer</p>
-        <p class="text-[10px] font-semibold tracking-[0.25em] uppercase text-lynAccent" data-lang-text="es">Nuestra Respuesta</p>
-        <p class="text-lynDark font-medium leading-snug" data-lang-text="en">An AI that understands occasion, context and your style — and tells you exactly what to wear.</p>
-        <p class="text-lynDark font-medium leading-snug" data-lang-text="es">Una IA que entiende la ocasión, el contexto y tu estilo — y te dice exactamente qué ponerte.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── HOW IT WORKS ── -->
-  <section id="how-it-works" class="max-w-5xl mx-auto px-5 sm:px-8 py-20">
-    <div class="text-center mb-14">
-      <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-3" data-lang-text="en">Process</p>
-      <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-3" data-lang-text="es">Proceso</p>
-      <h2 class="text-3xl sm:text-4xl font-bold text-lynDark tracking-tight" data-lang-text="en">Three steps to a better outfit</h2>
-      <h2 class="text-3xl sm:text-4xl font-bold text-lynDark tracking-tight" data-lang-text="es">Tres pasos para un mejor outfit</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <div class="bg-white rounded-2xl p-8 space-y-4 border border-black/4">
-        <div class="step-number">01</div>
-        <h3 class="text-lg font-bold text-lynDark" data-lang-text="en">Describe your occasion</h3>
-        <h3 class="text-lg font-bold text-lynDark" data-lang-text="es">Describe tu ocasión</h3>
-        <p class="text-sm text-lynText/65 leading-relaxed" data-lang-text="en">Event type, weather, your style, the vibe you want. Takes 60 seconds.</p>
-        <p class="text-sm text-lynText/65 leading-relaxed" data-lang-text="es">Tipo de evento, tiempo, tu estilo, la energía que buscas. 60 segundos.</p>
-      </div>
-
-      <div class="bg-white rounded-2xl p-8 space-y-4 border border-black/4 md:translate-y-4">
-        <div class="step-number">02</div>
-        <h3 class="text-lg font-bold text-lynDark" data-lang-text="en">AI builds your look</h3>
-        <h3 class="text-lg font-bold text-lynDark" data-lang-text="es">La IA construye tu look</h3>
-        <p class="text-sm text-lynText/65 leading-relaxed" data-lang-text="en">Complete outfit, color-matched, with garment sketches and styling notes.</p>
-        <p class="text-sm text-lynText/65 leading-relaxed" data-lang-text="es">Outfit completo, colores coordinados, bocetos de prendas y notas de estilo.</p>
-      </div>
-
-      <div class="bg-white rounded-2xl p-8 space-y-4 border border-black/4">
-        <div class="step-number">03</div>
-        <h3 class="text-lg font-bold text-lynDark" data-lang-text="en">Save, refine, repeat</h3>
-        <h3 class="text-lg font-bold text-lynDark" data-lang-text="es">Guarda, refina, repite</h3>
-        <p class="text-sm text-lynText/65 leading-relaxed" data-lang-text="en">Build your digital wardrobe, track your streak, and keep getting sharper.</p>
-        <p class="text-sm text-lynText/65 leading-relaxed" data-lang-text="es">Construye tu armario digital, mantén tu racha y sigue mejorando.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── FEATURES (3 hero) ── -->
-  <section id="features" class="py-6">
-
-    <!-- Section header -->
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 mb-16 text-center">
-      <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-3" data-lang-text="en">What Lynen does</p>
-      <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-3" data-lang-text="es">Qué hace Lynen</p>
-      <h2 class="text-3xl sm:text-4xl font-bold text-lynDark tracking-tight" data-lang-text="en">Eight tools. One wardrobe goal.</h2>
-      <h2 class="text-3xl sm:text-4xl font-bold text-lynDark tracking-tight" data-lang-text="es">Ocho herramientas. Un objetivo.</h2>
-    </div>
-
-    <!-- Hero Feature 1: Generate your outfit -->
-    <div class="bg-white border-y border-black/5">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="space-y-6">
-          <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent" data-lang-text="en">01 — Generate</p>
-          <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent" data-lang-text="es">01 — Generar</p>
-          <h3 class="text-2xl sm:text-3xl font-bold text-lynDark leading-snug" data-lang-text="en">Tell Lynen the occasion.<br/>Get the complete outfit.</h3>
-          <h3 class="text-2xl sm:text-3xl font-bold text-lynDark leading-snug" data-lang-text="es">Cuéntale la ocasión a Lynen.<br/>Recibe el outfit completo.</h3>
-          <p class="text-[15px] text-lynText/65 leading-relaxed max-w-md" data-lang-text="en">Answer a few questions — event, weather, style, colours. Lynen returns a complete outfit with garment sketches, colour logic and styling notes.</p>
-          <p class="text-[15px] text-lynText/65 leading-relaxed max-w-md" data-lang-text="es">Responde a unas pocas preguntas — evento, tiempo, estilo, colores. Lynen devuelve un outfit completo con bocetos, lógica de color y notas de estilo.</p>
-          <ul class="space-y-2.5 text-[14px] text-lynText/70" data-lang-text="en">
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Pick the event, mood and colour palette</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Set formality, comfort and fit preferences</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>AI uses your wardrobe or suggests new pieces</li>
-          </ul>
-          <ul class="space-y-2.5 text-[14px] text-lynText/70" data-lang-text="es">
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Elige el evento, mood y paleta de colores</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Define formalidad, comodidad y fit</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>La IA usa tu armario o sugiere prendas nuevas</li>
-          </ul>
-        </div>
-        <div class="flex justify-center lg:justify-end">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <div class="phone-notch-bar"><div class="phone-island"></div></div>
-              <img src="feature2-refined-casual.png" alt="Lynen AI outfit recommendation for a man" class="w-full block" loading="lazy" decoding="async" />
-              <div class="phone-home-bar"><div class="phone-indicator"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero Feature 2: Rate your look -->
-    <div class="bg-lynBg">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="order-2 lg:order-1 flex justify-center lg:justify-start">
-          <!-- Rating image is landscape — display as a floating card, not phone frame -->
-          <div class="w-full max-w-md bg-white rounded-2xl overflow-hidden shadow-card border border-black/5">
-            <img src="feature3-office-rating.png" alt="Lynen outfit rating 9.1 out of 10 with category breakdown" class="w-full block" loading="lazy" decoding="async" />
-          </div>
-        </div>
-        <div class="space-y-6 order-1 lg:order-2">
-          <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent" data-lang-text="en">02 — Rate</p>
-          <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent" data-lang-text="es">02 — Valorar</p>
-          <h3 class="text-2xl sm:text-3xl font-bold text-lynDark leading-snug" data-lang-text="en">Know your outfit works<br/>before you leave.</h3>
-          <h3 class="text-2xl sm:text-3xl font-bold text-lynDark leading-snug" data-lang-text="es">Sabe que tu outfit funciona<br/>antes de salir.</h3>
-          <p class="text-[15px] text-lynText/65 leading-relaxed max-w-md" data-lang-text="en">Snap a photo, pick the occasion, get an instant AI rating with scores for fit, colour harmony, event match and originality. Fix it before you leave home.</p>
-          <p class="text-[15px] text-lynText/65 leading-relaxed max-w-md" data-lang-text="es">Haz una foto, elige la ocasión y recibe un rating al instante con puntuaciones de fit, armonía de color y adecuación al evento. Corrígelo antes de salir.</p>
-          <ul class="space-y-2.5 text-[14px] text-lynText/70" data-lang-text="en">
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Photo + occasion → score in seconds</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Category breakdown: fit, colour, event, originality</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Specific tips to improve before walking out</li>
-          </ul>
-          <ul class="space-y-2.5 text-[14px] text-lynText/70" data-lang-text="es">
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Foto + ocasión → puntuación en segundos</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Desglose: fit, color, evento, originalidad</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Consejos concretos para mejorar antes de salir</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero Feature 3: Plan your week -->
-    <div class="bg-white border-y border-black/5">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="space-y-6">
-          <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent" data-lang-text="en">03 — Plan</p>
-          <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent" data-lang-text="es">03 — Planificar</p>
-          <h3 class="text-2xl sm:text-3xl font-bold text-lynDark leading-snug" data-lang-text="en">Five days of outfits,<br/>planned in one go.</h3>
-          <h3 class="text-2xl sm:text-3xl font-bold text-lynDark leading-snug" data-lang-text="es">Cinco días de outfits,<br/>planificados de una vez.</h3>
-          <p class="text-[15px] text-lynText/65 leading-relaxed max-w-md" data-lang-text="en">Set your week's events, work environment and weather. Lynen generates a 5-day plan, each outfit calibrated to the occasion. Reshuffle any day instantly.</p>
-          <p class="text-[15px] text-lynText/65 leading-relaxed max-w-md" data-lang-text="es">Define los eventos de la semana, el entorno laboral y el tiempo. Lynen genera un plan de 5 días, cada outfit calibrado para su ocasión. Reorganiza cualquier día al instante.</p>
-          <ul class="space-y-2.5 text-[14px] text-lynText/70" data-lang-text="en">
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Set agenda, work environment and formality range</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>AI generates 5 coordinated daily outfits</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Reshuffle any day — full plan or single outfit</li>
-          </ul>
-          <ul class="space-y-2.5 text-[14px] text-lynText/70" data-lang-text="es">
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Define agenda, entorno y rango de formalidad</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>La IA genera 5 outfits diarios coordinados</li>
-            <li class="flex items-center gap-2.5"><span class="w-1 h-1 rounded-full bg-lynAccent flex-shrink-0"></span>Reorganiza cualquier día — plan completo o uno solo</li>
-          </ul>
-        </div>
-        <div class="flex justify-center lg:justify-end">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <div class="phone-notch-bar"><div class="phone-island"></div></div>
-              <img src="feature-weekly-planner.png" alt="Lynen weekly outfit planner with 5-day view" class="w-full block" loading="lazy" decoding="async" />
-              <div class="phone-home-bar"><div class="phone-indicator"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Compact features grid (5 more) -->
-    <div class="bg-lynBg py-16">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8">
-        <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-8 text-center" data-lang-text="en">Also included</p>
-        <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-8 text-center" data-lang-text="es">También incluye</p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-
-          <!-- Refine by Color -->
-          <div class="feature-compact bg-white rounded-2xl overflow-hidden border border-black/5 shadow-soft">
-            <div class="aspect-[3/4] overflow-hidden bg-lynSoft">
-              <img src="feature-refine-color.png" alt="Refine outfit by color in Lynen" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-4 space-y-1">
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="en">Refine by Color</h4>
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="es">Refinar por Color</h4>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="en">Pick 1–3 colours, assign to garments, get palette options.</p>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="es">Elige 1–3 colores, asígnalos a prendas, recibe paletas.</p>
-            </div>
-          </div>
-
-          <!-- Start with a photo -->
-          <div class="feature-compact bg-white rounded-2xl overflow-hidden border border-black/5 shadow-soft">
-            <div class="aspect-[3/4] overflow-hidden bg-lynSoft">
-              <img src="feature1-evening-enchantment.png" alt="Photo-based outfit completion" class="w-full h-full object-cover" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-4 space-y-1">
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="en">Photo Flow</h4>
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="es">Flujo por Foto</h4>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="en">Snap one piece — AI completes the outfit around it.</p>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="es">Fotografía una prenda — la IA completa el outfit.</p>
-            </div>
-          </div>
-
-          <!-- Match a Vibe -->
-          <div class="feature-compact bg-white rounded-2xl overflow-hidden border border-black/5 shadow-soft">
-            <div class="aspect-[3/4] overflow-hidden bg-lynSoft">
-              <img src="feature-match-vibe.png" alt="Match a vibe with inspiration photos" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-4 space-y-1">
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="en">Match a Vibe</h4>
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="es">Match a Vibe</h4>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="en">Upload 1–5 inspiration photos. Lynen extracts the style.</p>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="es">Sube 1–5 fotos de inspiración. Lynen extrae el estilo.</p>
-            </div>
-          </div>
-
-          <!-- Digital Wardrobe -->
-          <div class="feature-compact bg-white rounded-2xl overflow-hidden border border-black/5 shadow-soft">
-            <div class="aspect-[3/4] overflow-hidden bg-lynSoft">
-              <img src="feature-wardrobe.png" alt="Digital wardrobe management in Lynen" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-4 space-y-1">
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="en">Your Wardrobe</h4>
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="es">Tu Armario</h4>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="en">Catalogue every piece. AI generates from what you own.</p>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="es">Cataloga todo. La IA genera con lo que ya tienes.</p>
-            </div>
-          </div>
-
-          <!-- Competitions -->
-          <div class="feature-compact bg-white rounded-2xl overflow-hidden border border-black/5 shadow-soft">
-            <div class="aspect-[3/4] overflow-hidden bg-lynSoft">
-              <img src="feature4-beach-competition.png" alt="Outfit competition leaderboard in Lynen" class="w-full h-full object-cover" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-4 space-y-1">
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="en">Competitions</h4>
-              <h4 class="text-[13px] font-bold text-lynDark" data-lang-text="es">Competiciones</h4>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="en">Compete with friends. AI rates every look. Always free.</p>
-              <p class="text-[11px] text-lynText/55 leading-snug" data-lang-text="es">Compite con amigos. La IA valora cada look. Gratis.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── STREAK ── -->
-  <section class="bg-lynDark py-14 px-5 sm:px-8">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8 text-center sm:text-left">
-      <div class="space-y-3">
-        <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-white/40" data-lang-text="en">Daily Habit</p>
-        <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-white/40" data-lang-text="es">Hábito Diario</p>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight" data-lang-text="en">Build your style streak.</h2>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight" data-lang-text="es">Construye tu racha de estilo.</h2>
-        <p class="text-[15px] text-white/50 max-w-sm leading-relaxed" data-lang-text="en">Use Lynen daily to earn Style Shields at 7, 14 and 30 days. Miss a day? Your shield keeps the streak alive.</p>
-        <p class="text-[15px] text-white/50 max-w-sm leading-relaxed" data-lang-text="es">Usa Lynen cada día para ganar Escudos de Estilo a los 7, 14 y 30 días. ¿Fallaste un día? Tu escudo mantiene la racha.</p>
-      </div>
-      <a href="#download" class="flex-shrink-0 border border-white/20 text-white px-7 py-3 rounded-full text-[13px] font-semibold hover:bg-white/8 transition-colors">
-        <span data-lang-text="en">Start your streak →</span>
-        <span data-lang-text="es">Empieza tu racha →</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ── PRICING ── -->
-  <section id="pricing" class="max-w-5xl mx-auto px-5 sm:px-8 py-20">
-    <div class="text-center mb-14">
-      <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-3" data-lang-text="en">Pricing</p>
-      <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-3" data-lang-text="es">Planes</p>
-      <h2 class="text-3xl sm:text-4xl font-bold text-lynDark tracking-tight" data-lang-text="en">Start free. Upgrade when ready.</h2>
-      <h2 class="text-3xl sm:text-4xl font-bold text-lynDark tracking-tight" data-lang-text="es">Empieza gratis. Mejora cuando quieras.</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
-
-      <!-- Guest -->
-      <div class="bg-white rounded-2xl border border-black/7 p-8 flex flex-col gap-6">
-        <div>
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-lynText/40 mb-3" data-lang-text="en">Guest</p>
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-lynText/40 mb-3" data-lang-text="es">Sin cuenta</p>
-          <div class="text-3xl font-bold text-lynDark" data-lang-text="en">Free</div>
-          <div class="text-3xl font-bold text-lynDark" data-lang-text="es">Gratis</div>
-          <p class="text-[12px] text-lynText/45 mt-1" data-lang-text="en">50 credits / month</p>
-          <p class="text-[12px] text-lynText/45 mt-1" data-lang-text="es">50 créditos / mes</p>
-        </div>
-        <ul class="space-y-3 text-[13px] text-lynText/70 flex-1">
-          <li class="flex gap-2.5 items-start"><span class="text-lynAccent font-bold mt-0.5">✓</span><span data-lang-text="en">No sign-up needed</span><span data-lang-text="es">Sin registro necesario</span></li>
-          <li class="flex gap-2.5 items-start"><span class="text-lynAccent font-bold mt-0.5">✓</span><span data-lang-text="en">~6 outfit generations</span><span data-lang-text="es">~6 generaciones de outfits</span></li>
-          <li class="flex gap-2.5 items-start"><span class="text-lynAccent font-bold mt-0.5">✓</span><span data-lang-text="en">Discover feed &amp; competitions</span><span data-lang-text="es">Feed y competiciones</span></li>
-        </ul>
-        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener noreferrer"
-           class="block text-center border border-lynDark/15 text-lynDark py-2.5 rounded-full text-[13px] font-semibold hover:bg-lynDark/5 transition-colors">
+        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
+           class="nav-cta bg-white text-lynDark text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:scale-105">
           <span data-lang-text="en">Download free</span><span data-lang-text="es">Descargar gratis</span>
         </a>
       </div>
 
+      <!-- Mobile right -->
+      <div class="md:hidden flex items-center gap-3">
+        <button id="lang-toggle-m" class="nav-lang text-xs font-semibold tracking-widest text-white/50 uppercase">
+          <span data-lang-text="en">ES</span><span data-lang-text="es">EN</span>
+        </button>
+        <button id="mobile-btn" class="flex flex-col gap-[5px] p-2" aria-label="Menu">
+          <span id="hb1" class="hb-line block w-5 h-[1.5px] bg-white transition-all duration-300 origin-center"></span>
+          <span id="hb2" class="hb-line block w-5 h-[1.5px] bg-white transition-all duration-300"></span>
+          <span id="hb3" class="hb-line block w-4 h-[1.5px] bg-white transition-all duration-300 origin-center"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu">
+      <div class="pb-6 pt-4 border-t border-white/10 flex flex-col gap-4" id="mobile-menu-inner">
+        <a href="#features" data-mob-link class="text-sm font-medium text-white/70">
+          <span data-lang-text="en">Features</span><span data-lang-text="es">Funciones</span>
+        </a>
+        <a href="#how" data-mob-link class="text-sm font-medium text-white/70">
+          <span data-lang-text="en">How it works</span><span data-lang-text="es">Cómo funciona</span>
+        </a>
+        <a href="#pricing" data-mob-link class="text-sm font-medium text-white/70">
+          <span data-lang-text="en">Pricing</span><span data-lang-text="es">Precios</span>
+        </a>
+        <a href="#faq" data-mob-link class="text-sm font-medium text-white/70">FAQ</a>
+        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
+           class="bg-white text-lynDark text-sm font-semibold py-3 rounded-full text-center mt-2">
+          <span data-lang-text="en">Download free</span><span data-lang-text="es">Descargar gratis</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="relative min-h-screen flex items-center bg-lynDark overflow-hidden">
+
+  <!-- Video background -->
+  <video class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none" autoplay muted loop playsinline poster="discover-page.png">
+    <source src="discover-page-video.MP4" type="video/mp4">
+  </video>
+
+  <!-- Overlays -->
+  <div class="absolute inset-0 bg-gradient-to-r from-lynDark via-lynDark/80 to-lynDark/20 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-lynDark/80 via-transparent to-transparent pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-24 w-full">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <!-- Copy -->
+      <div>
+        <div class="inline-flex items-center gap-2 mb-8">
+          <span class="w-1.5 h-1.5 rounded-full bg-lynAccent"></span>
+          <span class="text-xs font-semibold tracking-[0.2em] text-white/40 uppercase">
+            <span data-lang-text="en">AI Personal Styling</span>
+            <span data-lang-text="es">Estilismo con IA</span>
+          </span>
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.0] tracking-tight mb-6">
+          <span data-lang-text="en">Dress with<br/>intention.<br/><em class="font-serif font-normal not-italic text-lynAccent">Every time.</em></span>
+          <span data-lang-text="es">Viste con<br/>intención.<br/><em class="font-serif font-normal not-italic text-lynAccent">Siempre.</em></span>
+        </h1>
+
+        <p class="text-lg text-white/50 max-w-md leading-relaxed mb-10">
+          <span data-lang-text="en">Your AI stylist in your pocket. Generate complete outfits, rate your look, and plan your week — free on iOS & Android.</span>
+          <span data-lang-text="es">Tu estilista IA de bolsillo. Genera outfits completos, valora tu look y planifica tu semana — gratis en iOS y Android.</span>
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3 mb-14">
+          <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-3 bg-white text-lynDark px-6 py-3.5 rounded-2xl font-semibold text-sm hover:bg-white/90 transition-all hover:scale-[1.02] active:scale-[0.98]">
+            <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <span>App Store</span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.lynenapp.app" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-3 bg-white/10 border border-white/20 text-white px-6 py-3.5 rounded-2xl font-semibold text-sm hover:bg-white/16 transition-all hover:scale-[1.02] active:scale-[0.98] backdrop-blur-sm">
+            <img src="google-store.png" alt="" class="w-5 h-5 object-contain flex-shrink-0" onerror="this.remove()" />
+            <span>Google Play</span>
+          </a>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="flex items-center gap-8">
+          <div>
+            <div class="text-xl font-bold text-white">Free</div>
+            <div class="text-xs text-white/35 mt-0.5">
+              <span data-lang-text="en">to start</span><span data-lang-text="es">para empezar</span>
+            </div>
+          </div>
+          <div class="w-px h-8 bg-white/10"></div>
+          <div>
+            <div class="text-xl font-bold text-white">iOS & Android</div>
+            <div class="text-xs text-white/35 mt-0.5">
+              <span data-lang-text="en">available now</span><span data-lang-text="es">disponible ahora</span>
+            </div>
+          </div>
+          <div class="w-px h-8 bg-white/10"></div>
+          <div>
+            <div class="text-xl font-bold text-white">AI</div>
+            <div class="text-xs text-white/35 mt-0.5">
+              <span data-lang-text="en">powered</span><span data-lang-text="es">potenciado por IA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone mockups -->
+      <div class="hidden lg:flex justify-center items-center">
+        <div class="relative" style="width:300px;height:580px;">
+          <!-- Main phone -->
+          <div class="phone-frame absolute left-0 top-0" style="max-width:260px;">
+            <div class="phone-screen">
+              <div class="phone-notch"><div class="phone-island"></div></div>
+              <img src="home-page.png" alt="Lynen app home" class="w-full block" onerror="this.remove()" />
+              <div class="phone-bar"><div class="phone-ind"></div></div>
+            </div>
+          </div>
+          <!-- Secondary phone -->
+          <div class="phone-frame absolute right-0 bottom-0 opacity-75" style="max-width:190px;transform:rotate(6deg);">
+            <div class="phone-screen">
+              <div class="phone-notch"><div class="phone-island"></div></div>
+              <img src="feature2-refined-casual.png" alt="Lynen outfit" class="w-full block" onerror="this.remove()" />
+              <div class="phone-bar"><div class="phone-ind"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="scroll-bounce absolute bottom-8 left-1/2 pointer-events-none">
+    <svg class="w-5 h-5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     MARQUEE
+════════════════════════════════════════════ -->
+<div class="overflow-hidden bg-lynAccent py-[14px]">
+  <div class="marquee-inner">
+    <!-- First set -->
+    <span class="inline-flex items-center gap-10 px-5 text-white text-xs font-semibold tracking-[0.18em] uppercase">
+      <span>Generate Outfits</span><span class="opacity-40">·</span>
+      <span>Rate Your Look</span><span class="opacity-40">·</span>
+      <span>Find Your Vibe</span><span class="opacity-40">·</span>
+      <span>Plan Your Week</span><span class="opacity-40">·</span>
+      <span>Digital Wardrobe</span><span class="opacity-40">·</span>
+      <span>Refine by Color</span><span class="opacity-40">·</span>
+      <span>Special Events</span><span class="opacity-40">·</span>
+      <span>Style Streak</span><span class="opacity-40">·</span>
+    </span>
+    <!-- Duplicate for seamless loop -->
+    <span class="inline-flex items-center gap-10 px-5 text-white text-xs font-semibold tracking-[0.18em] uppercase" aria-hidden="true">
+      <span>Generate Outfits</span><span class="opacity-40">·</span>
+      <span>Rate Your Look</span><span class="opacity-40">·</span>
+      <span>Find Your Vibe</span><span class="opacity-40">·</span>
+      <span>Plan Your Week</span><span class="opacity-40">·</span>
+      <span>Digital Wardrobe</span><span class="opacity-40">·</span>
+      <span>Refine by Color</span><span class="opacity-40">·</span>
+      <span>Special Events</span><span class="opacity-40">·</span>
+      <span>Style Streak</span><span class="opacity-40">·</span>
+    </span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURES
+════════════════════════════════════════════ -->
+<section id="features">
+
+  <!-- 01 Generate -->
+  <div class="bg-white py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="flex justify-center reveal">
+          <div class="phone-frame" style="max-width:280px;">
+            <div class="phone-screen">
+              <div class="phone-notch"><div class="phone-island"></div></div>
+              <img src="feature2-refined-casual.png" alt="Generate outfit" class="w-full block" />
+              <div class="phone-bar"><div class="phone-ind"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-d1">
+          <span class="accent-line"></span>
+          <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">01</p>
+          <h2 class="text-4xl lg:text-5xl font-bold text-lynDark leading-[1.1] mb-6">
+            <span data-lang-text="en">Complete outfits,<br/>generated by AI</span>
+            <span data-lang-text="es">Outfits completos<br/>generados por IA</span>
+          </h2>
+          <p class="text-lynText leading-relaxed mb-8">
+            <span data-lang-text="en">Tell Lynen the occasion, weather, and your style. Get a color-matched, complete outfit with sketches — in seconds. No styling experience needed.</span>
+            <span data-lang-text="es">Dile a Lynen la ocasión, el clima y tu estilo. Obtén un outfit completo y coordinado con bocetos en segundos. Sin experiencia en moda necesaria.</span>
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-lynText">
+              <span class="text-lynAccent font-bold mt-0.5">→</span>
+              <span data-lang-text="en">Describe any occasion in natural language</span>
+              <span data-lang-text="es">Describe cualquier ocasión en lenguaje natural</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-lynText">
+              <span class="text-lynAccent font-bold mt-0.5">→</span>
+              <span data-lang-text="en">AI selects clothes, colors and accessories</span>
+              <span data-lang-text="es">La IA elige ropa, colores y accesorios</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-lynText">
+              <span class="text-lynAccent font-bold mt-0.5">→</span>
+              <span data-lang-text="en">Refine until it's exactly right</span>
+              <span data-lang-text="es">Refina hasta que sea exactamente lo que buscas</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Rate -->
+  <div class="bg-lynBg py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <span class="accent-line"></span>
+          <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">02</p>
+          <h2 class="text-4xl lg:text-5xl font-bold text-lynDark leading-[1.1] mb-6">
+            <span data-lang-text="en">Rate your outfit.<br/>Improve your style.</span>
+            <span data-lang-text="es">Valora tu outfit.<br/>Mejora tu estilo.</span>
+          </h2>
+          <p class="text-lynText leading-relaxed mb-8">
+            <span data-lang-text="en">Take a photo and get honest AI feedback on your look. Discover what works, what doesn't, and how to level up — one rating at a time.</span>
+            <span data-lang-text="es">Haz una foto y recibe feedback honesto de la IA. Descubre qué funciona, qué no, y cómo mejorar — una valoración a la vez.</span>
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-lynText">
+              <span class="text-lynAccent font-bold mt-0.5">→</span>
+              <span data-lang-text="en">Scoring on fit, color harmony and overall style</span>
+              <span data-lang-text="es">Puntuación sobre ajuste, armonía de color y estilo</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-lynText">
+              <span class="text-lynAccent font-bold mt-0.5">→</span>
+              <span data-lang-text="en">Actionable suggestions for improvement</span>
+              <span data-lang-text="es">Sugerencias concretas de mejora</span>
+            </li>
+          </ul>
+        </div>
+        <div class="flex justify-center reveal reveal-d1">
+          <div class="phone-frame" style="max-width:280px;">
+            <div class="phone-screen">
+              <div class="phone-notch"><div class="phone-island"></div></div>
+              <img src="rate-outfit-initial.png" alt="Rate outfit" class="w-full block" />
+              <div class="phone-bar"><div class="phone-ind"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 Find your vibe -->
+  <div class="bg-white py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="flex justify-center reveal">
+          <div class="phone-frame" style="max-width:280px;">
+            <div class="phone-screen">
+              <div class="phone-notch"><div class="phone-island"></div></div>
+              <img src="find-your-vibe-initial.png" alt="Find your vibe" class="w-full block" />
+              <div class="phone-bar"><div class="phone-ind"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-d1">
+          <span class="accent-line"></span>
+          <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">03</p>
+          <h2 class="text-4xl lg:text-5xl font-bold text-lynDark leading-[1.1] mb-6">
+            <span data-lang-text="en">Match a vibe.<br/>Own your aesthetic.</span>
+            <span data-lang-text="es">Encuentra tu vibe.<br/>Define tu estética.</span>
+          </h2>
+          <p class="text-lynText leading-relaxed mb-8">
+            <span data-lang-text="en">Upload inspiration photos or describe a style and Lynen decodes the look and recreates it with clothes that actually fit your wardrobe.</span>
+            <span data-lang-text="es">Sube fotos de inspiración o describe un estilo y Lynen decodifica el look y lo recrea con ropa que encaja en tu armario real.</span>
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-lynText">
+              <span class="text-lynAccent font-bold mt-0.5">→</span>
+              <span data-lang-text="en">Upload photos from anywhere as style reference</span>
+              <span data-lang-text="es">Sube fotos de cualquier lugar como referencia de estilo</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-lynText">
+              <span class="text-lynAccent font-bold mt-0.5">→</span>
+              <span data-lang-text="en">AI extracts colors, silhouettes and style cues</span>
+              <span data-lang-text="es">La IA extrae colores, siluetas y claves de estilo</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 Plan your week -->
+  <div class="bg-lynBg py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <span class="accent-line"></span>
+          <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">04</p>
+          <h2 class="text-4xl lg:text-5xl font-bold text-lynDark leading-[1.1] mb-6">
+            <span data-lang-text="en">Plan your week.<br/>Never wonder<br/>what to wear.</span>
+            <span data-lang-text="es">Planifica tu semana.<br/>Nunca más dudes<br/>qué ponerte.</span>
+          </h2>
+          <p class="text-lynText leading-relaxed mb-8">
+            <span data-lang-text="en">Create a 5-day outfit plan. Work, gym, dinner — different looks for every moment, all coordinated and ready to go.</span>
+            <span data-lang-text="es">Crea un plan de outfits para 5 días. Trabajo, gym, cena — distintos looks para cada momento, coordinados y listos.</span>
+          </p>
+        </div>
+        <div class="flex justify-center reveal reveal-d1">
+          <div class="phone-frame" style="max-width:280px;">
+            <div class="phone-screen">
+              <div class="phone-notch"><div class="phone-island"></div></div>
+              <img src="feature-weekly-planner.png" alt="Weekly planner" class="w-full block" />
+              <div class="phone-bar"><div class="phone-ind"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature grid -->
+  <div class="bg-white py-24 lg:py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-4">
+          <span data-lang-text="en">And more</span><span data-lang-text="es">Y más</span>
+        </p>
+        <h2 class="text-4xl font-bold text-lynDark">
+          <span data-lang-text="en">Everything you need to dress better</span>
+          <span data-lang-text="es">Todo lo que necesitas para vestir mejor</span>
+        </h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="feat-card reveal rounded-3xl overflow-hidden bg-lynBg">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="feature-refine-color.png" alt="Refine by Color" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lynDark mb-2">
+              <span data-lang-text="en">Refine by Color</span><span data-lang-text="es">Refinar por Color</span>
+            </h3>
+            <p class="text-sm text-lynText leading-relaxed">
+              <span data-lang-text="en">Start with a color palette and get outfits built around it.</span>
+              <span data-lang-text="es">Empieza con una paleta de colores y obtén outfits construidos alrededor de ella.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="feat-card reveal reveal-d1 rounded-3xl overflow-hidden bg-lynBg">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="special-events-popup.png" alt="Special Events" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lynDark mb-2">
+              <span data-lang-text="en">Special Events</span><span data-lang-text="es">Eventos Especiales</span>
+            </h3>
+            <p class="text-sm text-lynText leading-relaxed">
+              <span data-lang-text="en">Wedding, interview, first date — occasion-specific outfit advice.</span>
+              <span data-lang-text="es">Boda, entrevista, primera cita — consejos de outfit específicos para cada ocasión.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="feat-card reveal reveal-d2 rounded-3xl overflow-hidden bg-lynBg">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="feature-wardrobe.png" alt="Digital Wardrobe" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lynDark mb-2">
+              <span data-lang-text="en">Digital Wardrobe</span><span data-lang-text="es">Armario Digital</span>
+            </h3>
+            <p class="text-sm text-lynText leading-relaxed">
+              <span data-lang-text="en">Catalog your clothes. Let AI generate outfits from your actual wardrobe.</span>
+              <span data-lang-text="es">Cataloga tu ropa. Deja que la IA genere outfits desde tu armario real.</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════════ -->
+<section id="how" class="bg-lynDark py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20 reveal">
+      <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-4">
+        <span data-lang-text="en">Simple as that</span><span data-lang-text="es">Así de simple</span>
+      </p>
+      <h2 class="text-4xl lg:text-5xl font-bold text-white">
+        <span data-lang-text="en">How it works</span><span data-lang-text="es">Cómo funciona</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="reveal relative">
+        <div class="font-serif text-[6rem] font-bold text-white/[0.04] leading-none select-none absolute -top-3 -left-1 pointer-events-none">1</div>
+        <div class="border border-white/10 rounded-3xl p-8">
+          <div class="w-10 h-10 rounded-2xl bg-lynAccent/10 flex items-center justify-center mb-6">
+            <span class="text-lynAccent text-sm font-bold">01</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            <span data-lang-text="en">Describe your occasion</span>
+            <span data-lang-text="es">Describe tu ocasión</span>
+          </h3>
+          <p class="text-white/45 text-sm leading-relaxed">
+            <span data-lang-text="en">Tell Lynen about the event, weather, your style preferences — in plain language. No forms, no menus.</span>
+            <span data-lang-text="es">Cuéntale a Lynen sobre el evento, el clima y tus preferencias en lenguaje natural. Sin formularios.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d1 relative md:translate-y-6">
+        <div class="font-serif text-[6rem] font-bold text-white/[0.04] leading-none select-none absolute -top-3 -left-1 pointer-events-none">2</div>
+        <div class="border border-white/10 rounded-3xl p-8">
+          <div class="w-10 h-10 rounded-2xl bg-lynAccent/10 flex items-center justify-center mb-6">
+            <span class="text-lynAccent text-sm font-bold">02</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            <span data-lang-text="en">AI builds your look</span>
+            <span data-lang-text="es">La IA construye tu look</span>
+          </h3>
+          <p class="text-white/45 text-sm leading-relaxed">
+            <span data-lang-text="en">Get a complete, color-coordinated outfit with illustrations. Refine it until it's exactly right.</span>
+            <span data-lang-text="es">Obtén un outfit completo y coordinado con ilustraciones. Refínalo hasta que sea perfecto.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d2 relative">
+        <div class="font-serif text-[6rem] font-bold text-white/[0.04] leading-none select-none absolute -top-3 -left-1 pointer-events-none">3</div>
+        <div class="border border-white/10 rounded-3xl p-8">
+          <div class="w-10 h-10 rounded-2xl bg-lynAccent/10 flex items-center justify-center mb-6">
+            <span class="text-lynAccent text-sm font-bold">03</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            <span data-lang-text="en">Save, share & repeat</span>
+            <span data-lang-text="es">Guarda, comparte y repite</span>
+          </h3>
+          <p class="text-white/45 text-sm leading-relaxed">
+            <span data-lang-text="en">Build your style history, track your streak, and compete with friends. Your style grows with you.</span>
+            <span data-lang-text="es">Construye tu historial de estilo, rastrea tu racha y compite con amigos. Tu estilo crece contigo.</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PRICING
+════════════════════════════════════════════ -->
+<section id="pricing" class="bg-white py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-4">
+        <span data-lang-text="en">Simple pricing</span><span data-lang-text="es">Precios simples</span>
+      </p>
+      <h2 class="text-4xl lg:text-5xl font-bold text-lynDark mb-4">
+        <span data-lang-text="en">Start free. Upgrade when ready.</span>
+        <span data-lang-text="es">Empieza gratis. Mejora cuando quieras.</span>
+      </h2>
+      <p class="text-lynText text-sm">
+        <span data-lang-text="en">1 outfit generation = 8 credits &nbsp;·&nbsp; 1 rating = 4 credits</span>
+        <span data-lang-text="es">1 generación de outfit = 8 créditos &nbsp;·&nbsp; 1 valoración = 4 créditos</span>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+
+      <!-- Guest -->
+      <div class="reveal border border-black/10 rounded-3xl p-8 flex flex-col">
+        <div class="text-xs font-semibold tracking-wider text-lynText uppercase mb-4">Guest</div>
+        <div class="text-4xl font-bold text-lynDark mb-1">Free</div>
+        <div class="text-sm text-lynText mb-8">
+          <span data-lang-text="en">No sign-up needed</span><span data-lang-text="es">Sin registro</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="text-sm text-lynText flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span>50 <span data-lang-text="en">credits / month</span><span data-lang-text="es">créditos / mes</span></span>
+          </li>
+          <li class="text-sm text-lynText flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span data-lang-text="en">Outfit generation</span><span data-lang-text="es">Generación de outfits</span>
+          </li>
+          <li class="text-sm text-lynText flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span data-lang-text="en">No commitment</span><span data-lang-text="es">Sin compromiso</span>
+          </li>
+        </ul>
+        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
+           class="block text-center border border-black/12 text-lynDark font-semibold py-3 rounded-2xl hover:bg-black/4 transition text-sm">
+          <span data-lang-text="en">Try for free</span><span data-lang-text="es">Probar gratis</span>
+        </a>
+      </div>
+
       <!-- Free Account -->
-      <div class="bg-white rounded-2xl border border-black/7 p-8 flex flex-col gap-6">
-        <div>
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-lynText/40 mb-3" data-lang-text="en">Free Account</p>
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-lynText/40 mb-3" data-lang-text="es">Cuenta gratuita</p>
-          <div class="text-3xl font-bold text-lynDark" data-lang-text="en">Free</div>
-          <div class="text-3xl font-bold text-lynDark" data-lang-text="es">Gratis</div>
-          <p class="text-[12px] text-lynText/45 mt-1" data-lang-text="en">150 credits / month</p>
-          <p class="text-[12px] text-lynText/45 mt-1" data-lang-text="es">150 créditos / mes</p>
+      <div class="reveal reveal-d1 border border-black/10 rounded-3xl p-8 flex flex-col">
+        <div class="text-xs font-semibold tracking-wider text-lynText uppercase mb-4">
+          <span data-lang-text="en">Free Account</span><span data-lang-text="es">Cuenta Gratuita</span>
         </div>
-        <ul class="space-y-3 text-[13px] text-lynText/70 flex-1">
-          <li class="flex gap-2.5 items-start"><span class="text-lynAccent font-bold mt-0.5">✓</span><span data-lang-text="en">3× more credits</span><span data-lang-text="es">3× más créditos</span></li>
-          <li class="flex gap-2.5 items-start"><span class="text-lynAccent font-bold mt-0.5">✓</span><span data-lang-text="en">~18 outfit generations</span><span data-lang-text="es">~18 generaciones</span></li>
-          <li class="flex gap-2.5 items-start"><span class="text-lynAccent font-bold mt-0.5">✓</span><span data-lang-text="en">Saved gallery &amp; history</span><span data-lang-text="es">Galería e historial</span></li>
-          <li class="flex gap-2.5 items-start"><span class="text-lynAccent font-bold mt-0.5">✓</span><span data-lang-text="en">Streak rewards &amp; wardrobe</span><span data-lang-text="es">Rachas y armario digital</span></li>
+        <div class="text-4xl font-bold text-lynDark mb-1">Free</div>
+        <div class="text-sm text-lynText mb-8">
+          <span data-lang-text="en">Register to unlock</span><span data-lang-text="es">Regístrate para desbloquear</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="text-sm text-lynText flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span>150 <span data-lang-text="en">credits / month</span><span data-lang-text="es">créditos / mes</span></span>
+          </li>
+          <li class="text-sm text-lynText flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span data-lang-text="en">Style history</span><span data-lang-text="es">Historial de estilo</span>
+          </li>
+          <li class="text-sm text-lynText flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span data-lang-text="en">Style streak</span><span data-lang-text="es">Racha de estilo</span>
+          </li>
+          <li class="text-sm text-lynText flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span data-lang-text="en">Competitions</span><span data-lang-text="es">Competiciones</span>
+          </li>
         </ul>
-        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener noreferrer"
-           class="block text-center border border-lynDark/15 text-lynDark py-2.5 rounded-full text-[13px] font-semibold hover:bg-lynDark/5 transition-colors">
-          <span data-lang-text="en">Create free account</span><span data-lang-text="es">Crear cuenta gratis</span>
+        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
+           class="block text-center border border-black/12 text-lynDark font-semibold py-3 rounded-2xl hover:bg-black/4 transition text-sm">
+          <span data-lang-text="en">Create account</span><span data-lang-text="es">Crear cuenta</span>
         </a>
       </div>
 
-      <!-- Studio (featured) -->
-      <div class="bg-lynDark rounded-2xl p-8 flex flex-col gap-6 relative overflow-hidden">
-        <span class="absolute top-5 right-5 bg-white/10 text-white text-[9px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full" data-lang-text="en">Best value</span>
-        <span class="absolute top-5 right-5 bg-white/10 text-white text-[9px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full" data-lang-text="es">Mejor valor</span>
-        <div>
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-white/40 mb-3">Lynen Studio</p>
-          <div class="text-3xl font-bold text-white">€4.99</div>
-          <p class="text-[12px] text-white/40 mt-1" data-lang-text="en">/ month · or €49.99/year · 500 credits</p>
-          <p class="text-[12px] text-white/40 mt-1" data-lang-text="es">/ mes · o €49,99/año · 500 créditos</p>
+      <!-- Studio -->
+      <div class="reveal reveal-d2 bg-lynDark rounded-3xl p-8 flex flex-col">
+        <div class="text-xs font-semibold tracking-wider text-white/35 uppercase mb-4">Lynen Studio</div>
+        <div class="text-4xl font-bold text-white mb-1">
+          €4.99<span class="text-lg font-normal text-white/35">/mo</span>
         </div>
-        <ul class="space-y-3 text-[13px] text-white/70 flex-1">
-          <li class="flex gap-2.5 items-start"><span class="text-white/50 font-bold mt-0.5">✓</span><span data-lang-text="en">~62 outfit generations/month</span><span data-lang-text="es">~62 generaciones/mes</span></li>
-          <li class="flex gap-2.5 items-start"><span class="text-white/50 font-bold mt-0.5">✓</span><span data-lang-text="en">Weekly planner included</span><span data-lang-text="es">Planificador semanal incluido</span></li>
-          <li class="flex gap-2.5 items-start"><span class="text-white/50 font-bold mt-0.5">✓</span><span data-lang-text="en">All AI flows: Refine, Vibe, Photo</span><span data-lang-text="es">Todos los flujos IA</span></li>
-          <li class="flex gap-2.5 items-start"><span class="text-white/50 font-bold mt-0.5">✓</span><span data-lang-text="en">Top-up credits when needed</span><span data-lang-text="es">Recarga créditos cuando quieras</span></li>
+        <div class="text-sm text-white/35 mb-8">
+          <span data-lang-text="en">Full access</span><span data-lang-text="es">Acceso completo</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="text-sm text-white/65 flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span>500 <span data-lang-text="en">credits / month</span><span data-lang-text="es">créditos / mes</span></span>
+          </li>
+          <li class="text-sm text-white/65 flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span data-lang-text="en">Everything in Free</span><span data-lang-text="es">Todo lo de Free</span>
+          </li>
+          <li class="text-sm text-white/65 flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span data-lang-text="en">Digital wardrobe</span><span data-lang-text="es">Armario digital</span>
+          </li>
+          <li class="text-sm text-white/65 flex items-center gap-2">
+            <span class="text-lynAccent font-bold">✓</span>
+            <span data-lang-text="en">Priority AI generation</span><span data-lang-text="es">Generación IA prioritaria</span>
+          </li>
         </ul>
-        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener noreferrer"
-           class="block text-center bg-white text-lynDark py-2.5 rounded-full text-[13px] font-semibold hover:opacity-90 transition-opacity">
-          <span data-lang-text="en">Get Lynen Studio</span><span data-lang-text="es">Obtener Studio</span>
+        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
+           class="block text-center bg-white text-lynDark font-semibold py-3 rounded-2xl hover:bg-white/90 transition text-sm">
+          <span data-lang-text="en">Get Studio</span><span data-lang-text="es">Obtener Studio</span>
         </a>
       </div>
 
     </div>
+  </div>
+</section>
 
-    <p class="mt-7 text-center text-[11px] text-lynText/40 leading-relaxed" data-lang-text="en">
-      Outfit generation = 8 credits &nbsp;·&nbsp; Rating = 4 credits &nbsp;·&nbsp; Colour refinement = 2 credits &nbsp;·&nbsp; Weekly plan = 20 credits &nbsp;·&nbsp; First retry always free
+
+<!-- ═══════════════════════════════════════════
+     FAQ
+════════════════════════════════════════════ -->
+<section id="faq" class="bg-lynBg py-24">
+  <div class="max-w-2xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-4xl font-bold text-lynDark">FAQ</h2>
+    </div>
+
+    <div class="divide-y divide-black/8 reveal">
+
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-semibold text-lynDark">
+            <span data-lang-text="en">What is Lynen?</span>
+            <span data-lang-text="es">¿Qué es Lynen?</span>
+          </span>
+          <span class="faq-plus text-lynText/40 text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-4 text-sm text-lynText leading-relaxed">
+          <span data-lang-text="en">Lynen is an AI-powered personal styling app for iOS and Android. It generates complete outfit recommendations, rates your current looks, helps you plan your wardrobe for the week, and develops your personal style over time.</span>
+          <span data-lang-text="es">Lynen es una app de estilismo personal con IA para iOS y Android. Genera recomendaciones de outfits, valora tus looks, ayuda a planificar tu armario para la semana y desarrolla tu estilo personal con el tiempo.</span>
+        </p>
+      </details>
+
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-semibold text-lynDark">
+            <span data-lang-text="en">Is it free to use?</span>
+            <span data-lang-text="es">¿Es gratis?</span>
+          </span>
+          <span class="faq-plus text-lynText/40 text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-4 text-sm text-lynText leading-relaxed">
+          <span data-lang-text="en">Yes. You can use Lynen as a guest with no sign-up (50 credits/month) or create a free account (150 credits/month). The Lynen Studio plan at €4.99/month unlocks 500 credits and all features.</span>
+          <span data-lang-text="es">Sí. Puedes usar Lynen como invitado sin registro (50 créditos/mes) o crear una cuenta gratuita (150 créditos/mes). El plan Lynen Studio por €4,99/mes desbloquea 500 créditos y todas las funciones.</span>
+        </p>
+      </details>
+
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-semibold text-lynDark">
+            <span data-lang-text="en">How do credits work?</span>
+            <span data-lang-text="es">¿Cómo funcionan los créditos?</span>
+          </span>
+          <span class="faq-plus text-lynText/40 text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-4 text-sm text-lynText leading-relaxed">
+          <span data-lang-text="en">Credits are consumed by AI-powered features. Generating a full outfit costs 8 credits. Rating an outfit costs 4 credits. Credits refresh monthly according to your plan.</span>
+          <span data-lang-text="es">Los créditos los consumen las funciones con IA. Generar un outfit completo cuesta 8 créditos. Valorar un outfit cuesta 4 créditos. Se renuevan mensualmente según tu plan.</span>
+        </p>
+      </details>
+
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-semibold text-lynDark">
+            <span data-lang-text="en">Is Lynen available on iOS and Android?</span>
+            <span data-lang-text="es">¿Está disponible en iOS y Android?</span>
+          </span>
+          <span class="faq-plus text-lynText/40 text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-4 text-sm text-lynText leading-relaxed">
+          <span data-lang-text="en">Yes. Lynen is available on the App Store (iOS) and Google Play (Android). Download it for free.</span>
+          <span data-lang-text="es">Sí. Lynen está disponible en la App Store (iOS) y Google Play (Android). Descárgala gratis.</span>
+        </p>
+      </details>
+
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-semibold text-lynDark">
+            <span data-lang-text="en">Does Lynen use my photos?</span>
+            <span data-lang-text="es">¿Lynen usa mis fotos?</span>
+          </span>
+          <span class="faq-plus text-lynText/40 text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-4 text-sm text-lynText leading-relaxed">
+          <span data-lang-text="en">Photos you upload for "Rate my outfit" or "Match a vibe" are used only to deliver AI styling feedback. Your data is handled securely and never shared without consent.</span>
+          <span data-lang-text="es">Las fotos que subes para "Valorar mi outfit" o "Match a vibe" se usan únicamente para darte feedback de estilo con IA. Tus datos se gestionan de forma segura y nunca se comparten sin tu consentimiento.</span>
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     DOWNLOAD CTA
+════════════════════════════════════════════ -->
+<div id="download" class="bg-lynDark py-24 lg:py-32">
+  <div class="max-w-3xl mx-auto px-6 text-center reveal">
+    <p class="text-xs font-semibold tracking-[0.2em] text-lynAccent uppercase mb-6">
+      <span data-lang-text="en">Available now · Free</span>
+      <span data-lang-text="es">Disponible ahora · Gratis</span>
     </p>
-    <p class="mt-7 text-center text-[11px] text-lynText/40 leading-relaxed" data-lang-text="es">
-      Generar outfit = 8 créditos &nbsp;·&nbsp; Valorar = 4 créditos &nbsp;·&nbsp; Refinar por color = 2 créditos &nbsp;·&nbsp; Plan semanal = 20 créditos &nbsp;·&nbsp; Primer reintento gratis
+    <h2 class="text-5xl lg:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
+      <span data-lang-text="en">Your style.<br/><em class="font-serif font-normal not-italic text-lynAccent">Elevated.</em></span>
+      <span data-lang-text="es">Tu estilo.<br/><em class="font-serif font-normal not-italic text-lynAccent">Elevado.</em></span>
+    </h2>
+    <p class="text-white/45 text-lg mb-10 max-w-sm mx-auto">
+      <span data-lang-text="en">Download Lynen free. No sign-up needed to start.</span>
+      <span data-lang-text="es">Descarga Lynen gratis. No necesitas registro para empezar.</span>
     </p>
-  </section>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-3 bg-white text-lynDark px-8 py-4 rounded-2xl font-semibold hover:bg-white/90 transition-all hover:scale-[1.02] active:scale-[0.98]">
+        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        App Store
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.lynenapp.app" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/16 transition-all hover:scale-[1.02] active:scale-[0.98] backdrop-blur-sm">
+        <img src="google-store.png" alt="" class="w-5 h-5 object-contain flex-shrink-0" onerror="this.remove()" />
+        Google Play
+      </a>
+    </div>
+  </div>
+</div>
 
-  <!-- ── FAQ ── -->
-  <section id="faq" class="bg-white border-t border-black/5 py-20 px-5 sm:px-8">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
-        <p class="text-[10px] font-semibold tracking-[0.3em] uppercase text-lynAccent mb-3">FAQ</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-lynDark tracking-tight" data-lang-text="en">Common questions</h2>
-        <h2 class="text-3xl sm:text-4xl font-bold text-lynDark tracking-tight" data-lang-text="es">Preguntas frecuentes</h2>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="bg-black py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+
+      <div class="md:col-span-2">
+        <img src="lynen-logo.png" alt="Lynen" class="h-7 w-auto mb-4 brightness-0 invert opacity-70" />
+        <p class="text-white/35 text-sm leading-relaxed max-w-xs">
+          <span data-lang-text="en">Your AI personal stylist. Free on iOS and Android.</span>
+          <span data-lang-text="es">Tu estilista personal con IA. Gratis en iOS y Android.</span>
+        </p>
       </div>
 
-      <div class="divide-y divide-black/6">
+      <div>
+        <div class="text-xs font-semibold tracking-wider text-white/25 uppercase mb-4">Product</div>
+        <ul class="space-y-3">
+          <li><a href="#features" class="text-sm text-white/45 hover:text-white transition-colors">
+            <span data-lang-text="en">Features</span><span data-lang-text="es">Funciones</span>
+          </a></li>
+          <li><a href="#how" class="text-sm text-white/45 hover:text-white transition-colors">
+            <span data-lang-text="en">How it works</span><span data-lang-text="es">Cómo funciona</span>
+          </a></li>
+          <li><a href="#pricing" class="text-sm text-white/45 hover:text-white transition-colors">
+            <span data-lang-text="en">Pricing</span><span data-lang-text="es">Precios</span>
+          </a></li>
+          <li><a href="#faq" class="text-sm text-white/45 hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </div>
 
-        <details class="py-5 group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer">
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="en">What is Lynen?</span>
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="es">¿Qué es Lynen?</span>
-            <svg class="faq-chevron w-4 h-4 text-lynText/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="pt-3 pb-1 text-[14px] text-lynText/65 leading-relaxed">
-            <p data-lang-text="en">Lynen is an AI-powered personal styling app on iOS and Android. It helps you generate complete outfits, refine looks by colour, rate what you're wearing, plan your week, and compete with friends — all powered by Google Gemini.</p>
-            <p data-lang-text="es">Lynen es una app de estilo personal con IA en iOS y Android. Genera outfits completos, refina looks por color, valora lo que llevas, planifica la semana y compite con amigos — todo con Google Gemini.</p>
-          </div>
-        </details>
+      <div>
+        <div class="text-xs font-semibold tracking-wider text-white/25 uppercase mb-4">Legal</div>
+        <ul class="space-y-3">
+          <li><a href="/privacy-policy.html" class="text-sm text-white/45 hover:text-white transition-colors">
+            <span data-lang-text="en">Privacy Policy</span><span data-lang-text="es">Política de Privacidad</span>
+          </a></li>
+          <li><a href="mailto:info@lynenapp.com" class="text-sm text-white/45 hover:text-white transition-colors">info@lynenapp.com</a></li>
+        </ul>
+      </div>
 
-        <details class="py-5 group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer">
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="en">Is it free?</span>
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="es">¿Es gratis?</span>
-            <svg class="faq-chevron w-4 h-4 text-lynText/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="pt-3 pb-1 text-[14px] text-lynText/65 leading-relaxed">
-            <p data-lang-text="en">Yes — no account needed to start. Guests get 50 credits/month. Register free for 150 credits/month. Lynen Studio (€4.99/mo) gives 500 credits for power users.</p>
-            <p data-lang-text="es">Sí — sin cuenta para empezar. Invitados tienen 50 créditos/mes. Regístrate gratis para 150 créditos/mes. Lynen Studio (€4,99/mes) da 500 créditos para usuarios avanzados.</p>
-          </div>
-        </details>
+    </div>
 
-        <details class="py-5 group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer">
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="en">How do credits work?</span>
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="es">¿Cómo funcionan los créditos?</span>
-            <svg class="faq-chevron w-4 h-4 text-lynText/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="pt-3 pb-1 text-[14px] text-lynText/65 leading-relaxed">
-            <p data-lang-text="en">Credits are spent on AI actions. Generating an outfit costs 8, rating costs 4, colour refining costs 2, a weekly plan costs 20. Discover, saving and competitions are always free. First retry of any request is always free.</p>
-            <p data-lang-text="es">Los créditos se gastan en acciones de IA. Generar un outfit cuesta 8, valorar cuesta 4, refinar por color cuesta 2, plan semanal cuesta 20. Discover, guardar y competiciones son siempre gratis. El primer reintento es siempre gratis.</p>
-          </div>
-        </details>
-
-        <details class="py-5 group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer">
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="en">iOS and Android?</span>
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="es">¿iOS y Android?</span>
-            <svg class="faq-chevron w-4 h-4 text-lynText/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="pt-3 pb-1 text-[14px] text-lynText/65 leading-relaxed">
-            <p data-lang-text="en">Yes — available on the Apple App Store and Google Play. Free to download.</p>
-            <p data-lang-text="es">Sí — disponible en App Store de Apple y Google Play. Descarga gratuita.</p>
-          </div>
-        </details>
-
-        <details class="py-5 group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer">
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="en">What happens to my photos?</span>
-            <span class="font-semibold text-lynDark text-[15px]" data-lang-text="es">¿Qué pasa con mis fotos?</span>
-            <svg class="faq-chevron w-4 h-4 text-lynText/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="pt-3 pb-1 text-[14px] text-lynText/65 leading-relaxed">
-            <p data-lang-text="en">Photos are only used to generate your result. Inspiration photos auto-delete after 1 hour. AI image generation requires explicit consent you control in settings. We never share your photos.</p>
-            <p data-lang-text="es">Las fotos solo se usan para generar tu resultado. Las de inspiración se eliminan automáticamente tras 1 hora. La generación de imágenes IA requiere consentimiento explícito que controlas en ajustes. Nunca compartimos tus fotos.</p>
-          </div>
-        </details>
-
+    <div class="border-t border-white/6 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-white/20 text-xs">© 2025 Lynen. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener" class="text-xs text-white/30 hover:text-white transition-colors">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.lynenapp.app" target="_blank" rel="noopener" class="text-xs text-white/30 hover:text-white transition-colors">Google Play</a>
       </div>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ── DOWNLOAD ── -->
-  <section id="download" class="bg-lynSoft/50 border-t border-black/5">
-    <div class="max-w-5xl mx-auto px-5 sm:px-8 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
-      <div class="space-y-2 text-center md:text-left">
-        <h2 class="text-2xl sm:text-3xl font-bold text-lynDark tracking-tight" data-lang-text="en">Ready to dress with intention?</h2>
-        <h2 class="text-2xl sm:text-3xl font-bold text-lynDark tracking-tight" data-lang-text="es">¿Listo para vestir con intención?</h2>
-        <p class="text-[14px] text-lynText/55" data-lang-text="en">Free on iOS and Android. No account needed to start.</p>
-        <p class="text-[14px] text-lynText/55" data-lang-text="es">Gratis en iOS y Android. Sin cuenta para empezar.</p>
-      </div>
-      <div class="flex flex-wrap gap-3 items-center flex-shrink-0">
-        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener noreferrer">
-          <img src="apple-store.svg" alt="Download on the App Store" class="h-11 w-auto" loading="lazy" decoding="async" />
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.lynen.app" target="_blank" rel="noopener noreferrer">
-          <img src="google-store.png" alt="Get it on Google Play" class="h-11 w-auto" loading="lazy" decoding="async" />
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="bg-lynDark text-white/60 py-12 px-5 sm:px-8">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-10">
-
-        <div class="space-y-4">
-          <img src="lynen-logo.png" alt="Lynen" class="h-10 w-auto brightness-0 invert opacity-80" loading="lazy" decoding="async" />
-          <p class="text-[12px] leading-relaxed text-white/40" data-lang-text="en">The AI styling assistant for men who care how they show up.</p>
-          <p class="text-[12px] leading-relaxed text-white/40" data-lang-text="es">El asistente de estilo IA para los hombres que cuidan cómo se presentan.</p>
-          <div class="flex gap-3 pt-1">
-            <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener noreferrer">
-              <img src="apple-store.svg" alt="App Store" class="h-8 w-auto brightness-0 invert opacity-60 hover:opacity-90 transition-opacity" loading="lazy" decoding="async" />
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.lynen.app" target="_blank" rel="noopener noreferrer">
-              <img src="google-store.png" alt="Google Play" class="h-8 w-auto brightness-0 invert opacity-60 hover:opacity-90 transition-opacity" loading="lazy" decoding="async" />
-            </a>
-          </div>
-        </div>
-
-        <div class="space-y-3">
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-white/30" data-lang-text="en">Product</p>
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-white/30" data-lang-text="es">Producto</p>
-          <nav class="flex flex-col gap-2.5 text-[13px]">
-            <a href="#features" class="hover:text-white transition-colors"><span data-lang-text="en">Features</span><span data-lang-text="es">Funciones</span></a>
-            <a href="#how-it-works" class="hover:text-white transition-colors"><span data-lang-text="en">How it works</span><span data-lang-text="es">Cómo funciona</span></a>
-            <a href="#pricing" class="hover:text-white transition-colors"><span data-lang-text="en">Pricing</span><span data-lang-text="es">Planes</span></a>
-            <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-          </nav>
-        </div>
-
-        <div class="space-y-3">
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-white/30" data-lang-text="en">Legal &amp; Contact</p>
-          <p class="text-[10px] font-semibold tracking-widest uppercase text-white/30" data-lang-text="es">Legal y Contacto</p>
-          <nav class="flex flex-col gap-2.5 text-[13px]">
-            <a href="privacy-policy.html" class="hover:text-white transition-colors" data-lang-text="en">Privacy Policy</a>
-            <a href="privacy-policy.html" class="hover:text-white transition-colors" data-lang-text="es">Política de privacidad</a>
-            <a href="mailto:info@lynenapp.com" class="hover:text-white transition-colors">info@lynenapp.com</a>
-          </nav>
-        </div>
-
-      </div>
-      <div class="border-t border-white/8 pt-7 text-[11px] text-white/25 text-center">
-        <p data-lang-text="en">© 2025–2026 Lynen. Dress with intention.</p>
-        <p data-lang-text="es">© 2025–2026 Lynen. Viste con intención.</p>
-      </div>
-    </div>
-  </footer>
-
-</div><!-- /main-content -->
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════ -->
 <script>
-(function () {
-  var root          = document.documentElement;
-  var wardrobeScreen = document.getElementById('wardrobe-screen');
-  var wardrobe      = document.getElementById('wardrobe');
-  var mainContent   = document.getElementById('main-content');
-  var langToggle    = document.getElementById('lang-toggle');
-  var mobileBtn     = document.getElementById('mobile-menu-btn');
-  var mobileMenu    = document.getElementById('mobile-menu');
-  var hb1 = document.getElementById('hb1');
-  var hb2 = document.getElementById('hb2');
-  var hb3 = document.getElementById('hb3');
-
-  var currentLang    = 'en';
-  var wardrobeOpened = false;
-  var menuOpen       = false;
-
-  // ── Language ──
-  var placeholders = {
-    en: { name: 'Your name', email: 'your@email.com', message: 'Tell us how Lynen could help you.' },
-    es: { name: 'Tu nombre', email: 'tu@correo.com',   message: 'Cuéntanos cómo podría ayudarte Lynen.' }
-  };
-
-  function setLanguage(lang) {
-    currentLang = lang;
-    root.setAttribute('data-lang', lang);
-    langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
-    var n = document.getElementById('name');
-    var e = document.getElementById('email');
-    var m = document.getElementById('message');
-    if (n) n.placeholder = placeholders[lang].name;
-    if (e) e.placeholder = placeholders[lang].email;
-    if (m) m.placeholder = placeholders[lang].message;
+  // ── Language toggle ──
+  const html = document.documentElement;
+  function toggleLang() {
+    html.dataset.lang = html.dataset.lang === 'en' ? 'es' : 'en';
   }
+  document.getElementById('lang-toggle').addEventListener('click', toggleLang);
+  document.getElementById('lang-toggle-m').addEventListener('click', toggleLang);
 
-  langToggle.addEventListener('click', function () {
-    setLanguage(currentLang === 'en' ? 'es' : 'en');
-  });
-  setLanguage('en');
-
-  // ── Wardrobe ──
-  function openWardrobe() {
-    if (wardrobeOpened) return;
-    wardrobeOpened = true;
-    wardrobe.classList.add('wardrobe-open');
-    setTimeout(function () {
-      wardrobeScreen.classList.add('hidden');
-      mainContent.classList.remove('hidden');
-    }, 950);
+  // ── Navbar scroll state ──
+  const navbar = document.getElementById('navbar');
+  function updateNavbar() {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
   }
-  wardrobeScreen.addEventListener('click', openWardrobe);
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  updateNavbar();
 
-  // ── Mobile menu ──
+  // ── Mobile hamburger ──
+  const mobileBtn = document.getElementById('mobile-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hb1 = document.getElementById('hb1');
+  const hb2 = document.getElementById('hb2');
+  const hb3 = document.getElementById('hb3');
+  let menuOpen = false;
+
   function closeMobileMenu() {
     menuOpen = false;
     mobileMenu.classList.remove('open');
     hb1.style.transform = '';
     hb2.style.opacity = '';
     hb3.style.transform = '';
-    hb3.style.width = '';
   }
-  window.closeMobileMenu = closeMobileMenu;
 
-  mobileBtn.addEventListener('click', function () {
+  mobileBtn.addEventListener('click', () => {
     menuOpen = !menuOpen;
     mobileMenu.classList.toggle('open', menuOpen);
     if (menuOpen) {
-      hb1.style.transform = 'translateY(7px) rotate(45deg)';
+      hb1.style.transform = 'translateY(6.5px) rotate(45deg)';
       hb2.style.opacity = '0';
-      hb3.style.transform = 'translateY(-7px) rotate(-45deg)';
-      hb3.style.width = '20px';
+      hb3.style.transform = 'translateY(-6.5px) rotate(-45deg)';
     } else {
       closeMobileMenu();
     }
   });
 
-  // Close menu on outside click
-  document.addEventListener('click', function (e) {
-    if (menuOpen && !document.getElementById('site-header').contains(e.target)) {
-      closeMobileMenu();
-    }
-  });
+  document.querySelectorAll('[data-mob-link]').forEach(l => l.addEventListener('click', closeMobileMenu));
 
-})();
+  // ── Scroll reveal ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
