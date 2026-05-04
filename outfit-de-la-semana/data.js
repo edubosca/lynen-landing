@@ -40,16 +40,6 @@
           tagline: 'Recrea el look completo por menos de lo que cuesta una cena para dos',
           products: [
             {
-              slot: 'pants',
-              slotLabel: 'Pantalón claro',
-              name: 'Pantalón recto de lino Signature ISAAC',
-              brand: 'La Redoute Collections',
-              price: 38.99,
-              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/1/5/5/15565ad5a8ef2144bc572bfa1d9d9ae5.jpg',
-              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301756106&a=2806382&m=10497',
-              network: 'awin'
-            },
-            {
               slot: 'outerwear',
               slotLabel: 'Cardigan azul',
               name: 'Chaqueta de algodón con cremallera, canalé inglés',
@@ -70,6 +60,16 @@
               network: 'awin'
             },
             {
+              slot: 'pants',
+              slotLabel: 'Pantalón claro',
+              name: 'Pantalón recto de lino Signature ISAAC',
+              brand: 'La Redoute Collections',
+              price: 38.99,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/1/5/5/15565ad5a8ef2144bc572bfa1d9d9ae5.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301756106&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
               slot: 'shoes',
               slotLabel: 'Mocasines',
               name: 'Mocasines Signature de piel con morsetti',
@@ -86,16 +86,6 @@
           label: 'Equilibrado',
           tagline: 'Las mismas piezas, con un par de upgrades en lo que más se nota',
           products: [
-            {
-              slot: 'pants',
-              slotLabel: 'Pantalón claro',
-              name: 'Pantalón recto de lino Signature ISAAC',
-              brand: 'La Redoute Collections',
-              price: 38.99,
-              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/1/5/5/15565ad5a8ef2144bc572bfa1d9d9ae5.jpg',
-              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301756106&a=2806382&m=10497',
-              network: 'awin'
-            },
             {
               slot: 'outerwear',
               slotLabel: 'Cardigan azul',
@@ -117,6 +107,16 @@
               network: 'awin'
             },
             {
+              slot: 'pants',
+              slotLabel: 'Pantalón claro',
+              name: 'Pantalón recto de lino Signature ISAAC',
+              brand: 'La Redoute Collections',
+              price: 38.99,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/1/5/5/15565ad5a8ef2144bc572bfa1d9d9ae5.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301756106&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
               slot: 'shoes',
               slotLabel: 'Mocasines',
               name: 'Mocasines de piel ligera',
@@ -133,16 +133,6 @@
           label: 'Premium',
           tagline: 'Inversión en piezas que durarán cinco temporadas o más',
           products: [
-            {
-              slot: 'pants',
-              slotLabel: 'Pantalón claro',
-              name: 'Pantalones chinos slim efecto lavado Bedford',
-              brand: 'Polo Ralph Lauren',
-              price: 152.25,
-              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/4/7/5/475a898139131f2aab0f68d1c80deec3.jpg',
-              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301751000&a=2806382&m=10497',
-              network: 'awin'
-            },
             {
               slot: 'outerwear',
               slotLabel: 'Cardigan azul',
@@ -161,6 +151,16 @@
               price: 80.74,
               imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/5/b/9/5b91f2178a3de858cccb942c8242b526.jpg',
               affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301796947&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
+              slot: 'pants',
+              slotLabel: 'Pantalón claro',
+              name: 'Pantalones chinos slim efecto lavado Bedford',
+              brand: 'Polo Ralph Lauren',
+              price: 152.25,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/4/7/5/475a898139131f2aab0f68d1c80deec3.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301751000&a=2806382&m=10497',
               network: 'awin'
             },
             {
