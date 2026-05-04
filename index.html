@@ -191,6 +191,24 @@
     .tilt-l:hover { transform: perspective(1000px) rotateY(2deg) rotateX(0deg) rotateZ(0deg) scale(1.02); }
     .tilt-r:hover { transform: perspective(1000px) rotateY(-2deg) rotateX(0deg) rotateZ(0deg) scale(1.02); }
 
+    /* ── Hero ambient glow + pattern ── */
+    .hero-glow {
+      background:
+        radial-gradient(ellipse 70% 55% at 78% 42%, rgba(192,88,38,0.22), transparent 62%),
+        radial-gradient(ellipse 55% 65% at 12% 88%, rgba(192,88,38,0.08), transparent 55%);
+    }
+    .hero-dots {
+      background-image: radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 70% 70% at 70% 45%, black 25%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 70% 45%, black 25%, transparent 75%);
+    }
+    .hero-vignette {
+      background:
+        linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.35) 45%, transparent 70%),
+        linear-gradient(to top, rgba(10,10,10,0.55), transparent 40%);
+    }
+
     /* ── Marquee ── */
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .marquee-inner { animation: marquee 28s linear infinite; white-space: nowrap; display: flex; }
@@ -326,8 +344,9 @@
 ════════════════════════════════════════════ -->
 <section class="relative min-h-screen flex items-center bg-lynDark overflow-hidden">
 
-  <div class="absolute inset-0 bg-gradient-to-r from-lynDark via-lynDark/80 to-lynDark/20 pointer-events-none"></div>
-  <div class="absolute inset-0 bg-gradient-to-t from-lynDark/75 via-transparent to-transparent pointer-events-none"></div>
+  <div class="hero-dots absolute inset-0 pointer-events-none"></div>
+  <div class="hero-glow absolute inset-0 pointer-events-none"></div>
+  <div class="hero-vignette absolute inset-0 pointer-events-none"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 pt-24 sm:pt-28 pb-20 w-full">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -342,9 +361,9 @@
           </span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-[4.4rem] font-bold text-white leading-[1.05] tracking-tight mb-5 sm:mb-6">
-          <span data-lang-text="en">Dress with<br/>intention.<br/><em class="font-serif font-normal not-italic text-lynAccent">Every time.</em></span>
-          <span data-lang-text="es">Viste con<br/>intención.<br/><em class="font-serif font-normal not-italic text-lynAccent">Siempre.</em></span>
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.9rem] font-bold text-white leading-[1.02] tracking-tight mb-5 sm:mb-6">
+          <span data-lang-text="en">Dress with<br/>intention.<br/><em class="font-serif font-normal italic text-lynAccent">Every time.</em></span>
+          <span data-lang-text="es">Viste con<br/>intención.<br/><em class="font-serif font-normal italic text-lynAccent">Siempre.</em></span>
         </h1>
 
         <p class="text-base sm:text-lg text-white/72 max-w-md leading-relaxed mb-8 sm:mb-10">
@@ -393,15 +412,15 @@
 
       <!-- Phone mockups — visible on md+ -->
       <div class="hidden md:flex justify-center items-end">
-        <div class="relative" style="width:320px;height:600px;">
-          <div class="phone-frame tilt-l absolute left-0 top-0" style="max-width:255px;">
+        <div class="relative" style="width:380px;height:660px;">
+          <div class="phone-frame tilt-l absolute left-0 top-0" style="max-width:300px;">
             <div class="phone-screen">
               <div class="phone-notch"><div class="phone-island"></div></div>
               <img src="home-page.png" alt="Lynen AI outfit generator app" class="phone-img" onerror="this.closest('.phone-frame').remove()" />
               <div class="phone-bar"><div class="phone-ind"></div></div>
             </div>
           </div>
-          <div class="phone-frame tilt-r absolute right-0 bottom-6 opacity-80" style="max-width:195px;">
+          <div class="phone-frame tilt-r absolute right-0 bottom-6 opacity-85" style="max-width:228px;">
             <div class="phone-screen">
               <div class="phone-notch"><div class="phone-island"></div></div>
               <img src="feature2-refined-casual.png" alt="Lynen outfit result" class="phone-img" onerror="this.closest('.phone-frame').remove()" />
