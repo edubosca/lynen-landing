@@ -440,7 +440,7 @@
         <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold text-lynDark mb-1 leading-none">119,97&nbsp;€</div>
         <p class="text-xs text-lynText/70 mb-7">Total estimado · 3 piezas</p>
 
-        <div class="ow-products grid grid-cols-2 gap-3 sm:gap-4">
+        <div class="ow-products space-y-5">
           <!-- Jersey -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
@@ -519,7 +519,7 @@
         <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold text-lynDark mb-1 leading-none">214,43&nbsp;€</div>
         <p class="text-xs text-lynText/70 mb-7">Total estimado · 3 piezas</p>
 
-        <div class="ow-products grid grid-cols-2 gap-3 sm:gap-4">
+        <div class="ow-products space-y-5">
           <!-- Jersey -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
@@ -598,7 +598,7 @@
         <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold mb-1 leading-none">448,29&nbsp;€</div>
         <p class="text-xs text-white/55 mb-7">Total estimado · 3 piezas</p>
 
-        <div class="ow-products grid grid-cols-2 gap-3 sm:gap-4">
+        <div class="ow-products space-y-5">
           <!-- Jersey -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
@@ -889,8 +889,10 @@
   }
 
   if (tiersGrid && tierCards.length) {
+    // Solo centrar en Equilibrado UNA VEZ al cargar. No en `resize` porque
+    // en mobile la barra de URL al hacer scroll dispara `resize` y volvería
+    // a empujar al usuario al tier central perdiendo su navegación.
     window.addEventListener('load', centerOnEquilibrado);
-    window.addEventListener('resize', centerOnEquilibrado);
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(function (entries) {
