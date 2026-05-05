@@ -9,21 +9,20 @@
        se inyectan dinámicamente desde detail-init.js solo si publishAt <= now.
        Antes de esa fecha, la página queda noindex y muestra "Próximamente". -->
 
-  <link rel="canonical" href="https://www.lynenapp.com/outfit-de-la-semana/jacob-elordi-cardigan-azul/" />
-  <link rel="alternate" hreflang="es" href="https://www.lynenapp.com/outfit-de-la-semana/jacob-elordi-cardigan-azul/" />
-  <link rel="alternate" hreflang="x-default" href="https://www.lynenapp.com/outfit-de-la-semana/jacob-elordi-cardigan-azul/" />
+  <link rel="canonical" href="https://www.lynenapp.com/outfit-de-la-semana/pedro-pascal-jersey-azul/" />
+  <link rel="alternate" hreflang="es" href="https://www.lynenapp.com/outfit-de-la-semana/pedro-pascal-jersey-azul/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.lynenapp.com/outfit-de-la-semana/pedro-pascal-jersey-azul/" />
 
   <meta name="pinterest-rich-pin" content="true" />
 
-  <!-- data.js cargado en <head> síncrono para que detail-init.js (que se carga
-       al inicio del <body>) pueda gating + SEO inyection antes del paint. -->
   <script src="/outfit-de-la-semana/data.js"></script>
 
   <link rel="icon" type="image/png" href="/lynen-logo.png" />
-  <link rel="preload" as="image" href="/images/weekly-outfits/jacob-elordi-cardigan.png" />
+  <link rel="preload" as="image" href="/images/weekly-outfits/pedro-pascal.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.laredoute.com" crossorigin>
+  <link rel="preconnect" href="https://zapatosobi.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -54,7 +53,7 @@
       color: #0a0a0a;
     }
 
-    /* ── Gating: detail-init.js añade .outfit-gated al <html> si publishAt > now ── */
+    /* ── Gating ── */
     .outfit-coming-soon { display: none; }
     .outfit-gated .ow-content { display: none; }
     .outfit-gated .outfit-coming-soon {
@@ -119,21 +118,16 @@
     .outfit-coming-soon .cs-btn-secondary { background: transparent; color: #0a0a0a; border: 1px solid #d8d2c8; }
     .outfit-coming-soon .cs-btn-secondary:hover { background: #f7f4f0; }
 
-    /* Navbar — versión simplificada de la home, sin scroll switching */
     .ow-navbar {
       background: rgba(255,255,255,0.97);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 1px 0 rgba(0,0,0,0.08);
     }
-
-    /* Hero overlay */
     .ow-hero-overlay {
       background:
         linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.42) 45%, rgba(10,10,10,0.18) 100%);
     }
-
-    /* Chip */
     .ow-chip {
       display: inline-flex;
       align-items: center;
@@ -147,13 +141,10 @@
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255,255,255,0.18);
     }
-
-    /* Tier card */
     .ow-tier {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .ow-tier:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
-
     .ow-tier-asequible { background: #fff; border: 1px solid #ececec; }
     .ow-tier-equilibrado { background: #fff; border: 1px solid #ececec; }
     .ow-tier-premium { background: #0a0a0a; color: #fff; border: 1px solid #1a1a1a; }
@@ -165,7 +156,6 @@
     .ow-tier-premium .ow-product-img-wrap { background: #f7f4f0; }
     .ow-tier-premium .ow-product-cta { border-color: rgba(255,255,255,0.25); }
     .ow-tier-premium .ow-product-cta:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.45); }
-
     .ow-product-card {
       background: #fff;
       border: 1px solid #efeae2;
@@ -206,7 +196,6 @@
       transition: background 0.2s ease, border-color 0.2s ease;
     }
     .ow-product-cta:hover { background: #f7f4f0; border-color: #d8d2c8; }
-
     .ow-badge-cheap {
       display: inline-flex;
       align-items: center;
@@ -232,7 +221,6 @@
       background: rgba(255,255,255,0.08);
       color: rgba(255,255,255,0.7);
     }
-
     .ow-share-btn {
       display: inline-flex;
       align-items: center;
@@ -247,14 +235,10 @@
       cursor: pointer;
     }
     .ow-share-btn:hover { background: #f7f4f0; transform: translateY(-1px); }
-
-    /* Lock screen scroll on small viewports inside hero */
     @media (max-width: 640px) {
       .ow-hero { min-height: 78vh; }
     }
-
     .accent-line { display: block; width: 36px; height: 2px; background: #c05826; margin-bottom: 1.5rem; }
-
     .btn-store {
       display: inline-flex;
       align-items: center;
@@ -307,8 +291,6 @@
       }
       .tiers-grid > .ow-tier { flex: initial; }
     }
-
-    /* Tier dot indicators (mobile + tablet only) */
     .tier-dots {
       display: flex;
       justify-content: center;
@@ -334,11 +316,8 @@
   </style>
 </head>
 
-<body class="bg-white" data-outfit-slug="jacob-elordi-cardigan-azul">
+<body class="bg-white" data-outfit-slug="pedro-pascal-jersey-azul">
 
-<!-- Gating + SEO inyection. Lee body.dataset.outfitSlug, busca el outfit
-     en LynenWeeklyOutfits y bloquea si publishAt > now (añade .outfit-gated
-     a <html> e inyecta noindex). Si publicado, inyecta SEO específico. -->
 <script src="/outfit-de-la-semana/detail-init.js"></script>
 
 <!-- ═══════════ NAVBAR ═══════════ -->
@@ -385,15 +364,15 @@
       <li class="text-gray-300">›</li>
       <li><a href="/outfit-de-la-semana/" class="hover:text-lynDark transition-colors">Outfit de la semana</a></li>
       <li class="text-gray-300">›</li>
-      <li class="text-lynDark font-medium" aria-current="page">El cardigan azul de Jacob Elordi</li>
+      <li class="text-lynDark font-medium" aria-current="page">El jersey azul marino de Pedro Pascal</li>
     </ol>
   </nav>
 </div>
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="ow-hero relative overflow-hidden bg-lynDark">
-  <img src="/images/weekly-outfits/jacob-elordi-cardigan.png"
-       alt="Jacob Elordi con cardigan azul marino, camiseta blanca, pantalón claro y mocasines de piel"
+  <img src="/images/weekly-outfits/pedro-pascal.png"
+       alt="Pedro Pascal con jersey azul marino, pantalón negro ancho y zapatos de vestir negros"
        class="absolute inset-0 w-full h-full object-cover object-top"
        width="1600" height="1000" />
   <div class="ow-hero-overlay absolute inset-0"></div>
@@ -404,17 +383,17 @@
         Outfit de la semana · Primavera 2026
       </p>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-4">
-        El cardigan azul de <em class="font-serif italic font-normal text-lynAccent">Jacob Elordi</em>
+        El jersey azul marino de <em class="font-serif italic font-normal text-lynAccent">Pedro Pascal</em>
       </h1>
       <p class="text-base sm:text-lg text-white/85 leading-relaxed mb-6 max-w-xl">
-        Preppy de primavera, suave y sin esfuerzo
+        Monocromo nocturno con un toque de color
       </p>
       <div class="flex flex-wrap gap-2">
-        <span class="ow-chip">preppy</span>
-        <span class="ow-chip">smart casual</span>
-        <span class="ow-chip">primavera</span>
+        <span class="ow-chip">monocromo</span>
+        <span class="ow-chip">elegante</span>
+        <span class="ow-chip">nocturno</span>
         <span class="ow-chip">minimalista</span>
-        <span class="ow-chip">clásico</span>
+        <span class="ow-chip">sastrería relajada</span>
       </div>
     </div>
   </div>
@@ -428,7 +407,7 @@
     <span class="accent-line"></span>
     <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-5">El look</p>
     <p class="font-serif text-lg sm:text-xl text-lynDark leading-[1.7]">
-      Un look que funciona porque no intenta ser nada. Pantalón claro, camiseta blanca, cardigan azul marino, mocasines. Cuatro piezas neutras que se combinan solas y que son la base de cualquier armario que quiera durar más de una temporada. La clave está en el ajuste — todo recto, nada ceñido — y en que cada prenda esté en buen estado. La sencillez no perdona prendas viejas.
+      Pedro Pascal hace lo que pocos hombres hacen bien: vestir todo oscuro sin parecer un guardia de seguridad. La clave está en romper el negro con un único punto de color — en este caso, un azul marino profundo que casi pasa por negro pero no del todo. Pantalón ancho con caída, zapatos pulidos, jersey de punto fino. Tres piezas, tres texturas, una silueta. Funciona porque cada elemento es esencial; quita cualquiera de los tres y el look se cae.
     </p>
   </div>
 </section>
@@ -443,7 +422,7 @@
         Asequible, equilibrado o <em class="font-serif italic font-normal">premium</em>
       </h2>
       <p class="text-lynText text-sm sm:text-base">
-        Las cuatro mismas piezas, en tres niveles de presupuesto. Cuanto más arriba, más calidad de tejido, ajuste y durabilidad. La elección depende de cuánto te vas a poner el look.
+        Las tres mismas piezas, en tres niveles de presupuesto. Cuanto más arriba, más calidad de tejido, caída y zapato. La elección depende de cuánto te vas a poner el look.
       </p>
     </div>
 
@@ -452,96 +431,75 @@
       <!-- ─── ASEQUIBLE ─── -->
       <article class="ow-tier ow-tier-asequible rounded-2xl p-6 sm:p-7"
                data-tier="asequible" role="group" aria-roledescription="slide"
-               aria-label="Asequible, 4 prendas, total 112,01 €">
+               aria-label="Asequible, 3 prendas, total 119,97 €">
         <div class="flex items-baseline justify-between mb-1">
           <h3 class="ow-tier-label text-2xl font-bold text-lynDark">Asequible</h3>
-          <span class="ow-badge-cheap">Ahorra 475,73 €</span>
+          <span class="ow-badge-cheap">Ahorra 328,32 €</span>
         </div>
-        <p class="text-sm text-lynText mb-5 min-h-[2.6em]">Recrea el look completo por menos de lo que cuesta una cena para dos</p>
-        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold text-lynDark mb-1 leading-none">112,01&nbsp;€</div>
-        <p class="text-xs text-lynText/70 mb-7">Total estimado · 4 piezas</p>
+        <p class="text-sm text-lynText mb-5 min-h-[2.6em]">El look completo por menos de 120€</p>
+        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold text-lynDark mb-1 leading-none">119,97&nbsp;€</div>
+        <p class="text-xs text-lynText/70 mb-7">Total estimado · 3 piezas</p>
 
         <div class="ow-products grid grid-cols-2 gap-3 sm:gap-4">
-          <!-- Cardigan -->
+          <!-- Jersey -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/3/1/1/311935071d5b3b303e1189dba220ce3a.jpg"
-                   alt="Chaqueta de algodón con cremallera, La Redoute Collections"
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/8/0/4/804b62ba04e09b27ce9fa41bf93249a4.jpg"
+                   alt="Jersey de punto inglés de algodón, La Redoute Collections"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Cardigan azul · La Redoute Collections</p>
-              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Chaqueta de algodón con cremallera, canalé inglés</p>
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Jersey azul · La Redoute Collections</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Jersey de punto inglés de algodón</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold text-lynDark">32,49&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301753729&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold text-lynDark">24,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301753711&a=2806382&m=10497" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: La Redoute Collections Chaqueta de algodón con cremallera, canalé inglés por 32,49 €"
+                   aria-label="Ver producto: La Redoute Collections Jersey de punto inglés de algodón por 24,99 €"
                    data-track="product-click" data-tier="asequible" data-brand="La Redoute Collections"
-                   data-product-name="Chaqueta de algodón con cremallera, canalé inglés" data-network="awin"
+                   data-product-name="Jersey de punto inglés de algodón" data-network="awin"
                    class="ow-product-cta text-lynDark">Ver producto →</a>
               </div>
             </div>
           </div>
-          <!-- Tee -->
+          <!-- Pantalón -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/7/6/e/76e9987be894f49eb274197289ed1c8b.jpg"
-                   alt="Camiseta de cuello redondo y manga corta, La Redoute Collections"
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/4/f/b/4fbf085e56a2d924198d7755651da1d0.jpg"
+                   alt="Pantalón ancho de lino con pinzas, La Redoute Collections"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Camiseta blanca · La Redoute Collections</p>
-              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Camiseta de cuello redondo y manga corta</p>
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Pantalón negro · La Redoute Collections</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Pantalón ancho de lino con pinzas</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold text-lynDark">4,54&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44500078112&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold text-lynDark">44,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301694425&a=2806382&m=10497" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: La Redoute Collections Camiseta de cuello redondo y manga corta por 4,54 €"
+                   aria-label="Ver producto: La Redoute Collections Pantalón ancho de lino con pinzas por 44,99 €"
                    data-track="product-click" data-tier="asequible" data-brand="La Redoute Collections"
-                   data-product-name="Camiseta de cuello redondo y manga corta" data-network="awin"
+                   data-product-name="Pantalón ancho de lino con pinzas" data-network="awin"
                    class="ow-product-cta text-lynDark">Ver producto →</a>
               </div>
             </div>
           </div>
-          <!-- Pant -->
+          <!-- Zapatos -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/1/5/5/15565ad5a8ef2144bc572bfa1d9d9ae5.jpg"
-                   alt="Pantalón recto de lino Signature ISAAC, La Redoute Collections"
+              <img src="https://zapatosobi.com/4510503-large_default/zapatos-pikolinos-berna-m8j-4183c1-negro.jpg"
+                   alt="Zapatos Pikolinos BERNA negros"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Pantalón claro · La Redoute Collections</p>
-              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Pantalón recto de lino Signature ISAAC</p>
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Zapatos de vestir · Pikolinos</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Zapatos Pikolinos BERNA</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold text-lynDark">38,99&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301756106&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold text-lynDark">49,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44056160673&a=2806382&m=115587" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: La Redoute Collections Pantalón recto de lino Signature ISAAC por 38,99 €"
-                   data-track="product-click" data-tier="asequible" data-brand="La Redoute Collections"
-                   data-product-name="Pantalón recto de lino Signature ISAAC" data-network="awin"
-                   class="ow-product-cta text-lynDark">Ver producto →</a>
-              </div>
-            </div>
-          </div>
-          <!-- Shoes -->
-          <div class="ow-product-card">
-            <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/1/7/d/17dde88cef1d761da35e40ee6449a4d7.jpg"
-                   alt="Mocasines Signature de piel con morsetti, La Redoute Collections"
-                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
-            </div>
-            <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Mocasines · La Redoute Collections</p>
-              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Mocasines Signature de piel con morsetti</p>
-              <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold text-lynDark">35,99&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44500100306&a=2806382&m=10497" target="_blank"
-                   rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: La Redoute Collections Mocasines Signature de piel con morsetti por 35,99 €"
-                   data-track="product-click" data-tier="asequible" data-brand="La Redoute Collections"
-                   data-product-name="Mocasines Signature de piel con morsetti" data-network="awin"
+                   aria-label="Ver producto: Pikolinos Zapatos Pikolinos BERNA por 49,99 €"
+                   data-track="product-click" data-tier="asequible" data-brand="Pikolinos"
+                   data-product-name="Zapatos Pikolinos BERNA" data-network="awin"
                    class="ow-product-cta text-lynDark">Ver producto →</a>
               </div>
             </div>
@@ -552,96 +510,75 @@
       <!-- ─── EQUILIBRADO ─── -->
       <article class="ow-tier ow-tier-equilibrado rounded-2xl p-6 sm:p-7"
                data-tier="equilibrado" role="group" aria-roledescription="slide"
-               aria-label="Equilibrado, 4 prendas, total 194,92 €">
+               aria-label="Equilibrado, 3 prendas, total 214,43 €">
         <div class="flex items-baseline justify-between mb-1">
           <h3 class="ow-tier-label text-2xl font-bold text-lynDark">Equilibrado</h3>
-          <span class="ow-badge-diff">+82,91 € vs Asequible</span>
+          <span class="ow-badge-diff">+94,46 € vs Asequible</span>
         </div>
-        <p class="text-sm text-lynText mb-5 min-h-[2.6em]">Las mismas piezas, con un par de upgrades en lo que más se nota</p>
-        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold text-lynDark mb-1 leading-none">194,92&nbsp;€</div>
-        <p class="text-xs text-lynText/70 mb-7">Total estimado · 4 piezas</p>
+        <p class="text-sm text-lynText mb-5 min-h-[2.6em]">Sube de marca en lo que más se nota: tejido, caída y zapato</p>
+        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold text-lynDark mb-1 leading-none">214,43&nbsp;€</div>
+        <p class="text-xs text-lynText/70 mb-7">Total estimado · 3 piezas</p>
 
         <div class="ow-products grid grid-cols-2 gap-3 sm:gap-4">
-          <!-- Cardigan (same) -->
+          <!-- Jersey -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/3/1/1/311935071d5b3b303e1189dba220ce3a.jpg"
-                   alt="Chaqueta de algodón con cremallera, La Redoute Collections"
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/4/f/7/4f754301e200e432933da315e9a828f7.jpg"
+                   alt="Jersey de cuello redondo Decatur, Napapijri"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Cardigan azul · La Redoute Collections</p>
-              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Chaqueta de algodón con cremallera, canalé inglés</p>
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Jersey azul · Napapijri</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Jersey de cuello redondo Decatur</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold text-lynDark">32,49&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301753729&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold text-lynDark">76,49&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301843494&a=2806382&m=10497" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: La Redoute Collections Chaqueta de algodón con cremallera, canalé inglés por 32,49 €"
-                   data-track="product-click" data-tier="equilibrado" data-brand="La Redoute Collections"
-                   data-product-name="Chaqueta de algodón con cremallera, canalé inglés" data-network="awin"
+                   aria-label="Ver producto: Napapijri Jersey de cuello redondo Decatur por 76,49 €"
+                   data-track="product-click" data-tier="equilibrado" data-brand="Napapijri"
+                   data-product-name="Jersey de cuello redondo Decatur" data-network="awin"
                    class="ow-product-cta text-lynDark">Ver producto →</a>
               </div>
             </div>
           </div>
-          <!-- Tee (CK) -->
+          <!-- Pantalón -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/7/e/1/7e1def9077a29b8b4b9ee656fbd564f7.jpg"
-                   alt="Camiseta de manga corta con logotipo, Calvin Klein"
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/9/1/e/91ef4f7c26de148f8c770ea070fc985c.jpg"
+                   alt="Vaquero ancho Chris, Jack & Jones"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Camiseta blanca · Calvin Klein</p>
-              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Camiseta de manga corta con logotipo</p>
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Pantalón negro · Jack &amp; Jones</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Vaquero ancho Chris</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold text-lynDark">35,99&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301837117&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold text-lynDark">47,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301760177&a=2806382&m=10497" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: Calvin Klein Camiseta de manga corta con logotipo por 35,99 €"
-                   data-track="product-click" data-tier="equilibrado" data-brand="Calvin Klein"
-                   data-product-name="Camiseta de manga corta con logotipo" data-network="awin"
+                   aria-label="Ver producto: Jack &amp; Jones Vaquero ancho Chris por 47,99 €"
+                   data-track="product-click" data-tier="equilibrado" data-brand="Jack &amp; Jones"
+                   data-product-name="Vaquero ancho Chris" data-network="awin"
                    class="ow-product-cta text-lynDark">Ver producto →</a>
               </div>
             </div>
           </div>
-          <!-- Pant (same) -->
+          <!-- Zapatos -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/1/5/5/15565ad5a8ef2144bc572bfa1d9d9ae5.jpg"
-                   alt="Pantalón recto de lino Signature ISAAC, La Redoute Collections"
+              <img src="https://zapatosobi.com/3506307-large_default/zapatos-clarks-tilden-plain-negro.jpg"
+                   alt="Zapatos Tilden Plain, Clarks"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Pantalón claro · La Redoute Collections</p>
-              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Pantalón recto de lino Signature ISAAC</p>
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Zapatos de vestir · Clarks</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Zapatos Tilden Plain</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold text-lynDark">38,99&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301756106&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold text-lynDark">89,95&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44056153297&a=2806382&m=115587" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: La Redoute Collections Pantalón recto de lino Signature ISAAC por 38,99 €"
-                   data-track="product-click" data-tier="equilibrado" data-brand="La Redoute Collections"
-                   data-product-name="Pantalón recto de lino Signature ISAAC" data-network="awin"
-                   class="ow-product-cta text-lynDark">Ver producto →</a>
-              </div>
-            </div>
-          </div>
-          <!-- Shoes (TH) -->
-          <div class="ow-product-card">
-            <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/6/3/3/6332cb3773bab95e10d6e025b3d3473c.jpg"
-                   alt="Mocasines de piel ligera, Tommy Hilfiger"
-                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
-            </div>
-            <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Mocasines · Tommy Hilfiger</p>
-              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Mocasines de piel ligera</p>
-              <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold text-lynDark">87,45&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301664847&a=2806382&m=10497" target="_blank"
-                   rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: Tommy Hilfiger Mocasines de piel ligera por 87,45 €"
-                   data-track="product-click" data-tier="equilibrado" data-brand="Tommy Hilfiger"
-                   data-product-name="Mocasines de piel ligera" data-network="awin"
+                   aria-label="Ver producto: Clarks Zapatos Tilden Plain por 89,95 €"
+                   data-track="product-click" data-tier="equilibrado" data-brand="Clarks"
+                   data-product-name="Zapatos Tilden Plain" data-network="awin"
                    class="ow-product-cta text-lynDark">Ver producto →</a>
               </div>
             </div>
@@ -652,96 +589,75 @@
       <!-- ─── PREMIUM ─── -->
       <article class="ow-tier ow-tier-premium rounded-2xl p-6 sm:p-7"
                data-tier="premium" role="group" aria-roledescription="slide"
-               aria-label="Premium, 4 prendas, total 587,74 €">
+               aria-label="Premium, 3 prendas, total 448,29 €">
         <div class="flex items-baseline justify-between mb-1">
           <h3 class="ow-tier-label text-2xl font-bold">Premium</h3>
-          <span class="ow-badge-diff">+475,73 € vs Asequible</span>
+          <span class="ow-badge-diff">+328,32 € vs Asequible</span>
         </div>
-        <p class="text-sm text-white/70 mb-5 min-h-[2.6em]">Inversión en piezas que durarán cinco temporadas o más</p>
-        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold mb-1 leading-none">587,74&nbsp;€</div>
-        <p class="text-xs text-white/55 mb-7">Total estimado · 4 piezas</p>
+        <p class="text-sm text-white/70 mb-5 min-h-[2.6em]">Piezas para llevar diez años, no una temporada</p>
+        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold mb-1 leading-none">448,29&nbsp;€</div>
+        <p class="text-xs text-white/55 mb-7">Total estimado · 3 piezas</p>
 
         <div class="ow-products grid grid-cols-2 gap-3 sm:gap-4">
-          <!-- Cardigan RL -->
+          <!-- Jersey -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/b/3/6/b369bde375d2162d19161d286824a20b.jpg"
-                   alt="Jersey de canalé con cremallera, Polo Ralph Lauren"
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/a/a/1/aa171b5e2b2f9b8bb2bdd42ce3d93c8f.jpg"
+                   alt="Jersey con media cremallera de algodón piqué, Polo Ralph Lauren"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Cardigan azul · Polo Ralph Lauren</p>
-              <p class="ow-product-name text-sm font-medium mb-3">Jersey de canalé con cremallera, de algodón</p>
+              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Jersey azul · Polo Ralph Lauren</p>
+              <p class="ow-product-name text-sm font-medium mb-3">Jersey con media cremallera de algodón piqué</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold">199,75&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301832115&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold">178,45&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44616848938&a=2806382&m=10497" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: Polo Ralph Lauren Jersey de canalé con cremallera, de algodón por 199,75 €"
+                   aria-label="Ver producto: Polo Ralph Lauren Jersey con media cremallera de algodón piqué por 178,45 €"
                    data-track="product-click" data-tier="premium" data-brand="Polo Ralph Lauren"
-                   data-product-name="Jersey de canalé con cremallera, de algodón" data-network="awin"
+                   data-product-name="Jersey con media cremallera de algodón piqué" data-network="awin"
                    class="ow-product-cta">Ver producto →</a>
               </div>
             </div>
           </div>
-          <!-- Tee RL -->
+          <!-- Pantalón -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/5/b/9/5b91f2178a3de858cccb942c8242b526.jpg"
-                   alt="Camiseta recta con bordes a contraste, Polo Ralph Lauren"
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/2/7/9/2796d8229123e0107a1ab56aa7afd1db.jpg"
+                   alt="Pantalón plisado de talle alto pernera ancha, La Redoute Collections"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Camiseta blanca · Polo Ralph Lauren</p>
-              <p class="ow-product-name text-sm font-medium mb-3">Camiseta recta con bordes a contraste</p>
+              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Pantalón negro · La Redoute Collections</p>
+              <p class="ow-product-name text-sm font-medium mb-3">Pantalón plisado de talle alto pernera ancha</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold">80,74&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301796947&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold">61,59&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301803901&a=2806382&m=10497" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: Polo Ralph Lauren Camiseta recta con bordes a contraste por 80,74 €"
-                   data-track="product-click" data-tier="premium" data-brand="Polo Ralph Lauren"
-                   data-product-name="Camiseta recta con bordes a contraste" data-network="awin"
+                   aria-label="Ver producto: La Redoute Collections Pantalón plisado de talle alto pernera ancha por 61,59 €"
+                   data-track="product-click" data-tier="premium" data-brand="La Redoute Collections"
+                   data-product-name="Pantalón plisado de talle alto pernera ancha" data-network="awin"
                    class="ow-product-cta">Ver producto →</a>
               </div>
             </div>
           </div>
-          <!-- Pant RL -->
+          <!-- Mocasines -->
           <div class="ow-product-card">
             <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/4/7/5/475a898139131f2aab0f68d1c80deec3.jpg"
-                   alt="Pantalones chinos slim Bedford, Polo Ralph Lauren"
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/4/9/8/4989d8753fcc4a0843b9a0e030d683f4.jpg"
+                   alt="Mocasines de piel Jett Penny, Polo Ralph Lauren"
                    class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
             </div>
             <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Pantalón claro · Polo Ralph Lauren</p>
-              <p class="ow-product-name text-sm font-medium mb-3">Pantalones chinos slim efecto lavado Bedford</p>
+              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Mocasines · Polo Ralph Lauren</p>
+              <p class="ow-product-name text-sm font-medium mb-3">Mocasines de piel Jett Penny</p>
               <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold">152,25&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301751000&a=2806382&m=10497" target="_blank"
+                <span class="text-base font-bold">208,25&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44330642863&a=2806382&m=10497" target="_blank"
                    rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: Polo Ralph Lauren Pantalones chinos slim efecto lavado Bedford por 152,25 €"
+                   aria-label="Ver producto: Polo Ralph Lauren Mocasines de piel Jett Penny por 208,25 €"
                    data-track="product-click" data-tier="premium" data-brand="Polo Ralph Lauren"
-                   data-product-name="Pantalones chinos slim efecto lavado Bedford" data-network="awin"
-                   class="ow-product-cta">Ver producto →</a>
-              </div>
-            </div>
-          </div>
-          <!-- Shoes JONAK -->
-          <div class="ow-product-card">
-            <div class="ow-product-img-wrap">
-              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/c/6/d/c6d30102e876baa0f7c8adc0636467b2.jpg"
-                   alt="Mocasines de piel Delphes, JONAK"
-                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
-            </div>
-            <div class="p-4">
-              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Mocasines · JONAK</p>
-              <p class="ow-product-name text-sm font-medium mb-3">Mocasines de piel Delphes, fabricados en Europa</p>
-              <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-bold">155,00&nbsp;€</span>
-                <a href="https://www.awin1.com/pclick.php?p=44301636418&a=2806382&m=10497" target="_blank"
-                   rel="nofollow sponsored noopener"
-                   aria-label="Ver producto: JONAK Mocasines de piel Delphes, fabricados en Europa por 155,00 €"
-                   data-track="product-click" data-tier="premium" data-brand="JONAK"
-                   data-product-name="Mocasines de piel Delphes, fabricados en Europa" data-network="awin"
+                   data-product-name="Mocasines de piel Jett Penny" data-network="awin"
                    class="ow-product-cta">Ver producto →</a>
               </div>
             </div>
@@ -830,9 +746,7 @@
         Ver todos →
       </a>
     </div>
-    <div id="ow-history-grid" class="grid grid-cols-2 md:grid-cols-3 gap-5">
-      <!-- Renderizado por JS desde data.js. Si no hay outfits previos, se muestra placeholder. -->
-    </div>
+    <div id="ow-history-grid" class="grid grid-cols-2 md:grid-cols-3 gap-5"></div>
     <div id="ow-history-empty" class="hidden">
       <div class="bg-white border border-dashed border-gray-200 rounded-2xl p-10 sm:p-14 text-center">
         <p class="text-2xl sm:text-3xl font-serif italic text-lynDark mb-2">Próximamente más outfits</p>
@@ -879,22 +793,18 @@
   </div>
 </footer>
 
-<!-- ═══════════ TRACKING + INTERACCIÓN (data.js ya cargado en <head>) ═══════════ -->
+<!-- ═══════════ TRACKING + INTERACCIÓN ═══════════ -->
 <script>
 (function () {
   'use strict';
 
-  // Si la página está gated (publishAt > now), saltamos toda la inicialización:
-  // tracking, carrusel, share bar... el contenido del outfit está oculto y
-  // mostramos coming-soon. detail-init.js maneja eso.
+  // Si la página está gated, saltamos toda la inicialización.
   if (document.documentElement.classList.contains('outfit-gated')) return;
 
   const W = window.LynenWeeklyOutfits;
-  const SLUG = 'jacob-elordi-cardigan-azul';
+  const SLUG = 'pedro-pascal-jersey-azul';
   const PAGE_URL = window.location.origin + '/outfit-de-la-semana/' + SLUG + '/';
 
-  // ── Analytics noop hooks ──
-  // Si más adelante se conecta Plausible, GA4 o similar, conectar aquí.
   function track(event, payload) {
     try {
       if (window.plausible) window.plausible(event, { props: payload || {} });
@@ -902,10 +812,8 @@
     } catch (_) { /* swallow */ }
   }
 
-  // outfit_view
   track('outfit_view', { slug: SLUG });
 
-  // ── Click tracking en productos afiliados ──
   document.querySelectorAll('[data-track="product-click"]').forEach(function (el) {
     el.addEventListener('click', function () {
       track('outfit_product_click', {
@@ -919,9 +827,9 @@
   });
 
   // ── Share bar ──
-  const shareTitle = 'El cardigan azul de Jacob Elordi — Outfit de la semana | Lynen';
-  const shareText = 'Recrea el cardigan azul de Jacob Elordi en tres niveles de presupuesto: 112 €, 195 € o 588 €.';
-  const heroImg = window.location.origin + '/images/weekly-outfits/jacob-elordi-cardigan.png';
+  const shareTitle = 'El jersey azul marino de Pedro Pascal — Outfit de la semana | Lynen';
+  const shareText = 'Recrea el jersey azul marino de Pedro Pascal en tres niveles de presupuesto: 120 €, 214 € o 448 €.';
+  const heroImg = window.location.origin + '/images/weekly-outfits/pedro-pascal.png';
 
   document.getElementById('ow-share-whatsapp').href =
     'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + PAGE_URL);
@@ -954,7 +862,7 @@
   const tierCards = tiersGrid ? tiersGrid.querySelectorAll('[data-tier]') : [];
   const tierDots = document.querySelectorAll('.tier-dots .tier-dot');
   let currentTier = 'equilibrado';
-  let suppressNextTrack = true; // ignorar el primer cambio (centrado inicial)
+  let suppressNextTrack = true;
 
   function isCarouselActive() { return window.innerWidth < 1024; }
 
@@ -981,11 +889,9 @@
   }
 
   if (tiersGrid && tierCards.length) {
-    // Centrar al cargar y al redimensionar
     window.addEventListener('load', centerOnEquilibrado);
     window.addEventListener('resize', centerOnEquilibrado);
 
-    // Detectar el tier activo durante el scroll
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -1007,7 +913,6 @@
       tierCards.forEach(function (c) { observer.observe(c); });
     }
 
-    // Click en los puntos
     tierDots.forEach(function (dot) {
       dot.addEventListener('click', function () {
         const tier = dot.dataset.tier;

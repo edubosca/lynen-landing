@@ -8,8 +8,16 @@
  *      la home muestra el outfit "actual" según fecha. Si `publishAt > now`, se
  *      mantiene el anterior hasta que llegue la fecha.
  *
- * NOTA SEO: cuando se genere sitemap.xml automatizado, debe incluir
- * /outfit-de-la-semana/ y todas las URLs /outfit-de-la-semana/<slug>/.
+ * NOTA SEO: cuando se genere sitemap.xml automatizado, debe filtrar
+ * `WEEKLY_OUTFITS.filter(isPublished)` para no incluir URLs de outfits aún
+ * no publicados (publishAt > now). Solo deben incluirse /outfit-de-la-semana/
+ * y los slugs ya publicados.
+ *
+ * GATING: las páginas de detalle de outfits con publishAt > now se bloquean
+ * en cliente vía /outfit-de-la-semana/detail-init.js (muestra "Próximamente"
+ * + inyecta noindex). Hasta entonces, no se genera JSON-LD ni og:* tags
+ * específicos del outfit, así que crawlers que no ejecutan JS solo ven la
+ * meta robots noindex y nada cacheable del look.
  */
 (function () {
   'use strict';
@@ -18,6 +26,135 @@
 
   /** @type {Array} */
   const WEEKLY_OUTFITS = [
+    {
+      slug: 'pedro-pascal-jersey-azul',
+      publishAt: '2026-05-18T10:00:00+02:00',
+      inspiredBy: { name: 'Pedro Pascal', type: 'celebrity' },
+      title: 'El jersey azul marino de Pedro Pascal',
+      subtitle: 'Monocromo nocturno con un toque de color',
+      description:
+        'Pedro Pascal hace lo que pocos hombres hacen bien: vestir todo oscuro sin parecer un guardia de seguridad. La clave está en romper el negro con un único punto de color — en este caso, un azul marino profundo que casi pasa por negro pero no del todo. Pantalón ancho con caída, zapatos pulidos, jersey de punto fino. Tres piezas, tres texturas, una silueta. Funciona porque cada elemento es esencial; quita cualquiera de los tres y el look se cae.',
+      vibeKeywords: ['monocromo', 'elegante', 'nocturno', 'minimalista', 'sastrería relajada'],
+      season: 'Primavera 2026',
+      heroImage: {
+        src: '/images/weekly-outfits/pedro-pascal.png',
+        alt: 'Pedro Pascal con jersey azul marino, pantalón negro ancho y zapatos de vestir negros',
+        credit: 'Foto: vía redes sociales'
+      },
+      tiers: [
+        {
+          tier: 'asequible',
+          label: 'Asequible',
+          tagline: 'El look completo por menos de 120€',
+          products: [
+            {
+              slot: 'outerwear',
+              slotLabel: 'Jersey azul',
+              name: 'Jersey de punto inglés de algodón',
+              brand: 'La Redoute Collections',
+              price: 24.99,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/8/0/4/804b62ba04e09b27ce9fa41bf93249a4.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301753711&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
+              slot: 'pants',
+              slotLabel: 'Pantalón negro',
+              name: 'Pantalón ancho de lino con pinzas',
+              brand: 'La Redoute Collections',
+              price: 44.99,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/4/f/b/4fbf085e56a2d924198d7755651da1d0.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301694425&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
+              slot: 'shoes',
+              slotLabel: 'Zapatos de vestir',
+              name: 'Zapatos Pikolinos BERNA',
+              brand: 'Pikolinos',
+              price: 49.99,
+              imageUrl: 'https://zapatosobi.com/4510503-large_default/zapatos-pikolinos-berna-m8j-4183c1-negro.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44056160673&a=2806382&m=115587',
+              network: 'awin'
+            }
+          ]
+        },
+        {
+          tier: 'equilibrado',
+          label: 'Equilibrado',
+          tagline: 'Sube de marca en lo que más se nota: tejido, caída y zapato',
+          products: [
+            {
+              slot: 'outerwear',
+              slotLabel: 'Jersey azul',
+              name: 'Jersey de cuello redondo Decatur',
+              brand: 'Napapijri',
+              price: 76.49,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/4/f/7/4f754301e200e432933da315e9a828f7.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301843494&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
+              slot: 'pants',
+              slotLabel: 'Pantalón negro',
+              name: 'Vaquero ancho Chris',
+              brand: 'Jack & Jones',
+              price: 47.99,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/9/1/e/91ef4f7c26de148f8c770ea070fc985c.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301760177&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
+              slot: 'shoes',
+              slotLabel: 'Zapatos de vestir',
+              name: 'Zapatos Tilden Plain',
+              brand: 'Clarks',
+              price: 89.95,
+              imageUrl: 'https://zapatosobi.com/3506307-large_default/zapatos-clarks-tilden-plain-negro.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44056153297&a=2806382&m=115587',
+              network: 'awin'
+            }
+          ]
+        },
+        {
+          tier: 'premium',
+          label: 'Premium',
+          tagline: 'Piezas para llevar diez años, no una temporada',
+          products: [
+            {
+              slot: 'outerwear',
+              slotLabel: 'Jersey azul',
+              name: 'Jersey con media cremallera de algodón piqué',
+              brand: 'Polo Ralph Lauren',
+              price: 178.45,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/a/a/1/aa171b5e2b2f9b8bb2bdd42ce3d93c8f.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44616848938&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
+              slot: 'pants',
+              slotLabel: 'Pantalón negro',
+              name: 'Pantalón plisado de talle alto pernera ancha',
+              brand: 'La Redoute Collections',
+              price: 61.59,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/2/7/9/2796d8229123e0107a1ab56aa7afd1db.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301803901&a=2806382&m=10497',
+              network: 'awin'
+            },
+            {
+              slot: 'shoes',
+              slotLabel: 'Mocasines',
+              name: 'Mocasines de piel Jett Penny',
+              brand: 'Polo Ralph Lauren',
+              price: 208.25,
+              imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/4/9/8/4989d8753fcc4a0843b9a0e030d683f4.jpg',
+              affiliateUrl: 'https://www.awin1.com/pclick.php?p=44330642863&a=2806382&m=10497',
+              network: 'awin'
+            }
+          ]
+        }
+      ]
+    },
     {
       slug: 'jacob-elordi-cardigan-azul',
       publishAt: '2026-05-11T10:00:00+02:00',
@@ -195,23 +332,43 @@
     return WEEKLY_OUTFITS.slice().sort((a, b) => (a.publishAt < b.publishAt ? 1 : -1));
   }
 
-  // Fallback decision: si ningún outfit cumple publishAt <= now (porque hoy es
-  // antes del primer publishAt), igualmente devolvemos el más antiguo para no
-  // dejar la página vacía. Solo hay un outfit cargado de momento.
+  function isPublished(outfit, now) {
+    return new Date(outfit.publishAt) <= (now || new Date());
+  }
+
+  // Decisión sobre el fallback de `current`:
+  // Si ningún outfit cumple publishAt <= now (estamos antes del primer publishAt),
+  // devolvemos el outfit con publishAt más cercano en el futuro (el más antiguo).
+  // Esto garantiza que la home y el teaser siempre tienen contenido — pero
+  // la página de detalle correspondiente sigue gated por detail-init.js
+  // hasta su `publishAt`. O sea: el usuario ve la portada en home pero al
+  // hacer click llega a "Próximamente disponible el día X".
   function getCurrentOutfit(now) {
     now = now || new Date();
-    const sorted = allOutfits();
-    const live = sorted.find(o => new Date(o.publishAt) <= now);
+    const sorted = allOutfits(); // DESC por publishAt
+    const live = sorted.find(o => isPublished(o, now));
     return live || sorted[sorted.length - 1];
   }
 
+  // Devuelve solo outfits ya publicados, excluyendo el actual.
+  // Outfits con publishAt futuro NO aparecen aquí — quedan invisibles
+  // para el público hasta su fecha.
   function getPastOutfits(now) {
+    now = now || new Date();
     const current = getCurrentOutfit(now);
-    return allOutfits().filter(o => o.slug !== current.slug);
+    return allOutfits().filter(o =>
+      isPublished(o, now) && (!current || o.slug !== current.slug)
+    );
   }
 
   function getOutfitBySlug(slug) {
     return WEEKLY_OUTFITS.find(o => o.slug === slug);
+  }
+
+  function formatPublishDate(iso, locale) {
+    return new Date(iso).toLocaleDateString(locale || 'es-ES', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    });
   }
 
   function optimizeProductImage(url, width) {
@@ -236,11 +393,13 @@
     current: getCurrentOutfit,
     past: getPastOutfits,
     bySlug: getOutfitBySlug,
+    isPublished: isPublished,
     tierTotal: tierTotal,
     cheapestTierTotal: cheapestTierTotal,
     mostExpensiveTierTotal: mostExpensiveTierTotal,
     optimizeProductImage: optimizeProductImage,
     formatEUR: formatEUR,
+    formatPublishDate: formatPublishDate,
     detailUrl: detailUrl,
     indexUrl: indexUrl
   };
