@@ -15,8 +15,13 @@
 
   <meta name="pinterest-rich-pin" content="true" />
 
-  <!-- data.js cargado en <head> síncrono para que detail-init.js (que se carga
-       al inicio del <body>) pueda gating + SEO inyection antes del paint. -->
+  <!-- Catálogo + outfits raw + orquestador, todo síncrono en <head> para que
+       detail-init.js (que se carga al inicio del <body>) tenga acceso a la
+       API hidratada antes del paint. El orden importa: products primero,
+       luego outfits, luego data.js que hidrata. -->
+  <script src="/outfit-de-la-semana/data/products.js"></script>
+  <script src="/outfit-de-la-semana/data/outfits/jacob-elordi-cardigan-azul.js"></script>
+  <script src="/outfit-de-la-semana/data/outfits/pedro-pascal-jersey-azul.js"></script>
   <script src="/outfit-de-la-semana/data.js"></script>
 
   <link rel="icon" type="image/png" href="/lynen-logo.png" />

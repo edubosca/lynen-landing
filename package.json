@@ -1,0 +1,9 @@
+{
+  "name": "lynen-landing",
+  "private": true,
+  "description": "Landing estática de Lynen. Scripts de mantenimiento del catálogo de productos.",
+  "scripts": {
+    "check-stale": "node scripts/check-stale-products.js",
+    "verify-product": "node scripts/verify-product.js"
+  }
+}
