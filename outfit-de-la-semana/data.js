@@ -28,7 +28,7 @@
   const WEEKLY_OUTFITS = [
     {
       slug: 'pedro-pascal-jersey-azul',
-      publishAt: '2026-05-18T10:00:00+02:00',
+      publishAt: '2026-05-11T10:00:00+02:00',
       inspiredBy: { name: 'Pedro Pascal', type: 'celebrity' },
       title: 'El jersey azul marino de Pedro Pascal',
       subtitle: 'Monocromo nocturno con un toque de color',
@@ -157,7 +157,7 @@
     },
     {
       slug: 'jacob-elordi-cardigan-azul',
-      publishAt: '2026-05-11T10:00:00+02:00',
+      publishAt: '2026-05-04T10:00:00+02:00',
       inspiredBy: { name: 'Jacob Elordi', type: 'celebrity' },
       title: 'El cardigan azul de Jacob Elordi',
       subtitle: 'Preppy de primavera, suave y sin esfuerzo',
