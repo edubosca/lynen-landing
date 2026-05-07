@@ -10,7 +10,7 @@ window.WeeklyOutfitsRaw.outfits = window.WeeklyOutfitsRaw.outfits || {};
 window.WeeklyOutfitsRaw.outfits['pedro-pascal-jersey-azul'] = {
 
   slug: 'pedro-pascal-jersey-azul',
-  publishAt: '2026-05-11T10:00:00+02:00',
+  publishAt: '2026-05-08T10:00:00+02:00',
   inspiredBy: { name: 'Pedro Pascal', type: 'celebrity' },
   title: 'El jersey azul marino de Pedro Pascal',
   subtitle: 'Monocromo nocturno con un toque de color',
