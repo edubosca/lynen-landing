@@ -10,7 +10,7 @@ window.WeeklyOutfitsRaw.outfits = window.WeeklyOutfitsRaw.outfits || {};
 window.WeeklyOutfitsRaw.outfits['c-tangana-camisa-rayas'] = {
 
   slug: 'c-tangana-camisa-rayas',
-  publishAt: '2026-05-25T10:00:00+02:00',
+  publishAt: '2026-05-09T10:00:00+02:00',
   inspiredBy: { name: 'C. Tangana', type: 'celebrity' },
   title: 'La camisa de rayas de C. Tangana',
   subtitle: 'Sastrería relajada con un toque mediterráneo',
