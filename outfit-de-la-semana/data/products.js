@@ -125,6 +125,18 @@ window.WeeklyOutfitsRaw.products = {
     notes: ''
   },
 
+  'ck-camisa-lino-rayas': {
+    name: 'Camisa de lino a rayas',
+    brand: 'Calvin Klein',
+    price: 103.53,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/8/b/9/8b9c27a7d760e2c84ce43715ae254fa7.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44372799577&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-10',
+    notes: ''
+  },
+
   // ─── Tommy Hilfiger ──────────────────────────────────────────────────
 
   'tommy-mocasines-piel': {
@@ -201,6 +213,18 @@ window.WeeklyOutfitsRaw.products = {
     notes: ''
   },
 
+  'prl-tirantes-clasicas-pack2': {
+    name: 'Lote de 2 camisetas de tirantes clásicas',
+    brand: 'Polo Ralph Lauren',
+    price: 41.99,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/5/e/0/5e0aac7fef8bbfb621677c3a2120b7ef.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301639801&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-10',
+    notes: ''
+  },
+
   // ─── JONAK ───────────────────────────────────────────────────────────
 
   'jonak-mocasines-delphes': {
@@ -268,6 +292,62 @@ window.WeeklyOutfitsRaw.products = {
     affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301760177&a=2806382&m=10497',
     network: 'awin',
     lastVerifiedAt: '2026-05-05',
+    notes: ''
+  },
+
+  // ─── Only & Sons ─────────────────────────────────────────────────────
+
+  'only-sons-camisa-rayas-slim': {
+    name: 'Camisa slim fit de rayas, algodón y lino',
+    brand: 'Only & Sons',
+    price: 33.59,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/7/0/6/70670cdb5786dab648475e819b85afc9.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44463898433&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-10',
+    notes: ''
+  },
+
+  // ─── Pepe Jeans ──────────────────────────────────────────────────────
+
+  'pepe-jeans-camisa-rayas-algodon-lino': {
+    name: 'Camisa de rayas de algodón y lino',
+    brand: 'Pepe Jeans',
+    price: 43.99,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/c/2/d/c2d6a499b8e483f3fd6649b8463e0175.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301802025&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-10',
+    notes: ''
+  },
+
+  // ─── Eminence ────────────────────────────────────────────────────────
+
+  'eminence-tirantes-heritage': {
+    name: 'Camiseta de tirantes Heritage',
+    brand: 'Eminence',
+    price: 19.94,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/1/5/f/15fa69130e9e9495ab45596b74ee898e.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301772922&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-10',
+    notes: ''
+  },
+
+  // ─── DIM ─────────────────────────────────────────────────────────────
+
+  'dim-tirantes-ecodim-pack2': {
+    name: 'Lote de 2 camisetas de tirantes ECODIM COTON',
+    brand: 'DIM',
+    price: 22.09,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/f/0/b/f0ba7d44956ab2e2243b6acba62288fd.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301670622&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-10',
     notes: ''
   }
 

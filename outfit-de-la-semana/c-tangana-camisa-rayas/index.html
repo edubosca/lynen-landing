@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Outfit de la semana | Lynen</title>
+  <!-- Title, description, og:*, twitter:* y JSON-LD específicos del outfit
+       se inyectan dinámicamente desde detail-init.js solo si publishAt <= now.
+       Antes de esa fecha, la página queda noindex y muestra "Próximamente". -->
+
+  <link rel="canonical" href="https://www.lynenapp.com/outfit-de-la-semana/c-tangana-camisa-rayas/" />
+  <link rel="alternate" hreflang="es" href="https://www.lynenapp.com/outfit-de-la-semana/c-tangana-camisa-rayas/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.lynenapp.com/outfit-de-la-semana/c-tangana-camisa-rayas/" />
+
+  <meta name="pinterest-rich-pin" content="true" />
+
+  <!-- Catálogo + outfits raw + orquestador, todo síncrono en <head>. -->
+  <script src="/outfit-de-la-semana/data/products.js"></script>
+  <script src="/outfit-de-la-semana/data/outfits/jacob-elordi-cardigan-azul.js"></script>
+  <script src="/outfit-de-la-semana/data/outfits/pedro-pascal-jersey-azul.js"></script>
+  <script src="/outfit-de-la-semana/data/outfits/c-tangana-camisa-rayas.js"></script>
+  <script src="/outfit-de-la-semana/data.js"></script>
+
+  <link rel="icon" type="image/png" href="/lynen-logo.png" />
+  <link rel="preload" as="image" href="/images/weekly-outfits/c-tangana.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.laredoute.com" crossorigin>
+  <link rel="preconnect" href="https://zapatosobi.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lynBg:     '#f7f4f0',
+            lynDark:   '#0a0a0a',
+            lynAccent: '#c05826',
+            lynText:   '#4a4a4a',
+          },
+          fontFamily: {
+            sans:  ['Poppins', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #fff;
+      color: #0a0a0a;
+    }
+
+    /* ── Gating ── */
+    .outfit-coming-soon { display: none; }
+    .outfit-gated .ow-content { display: none; }
+    .outfit-gated .outfit-coming-soon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 72px);
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+    .outfit-coming-soon .cs-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #c05826;
+      margin-bottom: 18px;
+    }
+    .outfit-coming-soon h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #0a0a0a;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .outfit-coming-soon .cs-lead {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+      max-width: 520px;
+      margin: 0 auto 14px;
+    }
+    .outfit-coming-soon .cs-lead strong { color: #0a0a0a; font-weight: 600; }
+    .outfit-coming-soon .cs-sub {
+      font-size: 0.92rem;
+      color: #6b6b6b;
+      max-width: 480px;
+      margin: 0 auto 30px;
+    }
+    .outfit-coming-soon .cs-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .outfit-coming-soon .cs-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+    .outfit-coming-soon .cs-btn:hover { transform: translateY(-1px); }
+    .outfit-coming-soon .cs-btn-primary { background: #0a0a0a; color: #fff; }
+    .outfit-coming-soon .cs-btn-primary:hover { background: #2a2a2a; }
+    .outfit-coming-soon .cs-btn-secondary { background: transparent; color: #0a0a0a; border: 1px solid #d8d2c8; }
+    .outfit-coming-soon .cs-btn-secondary:hover { background: #f7f4f0; }
+
+    .ow-navbar {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    }
+    .ow-hero-overlay {
+      background:
+        linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.42) 45%, rgba(10,10,10,0.18) 100%);
+    }
+    .ow-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .ow-tier {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ow-tier:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
+    .ow-tier-asequible { background: #fff; border: 1px solid #ececec; }
+    .ow-tier-equilibrado { background: #fff; border: 1px solid #ececec; }
+    .ow-tier-premium { background: #0a0a0a; color: #fff; border: 1px solid #1a1a1a; }
+    .ow-tier-premium .ow-product-name,
+    .ow-tier-premium .ow-tier-label,
+    .ow-tier-premium .ow-tier-total,
+    .ow-tier-premium .ow-product-cta { color: #fff; }
+    .ow-tier-premium .ow-product-card { background: #141414; border-color: #222; }
+    .ow-tier-premium .ow-product-img-wrap { background: #f7f4f0; }
+    .ow-tier-premium .ow-product-cta { border-color: rgba(255,255,255,0.25); }
+    .ow-tier-premium .ow-product-cta:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.45); }
+    .ow-product-card {
+      background: #fff;
+      border: 1px solid #efeae2;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .ow-product-img-wrap {
+      background: #f7f4f0;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8%;
+    }
+    .ow-product-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+    .ow-product-name {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 2.6em;
+      line-height: 1.3;
+    }
+    .ow-product-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #ececec;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .ow-product-cta:hover { background: #f7f4f0; border-color: #d8d2c8; }
+    .ow-badge-cheap {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #ecf6ec;
+      color: #1f6b3a;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .ow-badge-diff {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #f1efeb;
+      color: #6b6b6b;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .ow-tier-premium .ow-badge-diff {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.7);
+    }
+    .ow-share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid #ececec;
+      background: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.15s ease;
+      cursor: pointer;
+    }
+    .ow-share-btn:hover { background: #f7f4f0; transform: translateY(-1px); }
+    @media (max-width: 640px) {
+      .ow-hero { min-height: 78vh; }
+    }
+    .accent-line { display: block; width: 36px; height: 2px; background: #c05826; margin-bottom: 1.5rem; }
+    .btn-store {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 14px 24px;
+      border-radius: 16px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-store:hover  { transform: scale(1.03); }
+    .btn-store-light  { background: #fff; color: #0a0a0a; }
+    .btn-store-light:hover { background: #f2f2f2; }
+
+    /* ── Tiers carousel (mobile + tablet) ── */
+    .tiers-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      gap: 16px;
+      padding: 4px 24px;
+      scroll-padding-left: 24px;
+      scroll-padding-right: 24px;
+      scrollbar-width: none;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+    .tiers-grid::-webkit-scrollbar { display: none; }
+    .tiers-grid > .ow-tier {
+      flex: 0 0 calc(100% - 72px);
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+    @media (min-width: 640px) {
+      .tiers-grid { margin-left: -24px; margin-right: -24px; }
+    }
+    @media (min-width: 1024px) {
+      .tiers-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.75rem;
+        overflow: visible;
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+        scroll-snap-type: none;
+      }
+      .tiers-grid > .ow-tier { flex: initial; }
+    }
+    .tier-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .tier-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #d8d2c8;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .tier-dot:hover { transform: scale(1.2); }
+    .tier-dot.active { background: #c05826; }
+    .tier-dot:focus-visible { outline: 2px solid #c05826; outline-offset: 3px; }
+    @media (min-width: 1024px) {
+      .tier-dots { display: none; }
+    }
+  </style>
+</head>
+
+<body class="bg-white" data-outfit-slug="c-tangana-camisa-rayas">
+
+<script src="/outfit-de-la-semana/detail-init.js"></script>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav class="ow-navbar fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="/" class="flex-shrink-0">
+        <img src="/lynen-logo.png" alt="Lynen" class="h-10 w-auto" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#features" class="text-sm font-medium text-lynText hover:text-lynDark transition-colors">Funciones</a>
+        <a href="/#how" class="text-sm font-medium text-lynText hover:text-lynDark transition-colors">Cómo funciona</a>
+        <a href="/outfit-de-la-semana/" aria-current="page" class="text-sm font-semibold text-lynDark transition-colors">Outfit de la semana</a>
+        <a href="/#pricing" class="text-sm font-medium text-lynText hover:text-lynDark transition-colors">Precios</a>
+      </div>
+      <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener"
+         class="bg-lynDark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:bg-black">
+        Descargar gratis
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ COMING SOON (visible solo si .outfit-gated) ═══════════ -->
+<div class="outfit-coming-soon">
+  <p class="cs-eyebrow">Outfit de la semana</p>
+  <h1>Próximamente</h1>
+  <p class="cs-lead">Este outfit estará disponible el <strong data-coming-soon-date>—</strong>.</p>
+  <p class="cs-sub">Mientras tanto, puedes ver el outfit de esta semana o explorar el histórico.</p>
+  <div class="cs-cta-row">
+    <a href="/outfit-de-la-semana/" class="cs-btn cs-btn-primary">Ver outfit actual →</a>
+    <a href="/" class="cs-btn cs-btn-secondary">Volver a la home</a>
+  </div>
+</div>
+
+<!-- ═══════════ CONTENIDO DEL OUTFIT (oculto si .outfit-gated) ═══════════ -->
+<div class="ow-content">
+
+<!-- ═══════════ BREADCRUMB ═══════════ -->
+<div class="pt-24 pb-3 max-w-7xl mx-auto px-5 sm:px-6">
+  <nav aria-label="Breadcrumb" class="text-xs text-lynText">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="/" class="hover:text-lynDark transition-colors">Inicio</a></li>
+      <li class="text-gray-300">›</li>
+      <li><a href="/outfit-de-la-semana/" class="hover:text-lynDark transition-colors">Outfit de la semana</a></li>
+      <li class="text-gray-300">›</li>
+      <li class="text-lynDark font-medium" aria-current="page">La camisa de rayas de C. Tangana</li>
+    </ol>
+  </nav>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="ow-hero relative overflow-hidden bg-lynDark">
+  <img src="/images/weekly-outfits/c-tangana.png"
+       alt="C. Tangana con camisa de rayas abierta sobre camiseta de tirantes, pantalón de tela y mocasines marrones"
+       class="absolute inset-0 w-full h-full object-cover object-top"
+       width="1600" height="1000" />
+  <div class="ow-hero-overlay absolute inset-0"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-24 sm:py-32 lg:py-40 min-h-[60vh] flex flex-col justify-end">
+    <div class="max-w-2xl">
+      <p class="text-xs font-semibold tracking-[0.2em] text-lynAccent uppercase mb-4">
+        Outfit de la semana · Primavera 2026
+      </p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-4">
+        La camisa de rayas de <em class="font-serif italic font-normal text-lynAccent">C. Tangana</em>
+      </h1>
+      <p class="text-base sm:text-lg text-white/85 leading-relaxed mb-6 max-w-xl">
+        Sastrería relajada con un toque mediterráneo
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="ow-chip">sastrería relajada</span>
+        <span class="ow-chip">verano</span>
+        <span class="ow-chip">mediterráneo</span>
+        <span class="ow-chip">spanish cool</span>
+        <span class="ow-chip">camisa abierta</span>
+      </div>
+    </div>
+  </div>
+
+  <small class="absolute bottom-3 right-4 text-[11px] text-white/55 tracking-wide">Foto: vía redes sociales</small>
+</section>
+
+<!-- ═══════════ EDITORIAL DESCRIPTION ═══════════ -->
+<section class="bg-white py-16 sm:py-20 lg:py-24">
+  <div class="max-w-2xl mx-auto px-5 sm:px-6">
+    <span class="accent-line"></span>
+    <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-5">El look</p>
+    <p class="font-serif text-lg sm:text-xl text-lynDark leading-[1.7]">
+      C. Tangana entendió hace tiempo lo que muchos hombres tardan toda una vida en pillar: la elegancia masculina española no necesita pretensiones. Camisa de rayas abierta sobre una camiseta de tirantes, pantalón de tela con caída, mocasines marrones gastados. Es el uniforme del que sabe vestirse para una terraza un viernes a las ocho. Funciona porque cada pieza está estudiada — la camisa lo justo de holgada, el pantalón cae sin marcar, los mocasines hacen de ancla. Verano sin esfuerzo, pero con intención.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ TIERS ═══════════ -->
+<section id="tiers" class="bg-lynBg py-16 sm:py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+
+    <div class="text-center mb-12 sm:mb-16 max-w-2xl mx-auto">
+      <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">Tres formas de recrearlo</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-lynDark leading-tight mb-3">
+        Asequible, equilibrado o <em class="font-serif italic font-normal">premium</em>
+      </h2>
+      <p class="text-lynText text-sm sm:text-base">
+        Las cuatro mismas piezas, en tres niveles de presupuesto. Cuanto más arriba, más calidad de tejido, caída y zapato. La elección depende de cuánto te vas a poner el look.
+      </p>
+    </div>
+
+    <div class="tiers-grid" role="region" aria-roledescription="carousel" aria-label="Tres formas de recrear el outfit">
+
+      <!-- ─── ASEQUIBLE ─── -->
+      <article class="ow-tier ow-tier-asequible rounded-2xl p-6 sm:p-7"
+               data-tier="asequible" role="group" aria-roledescription="slide"
+               aria-label="Asequible, 4 prendas, total 134,51 €">
+        <div class="flex items-baseline justify-between mb-1">
+          <h3 class="ow-tier-label text-2xl font-bold text-lynDark">Asequible</h3>
+          <span class="ow-badge-cheap">Ahorra 280,85 € vs Premium</span>
+        </div>
+        <p class="text-sm text-lynText mb-5 min-h-[2.6em]">El uniforme de terraza por menos de 140€</p>
+        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold text-lynDark mb-1 leading-none">134,51&nbsp;€</div>
+        <p class="text-xs text-lynText/70 mb-7">Total estimado · 4 piezas</p>
+
+        <div class="ow-products space-y-5">
+          <!-- Camisa de rayas -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/7/0/6/70670cdb5786dab648475e819b85afc9.jpg"
+                   alt="Camisa slim fit de rayas, algodón y lino, Only & Sons"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Camisa de rayas · Only &amp; Sons</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Camisa slim fit de rayas, algodón y lino</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold text-lynDark">33,59&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44463898433&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: Only &amp; Sons Camisa slim fit de rayas, algodón y lino por 33,59 €"
+                   data-track="product-click" data-tier="asequible" data-brand="Only &amp; Sons"
+                   data-product-name="Camisa slim fit de rayas, algodón y lino" data-network="awin"
+                   class="ow-product-cta text-lynDark">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Camiseta de tirantes -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/1/5/f/15fa69130e9e9495ab45596b74ee898e.jpg"
+                   alt="Camiseta de tirantes Heritage, Eminence"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Camiseta de tirantes · Eminence</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Camiseta de tirantes Heritage</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold text-lynDark">19,94&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301772922&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: Eminence Camiseta de tirantes Heritage por 19,94 €"
+                   data-track="product-click" data-tier="asequible" data-brand="Eminence"
+                   data-product-name="Camiseta de tirantes Heritage" data-network="awin"
+                   class="ow-product-cta text-lynDark">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Pantalón -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/4/f/b/4fbf085e56a2d924198d7755651da1d0.jpg"
+                   alt="Pantalón ancho de lino con pinzas, La Redoute Collections"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Pantalón ancho · La Redoute Collections</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Pantalón ancho de lino con pinzas</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold text-lynDark">44,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301694425&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: La Redoute Collections Pantalón ancho de lino con pinzas por 44,99 €"
+                   data-track="product-click" data-tier="asequible" data-brand="La Redoute Collections"
+                   data-product-name="Pantalón ancho de lino con pinzas" data-network="awin"
+                   class="ow-product-cta text-lynDark">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mocasines -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/1/7/d/17dde88cef1d761da35e40ee6449a4d7.jpg"
+                   alt="Mocasines Signature de piel con morsetti, La Redoute Collections"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Mocasines · La Redoute Collections</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Mocasines Signature de piel con morsetti</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold text-lynDark">35,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44500100306&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: La Redoute Collections Mocasines Signature de piel con morsetti por 35,99 €"
+                   data-track="product-click" data-tier="asequible" data-brand="La Redoute Collections"
+                   data-product-name="Mocasines Signature de piel con morsetti" data-network="awin"
+                   class="ow-product-cta text-lynDark">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─── EQUILIBRADO ─── -->
+      <article class="ow-tier ow-tier-equilibrado rounded-2xl p-6 sm:p-7"
+               data-tier="equilibrado" role="group" aria-roledescription="slide"
+               aria-label="Equilibrado, 4 prendas, total 201,52 €">
+        <div class="flex items-baseline justify-between mb-1">
+          <h3 class="ow-tier-label text-2xl font-bold text-lynDark">Equilibrado</h3>
+          <span class="ow-badge-diff">+67,01 € vs Asequible</span>
+        </div>
+        <p class="text-sm text-lynText mb-5 min-h-[2.6em]">Mejor tejido en la camisa, mejor caída en el pantalón</p>
+        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold text-lynDark mb-1 leading-none">201,52&nbsp;€</div>
+        <p class="text-xs text-lynText/70 mb-7">Total estimado · 4 piezas</p>
+
+        <div class="ow-products space-y-5">
+          <!-- Camisa de rayas -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/c/2/d/c2d6a499b8e483f3fd6649b8463e0175.jpg"
+                   alt="Camisa de rayas de algodón y lino, Pepe Jeans"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Camisa de rayas · Pepe Jeans</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Camisa de rayas de algodón y lino</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold text-lynDark">43,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301802025&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: Pepe Jeans Camisa de rayas de algodón y lino por 43,99 €"
+                   data-track="product-click" data-tier="equilibrado" data-brand="Pepe Jeans"
+                   data-product-name="Camisa de rayas de algodón y lino" data-network="awin"
+                   class="ow-product-cta text-lynDark">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Camiseta de tirantes -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/f/0/b/f0ba7d44956ab2e2243b6acba62288fd.jpg"
+                   alt="Lote de 2 camisetas de tirantes ECODIM COTON, DIM"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Camiseta de tirantes · DIM</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Lote de 2 camisetas de tirantes ECODIM COTON</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold text-lynDark">22,09&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301670622&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: DIM Lote de 2 camisetas de tirantes ECODIM COTON por 22,09 €"
+                   data-track="product-click" data-tier="equilibrado" data-brand="DIM"
+                   data-product-name="Lote de 2 camisetas de tirantes ECODIM COTON" data-network="awin"
+                   class="ow-product-cta text-lynDark">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Pantalón -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/9/1/e/91ef4f7c26de148f8c770ea070fc985c.jpg"
+                   alt="Vaquero ancho Chris, Jack & Jones"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Pantalón ancho · Jack &amp; Jones</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Vaquero ancho Chris</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold text-lynDark">47,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301760177&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: Jack &amp; Jones Vaquero ancho Chris por 47,99 €"
+                   data-track="product-click" data-tier="equilibrado" data-brand="Jack &amp; Jones"
+                   data-product-name="Vaquero ancho Chris" data-network="awin"
+                   class="ow-product-cta text-lynDark">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mocasines -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/6/3/3/6332cb3773bab95e10d6e025b3d3473c.jpg"
+                   alt="Mocasines de piel ligera, Tommy Hilfiger"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-lynText/60 uppercase mb-1">Mocasines · Tommy Hilfiger</p>
+              <p class="ow-product-name text-sm font-medium text-lynDark mb-3">Mocasines de piel ligera</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold text-lynDark">87,45&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301664847&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: Tommy Hilfiger Mocasines de piel ligera por 87,45 €"
+                   data-track="product-click" data-tier="equilibrado" data-brand="Tommy Hilfiger"
+                   data-product-name="Mocasines de piel ligera" data-network="awin"
+                   class="ow-product-cta text-lynDark">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─── PREMIUM ─── -->
+      <article class="ow-tier ow-tier-premium rounded-2xl p-6 sm:p-7"
+               data-tier="premium" role="group" aria-roledescription="slide"
+               aria-label="Premium, 4 prendas, total 415,36 €">
+        <div class="flex items-baseline justify-between mb-1">
+          <h3 class="ow-tier-label text-2xl font-bold">Premium</h3>
+          <span class="ow-badge-diff">+280,85 € vs Asequible</span>
+        </div>
+        <p class="text-sm text-white/70 mb-5 min-h-[2.6em]">Lino verdadero y mocasines que se hacen con los años</p>
+        <div class="ow-tier-total text-4xl sm:text-[2.6rem] font-bold mb-1 leading-none">415,36&nbsp;€</div>
+        <p class="text-xs text-white/55 mb-7">Total estimado · 4 piezas</p>
+
+        <div class="ow-products space-y-5">
+          <!-- Camisa de rayas -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/8/b/9/8b9c27a7d760e2c84ce43715ae254fa7.jpg"
+                   alt="Camisa de lino a rayas, Calvin Klein"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Camisa de rayas · Calvin Klein</p>
+              <p class="ow-product-name text-sm font-medium mb-3">Camisa de lino a rayas</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold">103,53&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44372799577&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: Calvin Klein Camisa de lino a rayas por 103,53 €"
+                   data-track="product-click" data-tier="premium" data-brand="Calvin Klein"
+                   data-product-name="Camisa de lino a rayas" data-network="awin"
+                   class="ow-product-cta">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Camiseta de tirantes -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/5/e/0/5e0aac7fef8bbfb621677c3a2120b7ef.jpg"
+                   alt="Lote de 2 camisetas de tirantes clásicas, Polo Ralph Lauren"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Camiseta de tirantes · Polo Ralph Lauren</p>
+              <p class="ow-product-name text-sm font-medium mb-3">Lote de 2 camisetas de tirantes clásicas</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold">41,99&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301639801&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: Polo Ralph Lauren Lote de 2 camisetas de tirantes clásicas por 41,99 €"
+                   data-track="product-click" data-tier="premium" data-brand="Polo Ralph Lauren"
+                   data-product-name="Lote de 2 camisetas de tirantes clásicas" data-network="awin"
+                   class="ow-product-cta">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Pantalón -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/2/7/9/2796d8229123e0107a1ab56aa7afd1db.jpg"
+                   alt="Pantalón plisado de talle alto pernera ancha, La Redoute Collections"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Pantalón ancho · La Redoute Collections</p>
+              <p class="ow-product-name text-sm font-medium mb-3">Pantalón plisado de talle alto pernera ancha</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold">61,59&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44301803901&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: La Redoute Collections Pantalón plisado de talle alto pernera ancha por 61,59 €"
+                   data-track="product-click" data-tier="premium" data-brand="La Redoute Collections"
+                   data-product-name="Pantalón plisado de talle alto pernera ancha" data-network="awin"
+                   class="ow-product-cta">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mocasines -->
+          <div class="ow-product-card">
+            <div class="ow-product-img-wrap">
+              <img src="https://cdn.laredoute.com/cdn-cgi/image/width=600%2Cheight=600%2Cfit=pad%2Cdpr=1/products/4/9/8/4989d8753fcc4a0843b9a0e030d683f4.jpg"
+                   alt="Mocasines de piel Jett Penny, Polo Ralph Lauren"
+                   class="ow-product-img" loading="lazy" decoding="async" width="600" height="600" />
+            </div>
+            <div class="p-4">
+              <p class="text-[10px] tracking-[0.12em] text-white/55 uppercase mb-1">Mocasines · Polo Ralph Lauren</p>
+              <p class="ow-product-name text-sm font-medium mb-3">Mocasines de piel Jett Penny</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-base font-bold">208,25&nbsp;€</span>
+                <a href="https://www.awin1.com/pclick.php?p=44330642863&a=2806382&m=10497" target="_blank"
+                   rel="nofollow sponsored noopener"
+                   aria-label="Ver producto: Polo Ralph Lauren Mocasines de piel Jett Penny por 208,25 €"
+                   data-track="product-click" data-tier="premium" data-brand="Polo Ralph Lauren"
+                   data-product-name="Mocasines de piel Jett Penny" data-network="awin"
+                   class="ow-product-cta">Ver producto →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ─── TIER DOTS (mobile + tablet only) ─── -->
+    <div class="tier-dots" role="tablist" aria-label="Selector de tier">
+      <button type="button" class="tier-dot" data-tier="asequible"  aria-label="Ver tier Asequible"  aria-current="false"></button>
+      <button type="button" class="tier-dot active" data-tier="equilibrado" aria-label="Ver tier Equilibrado" aria-current="true"></button>
+      <button type="button" class="tier-dot" data-tier="premium"    aria-label="Ver tier Premium"    aria-current="false"></button>
+    </div>
+
+    <!-- ─── AFFILIATE DISCLOSURE ─── -->
+    <p class="mt-10 sm:mt-12 max-w-3xl mx-auto text-center text-xs text-lynText/70 leading-relaxed px-2">
+      Lynen incluye enlaces de afiliado. Si compras a través de ellos, podemos recibir una pequeña comisión sin coste adicional para ti. Esto nos ayuda a mantener Lynen gratuito. Los precios y la disponibilidad pueden variar — siempre verás el precio final en la tienda antes de comprar.
+    </p>
+
+  </div>
+</section>
+
+<!-- ═══════════ SHARE BAR ═══════════ -->
+<section class="bg-white py-12 sm:py-16">
+  <div class="max-w-3xl mx-auto px-5 sm:px-6 text-center">
+    <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-4">Comparte el look</p>
+    <h2 class="text-2xl sm:text-3xl font-bold text-lynDark mb-7">¿Conoces a alguien que se vestiría así?</h2>
+    <div class="flex flex-wrap items-center justify-center gap-3" id="ow-share">
+      <a href="https://wa.me/?text=" id="ow-share-whatsapp" target="_blank" rel="noopener"
+         class="ow-share-btn text-lynDark" aria-label="Compartir por WhatsApp">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M.06 24l1.69-6.16A11.86 11.86 0 0 1 .14 11.94C.14 5.34 5.5 0 12.1 0a11.93 11.93 0 0 1 8.5 3.51 11.86 11.86 0 0 1 3.51 8.43c0 6.6-5.36 11.94-11.95 11.94h-.01a12 12 0 0 1-5.71-1.45L.06 24zm6.6-3.81l.36.21a9.95 9.95 0 0 0 5.07 1.39h.01c5.5 0 9.97-4.45 9.97-9.92a9.83 9.83 0 0 0-2.9-7.01 9.86 9.86 0 0 0-7-2.9c-5.5 0-9.97 4.45-9.97 9.92 0 1.87.52 3.7 1.51 5.28l.24.38-1 3.65 3.71-1zm11.4-7.42c-.07-.13-.27-.21-.57-.36-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5a9.06 9.06 0 0 1-1.67-2.08c-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://www.pinterest.com/pin/create/button/?url=" id="ow-share-pinterest" target="_blank" rel="noopener"
+         class="ow-share-btn text-lynDark" aria-label="Guardar en Pinterest">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="#E60023"><path d="M12 0a12 12 0 0 0-4.37 23.18c-.1-.94-.2-2.39.04-3.42.22-.93 1.4-5.94 1.4-5.94s-.36-.72-.36-1.78c0-1.66.96-2.9 2.16-2.9 1.02 0 1.51.77 1.51 1.69 0 1.03-.66 2.57-1 4-.28 1.2.6 2.18 1.79 2.18 2.15 0 3.8-2.27 3.8-5.55 0-2.9-2.08-4.93-5.06-4.93-3.45 0-5.47 2.59-5.47 5.26 0 1.04.4 2.16.9 2.77.1.12.11.22.08.34l-.34 1.36c-.05.21-.18.26-.4.16-1.5-.7-2.43-2.88-2.43-4.64 0-3.78 2.75-7.25 7.92-7.25 4.16 0 7.39 2.96 7.39 6.92 0 4.13-2.6 7.45-6.22 7.45-1.21 0-2.36-.63-2.75-1.38l-.75 2.85c-.27 1.04-1 2.34-1.5 3.13A12 12 0 1 0 12 0z"/></svg>
+        Pinterest
+      </a>
+      <a href="https://twitter.com/intent/tweet?url=&amp;text=" id="ow-share-twitter" target="_blank" rel="noopener"
+         class="ow-share-btn text-lynDark" aria-label="Compartir en X">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.503 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X
+      </a>
+      <button type="button" id="ow-share-copy" class="ow-share-btn text-lynDark" aria-label="Copiar enlace">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 0 0-5.656 0l-4 4a4 4 0 1 0 5.656 5.656l1.102-1.101"/><path stroke-linecap="round" stroke-linejoin="round" d="M10.172 13.828a4 4 0 0 0 5.656 0l4-4a4 4 0 1 0-5.656-5.656l-1.102 1.101"/></svg>
+        <span id="ow-copy-label">Copiar enlace</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ APP DOWNLOAD CTA ═══════════ -->
+<section class="bg-lynDark py-16 sm:py-20 lg:py-24">
+  <div class="max-w-3xl mx-auto px-5 sm:px-6 text-center">
+    <p class="text-xs font-semibold tracking-[0.2em] text-lynAccent uppercase mb-5">¿Quieres outfits así cada día?</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight mb-5">
+      Tu estilista con IA, en el bolsillo. <em class="font-serif italic font-normal text-lynAccent">Gratis.</em>
+    </h2>
+    <p class="text-white/72 text-base sm:text-lg mb-9 max-w-md mx-auto">
+      Lynen genera outfits completos para cualquier ocasión: trabajo, citas, bodas, fines de semana. Sin registro para empezar.
+    </p>
+    <div class="flex flex-wrap items-center gap-3 sm:gap-4 justify-center">
+      <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener" class="btn-store btn-store-light">
+        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.lynen.app&pcampaignid=web_share" target="_blank" rel="noopener"
+         class="transition-all hover:scale-[1.03] active:scale-[0.97]">
+        <img src="/google-store.png" alt="Disponible en Google Play" class="h-[50px] w-auto" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HISTORY ═══════════ -->
+<section class="bg-lynBg py-16 sm:py-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-8 sm:mb-10">
+      <div>
+        <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-2">Outfits anteriores</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-lynDark">Historial</h2>
+      </div>
+      <a href="/outfit-de-la-semana/" class="text-sm font-semibold text-lynDark hover:text-lynAccent transition-colors">
+        Ver todos →
+      </a>
+    </div>
+    <div id="ow-history-grid" class="grid grid-cols-2 md:grid-cols-3 gap-5"></div>
+    <div id="ow-history-empty" class="hidden">
+      <div class="bg-white border border-dashed border-gray-200 rounded-2xl p-10 sm:p-14 text-center">
+        <p class="text-2xl sm:text-3xl font-serif italic text-lynDark mb-2">Próximamente más outfits</p>
+        <p class="text-sm text-lynText max-w-md mx-auto">Cada lunes a las 10:00 publicamos un look nuevo, con tres niveles de presupuesto. Vuelve la semana que viene o descarga la app para no perdértelo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.ow-content -->
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="bg-black py-14 sm:py-16">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+    <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-10 mb-10 sm:mb-12">
+      <div class="sm:col-span-2">
+        <img src="/lynen-logo.png" alt="Lynen" class="h-9 w-auto mb-4" style="filter:invert(1) saturate(0) brightness(1.2);opacity:0.85;" />
+        <p class="text-white/60 text-sm leading-relaxed max-w-xs">El generador de outfits con IA y estilista personal, pensado para hombres. Gratis en iOS y Android.</p>
+      </div>
+      <div>
+        <div class="text-xs font-semibold tracking-wider text-white/45 uppercase mb-4">Producto</div>
+        <ul class="space-y-3">
+          <li><a href="/#features" class="text-sm text-white/65 hover:text-white transition-colors">Funciones</a></li>
+          <li><a href="/outfit-de-la-semana/" class="text-sm text-white/65 hover:text-white transition-colors">Outfit de la semana</a></li>
+          <li><a href="/#pricing" class="text-sm text-white/65 hover:text-white transition-colors">Precios</a></li>
+          <li><a href="/#faq" class="text-sm text-white/65 hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-xs font-semibold tracking-wider text-white/45 uppercase mb-4">Legal</div>
+        <ul class="space-y-3">
+          <li><a href="/privacy-policy.html" class="text-sm text-white/65 hover:text-white transition-colors">Política de Privacidad</a></li>
+          <li><a href="mailto:info@lynenapp.com" class="text-sm text-white/65 hover:text-white transition-colors">info@lynenapp.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-xs font-semibold tracking-wider text-white/45 uppercase mb-4">Síguenos</div>
+        <div class="flex items-center gap-4">
+          <a href="https://www.instagram.com/lynenapp/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+             class="text-white/65 hover:text-lynAccent transition-colors">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@lynenapp" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
+             class="text-white/65 hover:text-lynAccent transition-colors">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/8 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-white/40 text-xs">© 2025 Lynen. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener" class="text-xs text-white/50 hover:text-white transition-colors">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.lynen.app&pcampaignid=web_share" target="_blank" rel="noopener" class="text-xs text-white/50 hover:text-white transition-colors">Google Play</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ TRACKING + INTERACCIÓN ═══════════ -->
+<script>
+(function () {
+  'use strict';
+
+  // Si la página está gated, saltamos toda la inicialización.
+  if (document.documentElement.classList.contains('outfit-gated')) return;
+
+  const W = window.LynenWeeklyOutfits;
+  const SLUG = 'c-tangana-camisa-rayas';
+  const PAGE_URL = window.location.origin + '/outfit-de-la-semana/' + SLUG + '/';
+
+  function track(event, payload) {
+    try {
+      if (window.plausible) window.plausible(event, { props: payload || {} });
+      if (window.gtag) window.gtag('event', event, payload || {});
+    } catch (_) { /* swallow */ }
+  }
+
+  track('outfit_view', { slug: SLUG });
+
+  document.querySelectorAll('[data-track="product-click"]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      track('outfit_product_click', {
+        slug: SLUG,
+        tier: el.dataset.tier,
+        brand: el.dataset.brand,
+        productName: el.dataset.productName,
+        network: el.dataset.network
+      });
+    });
+  });
+
+  // ── Share bar ──
+  const shareTitle = 'La camisa de rayas de C. Tangana — Outfit de la semana | Lynen';
+  const shareText = 'Recrea el look mediterráneo de C. Tangana en tres niveles de presupuesto: 138 €, 199 € o 415 €.';
+  const heroImg = window.location.origin + '/images/weekly-outfits/c-tangana.png';
+
+  document.getElementById('ow-share-whatsapp').href =
+    'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + PAGE_URL);
+  document.getElementById('ow-share-pinterest').href =
+    'https://www.pinterest.com/pin/create/button/' +
+    '?url=' + encodeURIComponent(PAGE_URL) +
+    '&media=' + encodeURIComponent(heroImg) +
+    '&description=' + encodeURIComponent(shareText);
+  document.getElementById('ow-share-twitter').href =
+    'https://twitter.com/intent/tweet?url=' + encodeURIComponent(PAGE_URL) +
+    '&text=' + encodeURIComponent(shareText);
+
+  document.querySelectorAll('#ow-share a').forEach(function (a) {
+    const channel = a.id.replace('ow-share-', '');
+    a.addEventListener('click', function () { track('outfit_share', { slug: SLUG, channel: channel }); });
+  });
+
+  const copyBtn = document.getElementById('ow-share-copy');
+  const copyLabel = document.getElementById('ow-copy-label');
+  copyBtn.addEventListener('click', function () {
+    navigator.clipboard.writeText(PAGE_URL).then(function () {
+      copyLabel.textContent = '¡Copiado!';
+      track('outfit_share', { slug: SLUG, channel: 'copy' });
+      setTimeout(function () { copyLabel.textContent = 'Copiar enlace'; }, 1800);
+    });
+  });
+
+  // ── Tiers carousel (mobile + tablet) ──
+  const tiersGrid = document.querySelector('.tiers-grid');
+  const tierCards = tiersGrid ? tiersGrid.querySelectorAll('[data-tier]') : [];
+  const tierDots = document.querySelectorAll('.tier-dots .tier-dot');
+  let currentTier = 'equilibrado';
+  let suppressNextTrack = true;
+
+  function isCarouselActive() { return window.innerWidth < 1024; }
+
+  function centerOnTier(tier, behavior) {
+    if (!isCarouselActive() || !tiersGrid) return;
+    const target = tiersGrid.querySelector('[data-tier="' + tier + '"]');
+    if (!target) return;
+    const offset = target.offsetLeft - (tiersGrid.clientWidth - target.clientWidth) / 2;
+    tiersGrid.scrollTo({ left: offset, behavior: behavior || 'auto' });
+  }
+
+  function setActiveDot(tier) {
+    tierDots.forEach(function (d) {
+      const active = d.dataset.tier === tier;
+      d.classList.toggle('active', active);
+      d.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+  }
+
+  function centerOnEquilibrado() {
+    if (!isCarouselActive()) return;
+    suppressNextTrack = true;
+    centerOnTier('equilibrado', 'auto');
+  }
+
+  if (tiersGrid && tierCards.length) {
+    // Solo centrar en Equilibrado UNA VEZ al cargar. No en `resize` porque
+    // en mobile la barra de URL al hacer scroll dispara `resize` y volvería
+    // a empujar al usuario al tier central perdiendo su navegación.
+    window.addEventListener('load', centerOnEquilibrado);
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.intersectionRatio > 0.6) {
+            const newTier = entry.target.dataset.tier;
+            if (newTier && newTier !== currentTier) {
+              const fromTier = currentTier;
+              currentTier = newTier;
+              setActiveDot(newTier);
+              if (suppressNextTrack) {
+                suppressNextTrack = false;
+              } else {
+                track('outfit_tier_swipe', { slug: SLUG, fromTier: fromTier, toTier: newTier });
+              }
+            }
+          }
+        });
+      }, { root: tiersGrid, threshold: [0.6] });
+      tierCards.forEach(function (c) { observer.observe(c); });
+    }
+
+    tierDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        const tier = dot.dataset.tier;
+        if (!tier || !isCarouselActive()) return;
+        track('outfit_tier_dot_click', { slug: SLUG, tier: tier });
+        centerOnTier(tier, 'smooth');
+      });
+    });
+  }
+
+  // ── History grid ──
+  const past = W ? W.past() : [];
+  const grid = document.getElementById('ow-history-grid');
+  const empty = document.getElementById('ow-history-empty');
+  if (!past.length) {
+    grid.classList.add('hidden');
+    empty.classList.remove('hidden');
+  } else {
+    past.slice(0, 6).forEach(function (o) {
+      const cheapest = W.formatEUR(W.cheapestTierTotal(o));
+      const expensive = W.formatEUR(W.mostExpensiveTierTotal(o));
+      const html =
+        '<a href="/outfit-de-la-semana/' + o.slug + '/" class="group block rounded-2xl overflow-hidden bg-white border border-gray-100 hover:shadow-md transition-shadow">' +
+          '<div class="aspect-[4/5] overflow-hidden bg-lynBg">' +
+            '<img src="' + o.heroImage.src + '" alt="' + o.heroImage.alt.replace(/"/g, '&quot;') + '" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />' +
+          '</div>' +
+          '<div class="p-4">' +
+            '<p class="text-[10px] tracking-[0.12em] text-lynAccent uppercase font-semibold mb-1">' + o.season + '</p>' +
+            '<h3 class="text-sm sm:text-base font-semibold text-lynDark leading-snug mb-2 line-clamp-2">' + o.title + '</h3>' +
+            '<p class="text-xs text-lynText">Desde ' + cheapest + ' · hasta ' + expensive + '</p>' +
+          '</div>' +
+        '</a>';
+      grid.insertAdjacentHTML('beforeend', html);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
