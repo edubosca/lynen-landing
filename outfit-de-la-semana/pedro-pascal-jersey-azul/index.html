@@ -329,7 +329,7 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
     <div class="flex items-center justify-between" style="height:72px;">
       <a href="/" class="flex-shrink-0">
-        <img src="/lynen-logo.png" alt="Lynen" class="h-10 w-auto" />
+        <img src="/lynen-logo.png" alt="Lynen" class="nav-logo h-24 w-auto" />
       </a>
       <div class="hidden md:flex items-center gap-8">
         <a href="/#features" class="text-sm font-medium text-lynText hover:text-lynDark transition-colors">Funciones</a>
@@ -375,14 +375,15 @@
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="ow-hero relative overflow-hidden bg-lynDark">
+  <!-- Mobile/tablet: imagen full-bleed con overlay (sin tocar) -->
   <img src="/images/weekly-outfits/pedro-pascal.png"
        alt="Pedro Pascal con jersey azul marino, pantalón negro ancho y zapatos de vestir negros"
-       class="absolute inset-0 w-full h-full object-cover object-top"
+       class="lg:hidden absolute inset-0 w-full h-full object-cover object-top"
        width="1600" height="1000" />
-  <div class="ow-hero-overlay absolute inset-0"></div>
+  <div class="lg:hidden ow-hero-overlay absolute inset-0"></div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-24 sm:py-32 lg:py-40 min-h-[60vh] flex flex-col justify-end">
-    <div class="max-w-2xl">
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-24 sm:py-32 lg:py-24 min-h-[60vh] lg:min-h-[78vh] flex flex-col justify-end lg:grid lg:grid-cols-2 lg:gap-14 lg:items-center">
+    <div class="max-w-2xl lg:max-w-none">
       <p class="text-xs font-semibold tracking-[0.2em] text-lynAccent uppercase mb-4">
         Outfit de la semana · Primavera 2026
       </p>
@@ -400,9 +401,19 @@
         <span class="ow-chip">sastrería relajada</span>
       </div>
     </div>
+
+    <!-- Desktop: imagen completa a la derecha, sin recortar -->
+    <div class="hidden lg:flex lg:flex-col lg:items-end lg:gap-3">
+      <img src="/images/weekly-outfits/pedro-pascal.png"
+           alt="Pedro Pascal con jersey azul marino, pantalón negro ancho y zapatos de vestir negros"
+           class="w-full max-h-[72vh] object-contain rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
+           width="1600" height="1000" />
+      <small class="text-[11px] text-white/55 tracking-wide">Foto: vía redes sociales</small>
+    </div>
   </div>
 
-  <small class="absolute bottom-3 right-4 text-[11px] text-white/55 tracking-wide">Foto: vía redes sociales</small>
+  <!-- Mobile/tablet: crédito en esquina sobre imagen -->
+  <small class="lg:hidden absolute bottom-3 right-4 text-[11px] text-white/55 tracking-wide">Foto: vía redes sociales</small>
 </section>
 
 <!-- ═══════════ EDITORIAL DESCRIPTION ═══════════ -->
