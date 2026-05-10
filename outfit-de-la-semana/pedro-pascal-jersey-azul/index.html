@@ -19,6 +19,7 @@
   <script src="/outfit-de-la-semana/data/products.js"></script>
   <script src="/outfit-de-la-semana/data/outfits/jacob-elordi-cardigan-azul.js"></script>
   <script src="/outfit-de-la-semana/data/outfits/pedro-pascal-jersey-azul.js"></script>
+  <script src="/outfit-de-la-semana/data/outfits/c-tangana-camisa-rayas.js"></script>
   <script src="/outfit-de-la-semana/data.js"></script>
 
   <link rel="icon" type="image/png" href="/lynen-logo.png" />
@@ -316,6 +317,40 @@
     .tier-dot:focus-visible { outline: 2px solid #c05826; outline-offset: 3px; }
     @media (min-width: 1024px) {
       .tier-dots { display: none; }
+    }
+
+    /* ── Otros outfits: carrusel horizontal ── */
+    .ow-history-scroll {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      gap: 1.25rem;
+      padding: 4px 20px 16px;
+      scroll-padding-left: 20px;
+      margin-left: -20px;
+      margin-right: -20px;
+      scrollbar-width: none;
+    }
+    .ow-history-scroll::-webkit-scrollbar { display: none; }
+    .ow-history-scroll > a {
+      flex: 0 0 78%;
+      scroll-snap-align: start;
+    }
+    @media (min-width: 640px) {
+      .ow-history-scroll {
+        gap: 1.5rem;
+        padding-left: 24px;
+        padding-right: 24px;
+        scroll-padding-left: 24px;
+        margin-left: -24px;
+        margin-right: -24px;
+      }
+      .ow-history-scroll > a { flex-basis: 48%; }
+    }
+    @media (min-width: 1024px) {
+      .ow-history-scroll > a { flex-basis: 31%; }
     }
   </style>
 </head>
@@ -754,14 +789,14 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
     <div class="flex items-end justify-between flex-wrap gap-4 mb-8 sm:mb-10">
       <div>
-        <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-2">Outfits anteriores</p>
-        <h2 class="text-2xl sm:text-3xl font-bold text-lynDark">Historial</h2>
+        <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-2">Más outfits</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-lynDark">Otros looks recientes</h2>
       </div>
       <a href="/outfit-de-la-semana/" class="text-sm font-semibold text-lynDark hover:text-lynAccent transition-colors">
         Ver todos →
       </a>
     </div>
-    <div id="ow-history-grid" class="grid grid-cols-2 md:grid-cols-3 gap-5"></div>
+    <div id="ow-history-grid" class="ow-history-scroll"></div>
     <div id="ow-history-empty" class="hidden">
       <div class="bg-white border border-dashed border-gray-200 rounded-2xl p-10 sm:p-14 text-center">
         <p class="text-2xl sm:text-3xl font-serif italic text-lynDark mb-2">Próximamente más outfits</p>
@@ -959,15 +994,17 @@
     });
   }
 
-  // ── History grid ──
-  const past = W ? W.past() : [];
+  // ── Otros outfits recientes (todos los publicados menos el actual, DESC por publishAt) ──
+  const others = W
+    ? W.all().filter(function (o) { return W.isPublished(o) && o.slug !== SLUG; })
+    : [];
   const grid = document.getElementById('ow-history-grid');
   const empty = document.getElementById('ow-history-empty');
-  if (!past.length) {
+  if (!others.length) {
     grid.classList.add('hidden');
     empty.classList.remove('hidden');
   } else {
-    past.slice(0, 6).forEach(function (o) {
+    others.forEach(function (o) {
       const cheapest = W.formatEUR(W.cheapestTierTotal(o));
       const expensive = W.formatEUR(W.mostExpensiveTierTotal(o));
       const html =
