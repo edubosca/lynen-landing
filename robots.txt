@@ -8,6 +8,3 @@ Disallow: /api/
 
 # Sitemap location
 Sitemap: https://www.lynenapp.com/sitemap.xml
-
-# Crawl delay (optional - adjust if needed)
-Crawl-delay: 1
