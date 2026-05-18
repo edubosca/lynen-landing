@@ -185,19 +185,46 @@
 <section class="bg-white pb-16 sm:pb-20">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
     <a id="ow-current-link" href="/outfit-de-la-semana/pedro-pascal-jersey-azul/" class="ow-feature-card relative block overflow-hidden rounded-3xl bg-lynDark group">
-      <div class="aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/7] relative overflow-hidden">
+
+      <!-- Mobile/tablet: imagen full-bleed con overlay y texto al pie -->
+      <div class="lg:hidden relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
         <img id="ow-current-img"
              src="/images/weekly-outfits/pedro-pascal.png"
              alt="El jersey azul marino de Pedro Pascal"
              class="ow-feature-img absolute inset-0 w-full h-full object-cover object-top"
              width="1600" height="900" loading="eager" decoding="async" />
         <div class="ow-feature-overlay absolute inset-0"></div>
+        <div class="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
+          <div class="max-w-2xl">
+            <p class="text-xs font-semibold tracking-[0.2em] text-lynAccent uppercase mb-3">Esta semana · <span id="ow-current-season-m">Primavera 2026</span></p>
+            <h2 id="ow-current-title-m" class="text-3xl sm:text-4xl font-bold text-white leading-[1.05] tracking-tight mb-3">
+              El jersey azul marino de Pedro Pascal
+            </h2>
+            <p id="ow-current-subtitle-m" class="text-base sm:text-lg text-white/85 mb-5 max-w-xl">
+              Monocromo nocturno con un toque de color
+            </p>
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+              <p id="ow-current-prices-m" class="text-sm sm:text-base text-white/85">
+                Desde <span class="font-bold text-white">119,97 €</span>
+                <span class="opacity-50 mx-1">·</span>
+                <span class="font-bold text-white">214,43 €</span>
+                <span class="opacity-50 mx-1">·</span>
+                <span class="font-bold text-white">448,29 €</span>
+              </p>
+              <span class="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                Ver el outfit completo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 lg:p-14">
-        <div class="max-w-2xl">
+      <!-- Desktop (lg+): grid 2 columnas, texto a la izquierda + imagen completa a la derecha (object-contain, sin recortar) -->
+      <div class="hidden lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center lg:p-10 xl:p-12 lg:min-h-[460px]">
+        <div>
           <p class="text-xs font-semibold tracking-[0.2em] text-lynAccent uppercase mb-3">Esta semana · <span id="ow-current-season">Primavera 2026</span></p>
-          <h2 id="ow-current-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.05] tracking-tight mb-3">
+          <h2 id="ow-current-title" class="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-bold text-white leading-[1.05] tracking-tight mb-3">
             El jersey azul marino de Pedro Pascal
           </h2>
           <p id="ow-current-subtitle" class="text-base sm:text-lg text-white/85 mb-5 max-w-xl">
@@ -217,7 +244,15 @@
             </span>
           </div>
         </div>
+        <div class="flex items-center justify-center">
+          <img id="ow-current-img-desktop"
+               src="/images/weekly-outfits/pedro-pascal.png"
+               alt="El jersey azul marino de Pedro Pascal"
+               class="ow-feature-img w-full max-h-[440px] object-contain rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
+               width="1600" height="1000" loading="eager" decoding="async" />
+        </div>
       </div>
+
     </a>
   </div>
 </section>
@@ -314,16 +349,30 @@
   const current = W.current();
   if (current) {
     document.getElementById('ow-current-link').href = '/outfit-de-la-semana/' + current.slug + '/';
-    document.getElementById('ow-current-img').src = current.heroImage.src;
-    document.getElementById('ow-current-img').alt = current.heroImage.alt;
-    document.getElementById('ow-current-title').textContent = current.title;
-    document.getElementById('ow-current-subtitle').textContent = current.subtitle;
-    document.getElementById('ow-current-season').textContent = current.season;
     const totals = current.tiers.map(W.tierTotal).map(W.formatEUR);
-    document.getElementById('ow-current-prices').innerHTML =
+    const pricesHtml =
       'Desde <span class="font-bold text-white">' + totals[0] + '</span>' +
       ' <span class="opacity-50 mx-1">·</span> <span class="font-bold text-white">' + totals[1] + '</span>' +
       ' <span class="opacity-50 mx-1">·</span> <span class="font-bold text-white">' + totals[2] + '</span>';
+
+    ['ow-current-img', 'ow-current-img-desktop'].forEach(function (id) {
+      const el = document.getElementById(id);
+      if (el) { el.src = current.heroImage.src; el.alt = current.heroImage.alt; }
+    });
+    // Mobile y desktop tienen IDs separados para texto porque el markup se
+    // duplica entre las dos variantes responsive.
+    ['ow-current-title', 'ow-current-title-m'].forEach(function (id) {
+      const el = document.getElementById(id); if (el) el.textContent = current.title;
+    });
+    ['ow-current-subtitle', 'ow-current-subtitle-m'].forEach(function (id) {
+      const el = document.getElementById(id); if (el) el.textContent = current.subtitle;
+    });
+    ['ow-current-season', 'ow-current-season-m'].forEach(function (id) {
+      const el = document.getElementById(id); if (el) el.textContent = current.season;
+    });
+    ['ow-current-prices', 'ow-current-prices-m'].forEach(function (id) {
+      const el = document.getElementById(id); if (el) el.innerHTML = pricesHtml;
+    });
   }
 
   // ── History grid ──
