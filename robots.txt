@@ -1,0 +1,13 @@
+# robots.txt for Lynen landing page
+# Allow search engine crawling of all important pages
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.lynenapp.com/sitemap.xml
+
+# Crawl delay (optional - adjust if needed)
+Crawl-delay: 1
