@@ -111,6 +111,30 @@ window.WeeklyOutfitsRaw.products = {
     notes: ''
   },
 
+  'lr-pantalon-ancho-pinzas-algodon': {
+    name: 'Pantalón ancho con pinzas en mezcla de algodón',
+    brand: 'La Redoute Collections',
+    price: 41.99,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/6/b/3/6b39bff061f0ceeb5e345996124b688c.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301820280&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-18',
+    notes: ''
+  },
+
+  'lr-pantalon-ancho-pinzas': {
+    name: 'Pantalón ancho de pinzas',
+    brand: 'La Redoute Collections',
+    price: 44.99,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/1/8/e/18e1ed20d1a064bf43ee4dc791708233.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301820111&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-18',
+    notes: ''
+  },
+
   // ─── Calvin Klein ────────────────────────────────────────────────────
 
   'ck-camiseta-logotipo': {
@@ -222,6 +246,18 @@ window.WeeklyOutfitsRaw.products = {
     affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301639801&a=2806382&m=10497',
     network: 'awin',
     lastVerifiedAt: '2026-05-10',
+    notes: ''
+  },
+
+  'prl-polo-pique-slim': {
+    name: 'Polo piqué slim fit',
+    brand: 'Polo Ralph Lauren',
+    price: 96.60,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/9/d/0/9d067777e3677a142d20c6de10cd0277.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301752797&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-18',
     notes: ''
   },
 
@@ -348,6 +384,34 @@ window.WeeklyOutfitsRaw.products = {
     affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301670622&a=2806382&m=10497',
     network: 'awin',
     lastVerifiedAt: '2026-05-10',
+    notes: ''
+  },
+
+  // ─── Levi's ──────────────────────────────────────────────────────────
+
+  'levis-polo-manga-larga': {
+    name: 'Polo de manga larga',
+    brand: 'Levi\'s',
+    price: 34.21,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/1/b/8/1b8982edea813b6f6cc67395b0ab88ec.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44616848651&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-18',
+    notes: ''
+  },
+
+  // ─── Schott ──────────────────────────────────────────────────────────
+
+  'schott-polo-manga-larga': {
+    name: 'Polo manga larga',
+    brand: 'Schott',
+    price: 49.39,
+    currency: 'EUR',
+    imageUrl: 'https://cdn.laredoute.com/cdn-cgi/image/width=1200%2Cheight=1200%2Cfit=pad%2Cdpr=1/products/c/e/0/ce0fa510408b2dd05674a8d1a9e91a9f.jpg',
+    affiliateUrl: 'https://www.awin1.com/pclick.php?p=44301770038&a=2806382&m=10497',
+    network: 'awin',
+    lastVerifiedAt: '2026-05-18',
     notes: ''
   }
 
