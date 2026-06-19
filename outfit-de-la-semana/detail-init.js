@@ -64,6 +64,8 @@
 
   // ── SEO inyection (solo si publicado) ────────────────────────────────
   function injectOutfitSEO(o) {
+    setMeta('robots', 'index, follow');
+
     var origin = W.SITE_ORIGIN;
     var url = origin + '/outfit-de-la-semana/' + o.slug + '/';
     var imgUrl = origin + o.heroImage.src;
