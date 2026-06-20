@@ -103,6 +103,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+          onerror="window.__gsapFailed=true"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+          onerror="window.__gsapFailed=true"></script>
 
   <script>
     tailwind.config = {
@@ -248,6 +252,26 @@
     .feat-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .feat-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
 
+    /* ── Float loop for hero phones ── */
+    @keyframes float-loop {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+    .floating { animation: float-loop 10s ease-in-out infinite; }
+    .floating.delay-float { animation-delay: 1.4s; }
+
+    /* Hero phone parallax via CSS custom property */
+    #hero-phones-container {
+      transform: translateY(var(--phone-parallax, 0px));
+    }
+
+    /* Suppress CSS transitions on GSAP-owned elements */
+    [data-gsap] { transition: none !important; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .floating, .floating.delay-float { animation: none; }
+    }
+
     /* ── Store buttons ── */
     .btn-store {
       display: inline-flex;
@@ -358,7 +382,7 @@
 
       <!-- Copy -->
       <div>
-        <div class="inline-flex items-center gap-2 mb-6 sm:mb-8">
+        <div class="inline-flex items-center gap-2 mb-6 sm:mb-8" id="hero-badge">
           <span class="w-1.5 h-1.5 rounded-full bg-lynAccent"></span>
           <span class="text-xs font-semibold tracking-[0.2em] text-white/65 uppercase">
             <span data-lang-text="en">Men's AI Stylist</span>
@@ -366,18 +390,18 @@
           </span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-[3.9rem] font-bold text-white leading-[1.02] tracking-tight mb-5 sm:mb-6">
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.9rem] font-bold text-white leading-[1.02] tracking-tight mb-5 sm:mb-6" id="hero-h1">
           <span data-lang-text="en">Stop guessing<br/>what to wear.<br/><em class="font-serif font-normal italic text-lynAccent">Every morning.</em></span>
           <span data-lang-text="es">Deja de dudar<br/>qué ponerte.<br/><em class="font-serif font-normal italic text-lynAccent">Cada mañana.</em></span>
         </h1>
 
-        <p class="text-base sm:text-lg text-white/72 max-w-md leading-relaxed mb-8 sm:mb-10">
+        <p class="text-base sm:text-lg text-white/72 max-w-md leading-relaxed mb-8 sm:mb-10" id="hero-sub">
           <span data-lang-text="en">Describe the occasion. Get a complete, color-matched look in seconds. Work, weddings, dates, events — no fashion expertise required. Free on iOS & Android.</span>
           <span data-lang-text="es">Describe la ocasión. Obtén un look completo y coordinado en segundos. Trabajo, bodas, citas, eventos — sin conocimientos de moda. Gratis en iOS y Android.</span>
         </p>
 
         <!-- Store CTAs -->
-        <div class="flex flex-wrap items-center gap-3 mb-10 sm:mb-12">
+        <div class="flex flex-wrap items-center gap-3 mb-10 sm:mb-12" id="hero-ctas">
           <a href="https://apps.apple.com/es/app/lynen/id6756376550" target="_blank" rel="noopener" class="btn-store btn-store-light">
             <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -391,22 +415,22 @@
         </div>
 
         <!-- Stats -->
-        <div class="flex items-center gap-5 sm:gap-8 flex-wrap">
-          <div>
+        <div class="flex items-center gap-5 sm:gap-8 flex-wrap" id="hero-stats">
+          <div class="hero-stat-item">
             <div class="text-lg sm:text-xl font-bold text-white">Free</div>
             <div class="text-xs text-white/60 mt-0.5">
               <span data-lang-text="en">to start</span><span data-lang-text="es">para empezar</span>
             </div>
           </div>
-          <div class="w-px h-7 bg-white/15"></div>
-          <div>
+          <div class="w-px h-7 bg-white/15 hero-stat-item"></div>
+          <div class="hero-stat-item">
             <div class="text-lg sm:text-xl font-bold text-white">iOS & Android</div>
             <div class="text-xs text-white/60 mt-0.5">
               <span data-lang-text="en">available now</span><span data-lang-text="es">disponible ahora</span>
             </div>
           </div>
-          <div class="w-px h-7 bg-white/15"></div>
-          <div>
+          <div class="w-px h-7 bg-white/15 hero-stat-item"></div>
+          <div class="hero-stat-item">
             <div class="text-lg sm:text-xl font-bold text-white">★★★★★</div>
             <div class="text-xs text-white/60 mt-0.5">
               <span data-lang-text="en">App Store</span><span data-lang-text="es">App Store</span>
@@ -417,19 +441,23 @@
 
       <!-- Phone mockups — visible on md+ -->
       <div class="hidden md:flex justify-center items-end">
-        <div class="relative" style="width:380px;height:660px;">
-          <div class="phone-frame tilt-l absolute left-0 top-0" style="max-width:300px;">
-            <div class="phone-screen">
-              <div class="phone-notch"><div class="phone-island"></div></div>
-              <img src="home-page.png" alt="Lynen AI outfit generator app" class="phone-img" width="1080" height="2280" fetchpriority="high" loading="eager" onerror="this.closest('.phone-frame').remove()" />
-              <div class="phone-bar"><div class="phone-ind"></div></div>
+        <div class="relative" style="width:380px;height:660px;" id="hero-phones-container">
+          <div id="hero-phone-l" style="position:absolute;left:0;top:0;max-width:300px;width:100%;">
+            <div class="phone-frame tilt-l" style="width:100%;">
+              <div class="phone-screen">
+                <div class="phone-notch"><div class="phone-island"></div></div>
+                <img src="home-page.png" alt="Lynen AI outfit generator app" class="phone-img" width="1080" height="2280" fetchpriority="high" loading="eager" onerror="this.closest('.phone-frame').remove()" />
+                <div class="phone-bar"><div class="phone-ind"></div></div>
+              </div>
             </div>
           </div>
-          <div class="phone-frame tilt-r absolute right-0 bottom-6 opacity-85" style="max-width:228px;">
-            <div class="phone-screen">
-              <div class="phone-notch"><div class="phone-island"></div></div>
-              <img src="feature2-refined-casual.png" alt="Lynen outfit result" class="phone-img" width="1080" height="2280" loading="lazy" onerror="this.closest('.phone-frame').remove()" />
-              <div class="phone-bar"><div class="phone-ind"></div></div>
+          <div id="hero-phone-r" style="position:absolute;right:0;bottom:24px;max-width:228px;width:100%;opacity:0.85;">
+            <div class="phone-frame tilt-r" style="width:100%;">
+              <div class="phone-screen">
+                <div class="phone-notch"><div class="phone-island"></div></div>
+                <img src="feature2-refined-casual.png" alt="Lynen outfit result" class="phone-img" width="1080" height="2280" loading="lazy" onerror="this.closest('.phone-frame').remove()" />
+                <div class="phone-bar"><div class="phone-ind"></div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -479,19 +507,21 @@
 <section id="features">
 
   <!-- 01 Generate -->
-  <div class="bg-white py-20 sm:py-24 lg:py-32">
+  <div class="bg-white py-20 sm:py-24 lg:py-32" id="feat-01">
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="flex justify-center reveal">
-          <div class="tilt-l phone-frame" style="max-width:270px;">
-            <div class="phone-screen">
-              <div class="phone-notch"><div class="phone-island"></div></div>
-              <img src="find-your-vibe-initial.png" alt="AI outfit generation" class="phone-img" loading="lazy" width="1080" height="2280" />
-              <div class="phone-bar"><div class="phone-ind"></div></div>
+          <div id="feat01-phone" data-gsap style="display:contents;">
+            <div class="tilt-l phone-frame" style="max-width:270px;">
+              <div class="phone-screen">
+                <div class="phone-notch"><div class="phone-island"></div></div>
+                <img src="find-your-vibe-initial.png" alt="AI outfit generation" class="phone-img" loading="lazy" width="1080" height="2280" />
+                <div class="phone-bar"><div class="phone-ind"></div></div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="reveal reveal-d1">
+        <div class="reveal reveal-d1" id="feat01-text">
           <span class="accent-line"></span>
           <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">01</p>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-lynDark leading-[1.1] mb-5">
@@ -525,10 +555,10 @@
   </div>
 
   <!-- 02 Rate -->
-  <div class="bg-lynBg py-20 sm:py-24 lg:py-32">
+  <div class="bg-lynBg py-20 sm:py-24 lg:py-32" id="feat-02">
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div class="reveal order-2 lg:order-1">
+        <div class="reveal order-2 lg:order-1" id="feat02-text">
           <span class="accent-line"></span>
           <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">02</p>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-lynDark leading-[1.1] mb-5">
@@ -553,11 +583,13 @@
           </ul>
         </div>
         <div class="flex justify-center reveal reveal-d1 order-1 lg:order-2">
-          <div class="tilt-r phone-frame" style="max-width:270px;">
-            <div class="phone-screen">
-              <div class="phone-notch"><div class="phone-island"></div></div>
-              <img src="feature3-office-rating.png" alt="Rate outfit AI feedback" class="phone-img" loading="lazy" width="1080" height="2280" />
-              <div class="phone-bar"><div class="phone-ind"></div></div>
+          <div id="feat02-phone" data-gsap style="display:contents;">
+            <div class="tilt-r phone-frame" style="max-width:270px;">
+              <div class="phone-screen">
+                <div class="phone-notch"><div class="phone-island"></div></div>
+                <img src="feature3-office-rating.png" alt="Rate outfit AI feedback" class="phone-img" loading="lazy" width="1080" height="2280" />
+                <div class="phone-bar"><div class="phone-ind"></div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -566,30 +598,32 @@
   </div>
 
   <!-- 03 Special Events -->
-  <div class="bg-white py-20 sm:py-24 lg:py-32">
+  <div class="bg-white py-20 sm:py-24 lg:py-32" id="feat-03">
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="flex justify-center reveal">
-          <div class="relative" style="width:400px;height:580px;">
-            <!-- Back phone -->
-            <div class="tilt-l phone-frame absolute left-0 top-0" style="max-width:245px;">
-              <div class="phone-screen">
-                <div class="phone-notch"><div class="phone-island"></div></div>
-                <img src="special-events-popup.png" alt="Special events popup" class="phone-img" />
-                <div class="phone-bar"><div class="phone-ind"></div></div>
+          <div id="feat03-phone" data-gsap style="display:contents;">
+            <div class="relative" style="width:400px;height:580px;">
+              <!-- Back phone -->
+              <div class="tilt-l phone-frame absolute left-0 top-0" style="max-width:245px;">
+                <div class="phone-screen">
+                  <div class="phone-notch"><div class="phone-island"></div></div>
+                  <img src="special-events-popup.png" alt="Special events popup" class="phone-img" />
+                  <div class="phone-bar"><div class="phone-ind"></div></div>
+                </div>
               </div>
-            </div>
-            <!-- Front phone — shifted right so back phone breathes -->
-            <div class="tilt-r phone-frame absolute right-0 bottom-0 opacity-90" style="max-width:188px;z-index:2;">
-              <div class="phone-screen">
-                <div class="phone-notch"><div class="phone-island"></div></div>
-                <img src="special-event-recommendation.png" alt="Special event recommendation" class="phone-img" />
-                <div class="phone-bar"><div class="phone-ind"></div></div>
+              <!-- Front phone — shifted right so back phone breathes -->
+              <div class="tilt-r phone-frame absolute right-0 bottom-0 opacity-90" style="max-width:188px;z-index:2;">
+                <div class="phone-screen">
+                  <div class="phone-notch"><div class="phone-island"></div></div>
+                  <img src="special-event-recommendation.png" alt="Special event recommendation" class="phone-img" />
+                  <div class="phone-bar"><div class="phone-ind"></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="reveal reveal-d1">
+        <div class="reveal reveal-d1" id="feat03-text">
           <span class="accent-line"></span>
           <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">03</p>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-lynDark leading-[1.1] mb-5">
@@ -623,10 +657,10 @@
   </div>
 
   <!-- 04 Plan your week -->
-  <div class="bg-lynBg py-20 sm:py-24 lg:py-32">
+  <div class="bg-lynBg py-20 sm:py-24 lg:py-32" id="feat-04">
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div class="reveal order-2 lg:order-1">
+        <div class="reveal order-2 lg:order-1" id="feat04-text">
           <span class="accent-line"></span>
           <p class="text-xs font-semibold tracking-[0.15em] text-lynAccent uppercase mb-3">04</p>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-lynDark leading-[1.1] mb-5">
@@ -639,11 +673,13 @@
           </p>
         </div>
         <div class="flex justify-center reveal reveal-d1 order-1 lg:order-2">
-          <div class="tilt-r phone-frame" style="max-width:270px;">
-            <div class="phone-screen">
-              <div class="phone-notch"><div class="phone-island"></div></div>
-              <img src="feature-weekly-planner.png" alt="Weekly outfit planner" class="phone-img" />
-              <div class="phone-bar"><div class="phone-ind"></div></div>
+          <div id="feat04-phone" data-gsap style="display:contents;">
+            <div class="tilt-r phone-frame" style="max-width:270px;">
+              <div class="phone-screen">
+                <div class="phone-notch"><div class="phone-island"></div></div>
+                <img src="feature-weekly-planner.png" alt="Weekly outfit planner" class="phone-img" />
+                <div class="phone-bar"><div class="phone-ind"></div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -663,7 +699,7 @@
           <span data-lang-text="es">Todo lo que necesitas para vestir mejor</span>
         </h2>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="feat-grid">
 
         <div class="feat-card reveal rounded-3xl overflow-hidden bg-lynBg">
           <div class="aspect-[4/3] overflow-hidden">
@@ -1292,10 +1328,155 @@
   document.querySelectorAll('[data-mob-link]').forEach(l => l.addEventListener('click', closeMobileMenu));
 
   // ── Scroll reveal ──
-  const revealObs = new IntersectionObserver((entries) => {
+  window.revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+
+<!-- GSAP Block A: Word-split hero H1 into .hero-word spans for stagger -->
+<script>
+(function () {
+  if (window.__gsapFailed || typeof gsap === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var h1 = document.getElementById('hero-h1');
+  if (!h1) return;
+  h1.querySelectorAll('[data-lang-text]').forEach(function (span) {
+    var nodes = Array.from(span.childNodes);
+    var frag = document.createDocumentFragment();
+    nodes.forEach(function (node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        node.textContent.split(/(\s+)/).forEach(function (chunk) {
+          if (/\s/.test(chunk)) {
+            frag.appendChild(document.createTextNode(chunk));
+          } else if (chunk) {
+            var w = document.createElement('span');
+            w.className = 'hero-word';
+            w.style.display = 'inline-block';
+            w.textContent = chunk;
+            frag.appendChild(w);
+          }
+        });
+      } else {
+        var w = document.createElement('span');
+        w.className = 'hero-word';
+        w.style.display = 'inline-block';
+        w.appendChild(node.cloneNode(true));
+        frag.appendChild(w);
+      }
+    });
+    while (span.firstChild) { span.removeChild(span.firstChild); }
+    span.appendChild(frag);
+  });
+})();
+</script>
+
+<!-- GSAP Block B: Animations init -->
+<script>
+(function () {
+  if (window.__gsapFailed || typeof gsap === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Unobserve GSAP-owned feature text blocks from IntersectionObserver
+  ['feat01-text','feat02-text','feat03-text','feat04-text'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el && window.revealObs) window.revealObs.unobserve(el);
+  });
+
+  var EASE_OUT  = 'power3.out';
+  var EASE_SOFT = 'power2.out';
+
+  // ── Hero entrance ──
+  gsap.set('#hero-badge',  { opacity: 0, y: -12 });
+  gsap.set('.hero-word',   { opacity: 0, y: 20, filter: 'blur(4px)' });
+  gsap.set('#hero-sub',    { opacity: 0, y: 15 });
+  gsap.set('#hero-ctas a, #hero-ctas .transition-all', { opacity: 0, y: 12 });
+  gsap.set('.hero-stat-item', { opacity: 0, y: 10 });
+  gsap.set('#hero-phone-l', { opacity: 0, x: -28 });
+  gsap.set('#hero-phone-r', { opacity: 0, x: 22 });
+
+  gsap.timeline({ defaults: { ease: EASE_OUT } })
+    .to('#hero-badge',  { opacity: 1, y: 0, duration: 0.5, delay: 0.2 })
+    .to('.hero-word',   { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.65, stagger: 0.07 }, '-=0.3')
+    .to('#hero-sub',    { opacity: 1, y: 0, duration: 0.55 }, '-=0.35')
+    .to('#hero-ctas a, #hero-ctas .transition-all', { opacity: 1, y: 0, duration: 0.45, stagger: 0.1 }, '-=0.3')
+    .to('.hero-stat-item', { opacity: 1, y: 0, duration: 0.45, stagger: 0.07 }, '-=0.25')
+    .to('#hero-phone-l', { opacity: 1, x: 0, duration: 0.75, ease: EASE_SOFT }, '-=0.55')
+    .to('#hero-phone-r', { opacity: 1, x: 0, duration: 0.65, ease: EASE_SOFT }, '-=0.65')
+    .call(function () {
+      document.getElementById('hero-phone-l').classList.add('floating');
+      document.getElementById('hero-phone-r').classList.add('floating', 'delay-float');
+    });
+
+  // ── Hero phone parallax via CSS custom property ──
+  ScrollTrigger.create({
+    trigger: 'section.min-h-screen',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 1.5,
+    onUpdate: function (self) {
+      var c = document.getElementById('hero-phones-container');
+      if (c) c.style.setProperty('--phone-parallax', (self.progress * -55) + 'px');
+    }
+  });
+
+  // ── Feature sections ──
+  function animateFeat(sectionId, phoneId, textId, phoneFromX) {
+    var section = document.getElementById(sectionId);
+    var phone   = document.getElementById(phoneId);
+    var text    = document.getElementById(textId);
+    if (!section || !phone || !text) return;
+
+    var line    = text.querySelector('.accent-line');
+    var eyebrow = text.querySelector('p.text-xs');
+    var h2      = text.querySelector('h2');
+    var para    = text.querySelector('p.text-lynText');
+    var bullets = text.querySelectorAll('li');
+
+    [line, eyebrow, h2, para].concat(Array.from(bullets)).forEach(function (el) {
+      if (el) el.setAttribute('data-gsap', '');
+    });
+
+    gsap.set(phone,   { opacity: 0, x: phoneFromX });
+    gsap.set(line,    { scaleX: 0, transformOrigin: 'left center' });
+    gsap.set(eyebrow, { opacity: 0, y: 8 });
+    gsap.set(h2,      { opacity: 0, y: 20 });
+    if (para)           gsap.set(para,    { opacity: 0, y: 15 });
+    if (bullets.length) gsap.set(bullets, { opacity: 0, y: 10 });
+
+    gsap.timeline({
+      scrollTrigger: { trigger: section, start: 'top 72%', toggleActions: 'play none none none' },
+      defaults: { ease: EASE_OUT }
+    })
+      .to(phone,   { opacity: 1, x: 0, duration: 0.8, ease: EASE_SOFT })
+      .to(line,    { scaleX: 1, duration: 0.4 },                        '-=0.45')
+      .to(eyebrow, { opacity: 1, y: 0, duration: 0.4 },                 '-=0.3')
+      .to(h2,      { opacity: 1, y: 0, duration: 0.55 },                '-=0.3')
+      .to(para,    { opacity: 1, y: 0, duration: 0.5 },                 '-=0.35')
+      .to(bullets, { opacity: 1, y: 0, duration: 0.4, stagger: 0.08 }, '-=0.3');
+  }
+
+  animateFeat('feat-01', 'feat01-phone', 'feat01-text', -30);
+  animateFeat('feat-02', 'feat02-phone', 'feat02-text',  30);
+  animateFeat('feat-03', 'feat03-phone', 'feat03-text', -30);
+  animateFeat('feat-04', 'feat04-phone', 'feat04-text',  30);
+
+  // ── Feature grid ──
+  var gridCards = document.querySelectorAll('#feat-grid .feat-card');
+  if (gridCards.length) {
+    gsap.set(gridCards, { opacity: 0, y: 25, scale: 0.97 });
+    ScrollTrigger.create({
+      trigger: '#feat-grid',
+      start: 'top 80%',
+      onEnter: function () {
+        gsap.to(gridCards, { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.13, ease: EASE_OUT });
+      }
+    });
+  }
+
+})();
 </script>
 
 </body>
