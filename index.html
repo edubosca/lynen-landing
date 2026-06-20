@@ -1379,10 +1379,17 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Unobserve GSAP-owned feature text blocks from IntersectionObserver
+  // Unobserve GSAP-owned feature text blocks from IntersectionObserver,
+  // then immediately override the .reveal CSS (opacity:0) so the container
+  // is visible — GSAP animates the children, not the container itself.
   ['feat01-text','feat02-text','feat03-text','feat04-text'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el && window.revealObs) window.revealObs.unobserve(el);
+    if (el) {
+      el.style.transition = 'none';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    }
   });
 
   var EASE_OUT  = 'power3.out';
