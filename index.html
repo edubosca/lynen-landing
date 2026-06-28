@@ -377,7 +377,7 @@
   <div class="hero-glow absolute inset-0 pointer-events-none"></div>
   <div class="hero-vignette absolute inset-0 pointer-events-none"></div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 pt-24 sm:pt-28 pb-20 w-full">
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20 w-full">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
       <!-- Copy -->
@@ -395,7 +395,7 @@
           <span data-lang-text="es">Deja de dudar<br/>qué ponerte.<br/><em class="font-serif font-normal italic text-lynAccent">Cada mañana.</em></span>
         </h1>
 
-        <p class="text-base sm:text-lg text-white/72 max-w-md leading-relaxed mb-8 sm:mb-10" id="hero-sub">
+        <p class="text-base sm:text-lg text-white/85 max-w-md leading-relaxed mb-8 sm:mb-10" id="hero-sub">
           <span data-lang-text="en">Describe the occasion. Get a complete, color-matched look in seconds. Work, weddings, dates, events — no fashion expertise required. Free on iOS & Android.</span>
           <span data-lang-text="es">Describe la ocasión. Obtén un look completo y coordinado en segundos. Trabajo, bodas, citas, eventos — sin conocimientos de moda. Gratis en iOS y Android.</span>
         </p>
@@ -418,22 +418,33 @@
         <div class="flex items-center gap-5 sm:gap-8 flex-wrap" id="hero-stats">
           <div class="hero-stat-item">
             <div class="text-lg sm:text-xl font-bold text-white">Free</div>
-            <div class="text-xs text-white/60 mt-0.5">
+            <div class="text-xs text-white/70 mt-0.5">
               <span data-lang-text="en">to start</span><span data-lang-text="es">para empezar</span>
             </div>
           </div>
           <div class="w-px h-7 bg-white/15 hero-stat-item"></div>
           <div class="hero-stat-item">
             <div class="text-lg sm:text-xl font-bold text-white">iOS & Android</div>
-            <div class="text-xs text-white/60 mt-0.5">
+            <div class="text-xs text-white/70 mt-0.5">
               <span data-lang-text="en">available now</span><span data-lang-text="es">disponible ahora</span>
             </div>
           </div>
           <div class="w-px h-7 bg-white/15 hero-stat-item"></div>
           <div class="hero-stat-item">
             <div class="text-lg sm:text-xl font-bold text-white">★★★★★</div>
-            <div class="text-xs text-white/60 mt-0.5">
+            <div class="text-xs text-white/70 mt-0.5">
               <span data-lang-text="en">App Store</span><span data-lang-text="es">App Store</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone mockup — mobile only, below stats -->
+        <div class="mt-10 flex justify-center md:hidden">
+          <div class="phone-frame" style="max-width:210px;width:100%;">
+            <div class="phone-screen">
+              <div class="phone-notch"><div class="phone-island"></div></div>
+              <img src="home-page.png" alt="Lynen AI outfit generator app" class="phone-img" width="1080" height="2280" loading="lazy" />
+              <div class="phone-bar"><div class="phone-ind"></div></div>
             </div>
           </div>
         </div>
@@ -603,9 +614,9 @@
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="flex justify-center reveal">
           <div id="feat03-phone" data-gsap style="display:contents;">
-            <div class="relative" style="width:400px;height:580px;">
+            <div class="relative w-full" style="max-width:400px;aspect-ratio:20/29;max-height:580px;">
               <!-- Back phone -->
-              <div class="tilt-l phone-frame absolute left-0 top-0" style="max-width:245px;">
+              <div class="tilt-l phone-frame absolute left-0 top-0" style="max-width:min(245px,61%);">
                 <div class="phone-screen">
                   <div class="phone-notch"><div class="phone-island"></div></div>
                   <img src="special-events-popup.png" alt="Special events popup" class="phone-img" />
@@ -613,7 +624,7 @@
                 </div>
               </div>
               <!-- Front phone — shifted right so back phone breathes -->
-              <div class="tilt-r phone-frame absolute right-0 bottom-0 opacity-90" style="max-width:188px;z-index:2;">
+              <div class="tilt-r phone-frame absolute right-0 bottom-0 opacity-90" style="max-width:min(188px,47%);z-index:2;">
                 <div class="phone-screen">
                   <div class="phone-notch"><div class="phone-island"></div></div>
                   <img src="special-event-recommendation.png" alt="Special event recommendation" class="phone-img" />
@@ -824,7 +835,7 @@
             <span data-lang-text="en">Describe your occasion</span>
             <span data-lang-text="es">Describe tu ocasión</span>
           </h3>
-          <p class="text-white/70 text-sm leading-relaxed">
+          <p class="text-white/85 text-sm leading-relaxed">
             <span data-lang-text="en">Tell Lynen about the event, weather and your preferences — in plain language. No forms, no menus, just a conversation.</span>
             <span data-lang-text="es">Cuéntale a Lynen sobre el evento, el clima y tus preferencias — en lenguaje natural. Sin formularios, solo una conversación.</span>
           </p>
@@ -841,7 +852,7 @@
             <span data-lang-text="en">AI builds your look</span>
             <span data-lang-text="es">La IA construye tu look</span>
           </h3>
-          <p class="text-white/70 text-sm leading-relaxed">
+          <p class="text-white/85 text-sm leading-relaxed">
             <span data-lang-text="en">Get a complete, color-coordinated outfit with illustrations. Refine it until it's exactly right — no extra charge.</span>
             <span data-lang-text="es">Obtén un outfit completo y coordinado con ilustraciones. Refínalo hasta que sea perfecto — sin coste adicional.</span>
           </p>
@@ -858,7 +869,7 @@
             <span data-lang-text="en">Your style gets sharper every session.</span>
             <span data-lang-text="es">Tu estilo mejora con cada sesión.</span>
           </h3>
-          <p class="text-white/70 text-sm leading-relaxed">
+          <p class="text-white/85 text-sm leading-relaxed">
             <span data-lang-text="en">Save looks you love, track your daily streak, and compete with friends. The more you use Lynen, the better it knows your taste.</span>
             <span data-lang-text="es">Guarda los looks que más te gusten, mantén tu racha diaria y compite con amigos. Cuanto más uses Lynen, mejor conoce tu gusto.</span>
           </p>
@@ -1170,7 +1181,7 @@
       <span data-lang-text="en">Stop guessing.<br/><em class="font-serif font-normal not-italic text-lynAccent">Start dressing.</em></span>
       <span data-lang-text="es">Deja de dudar.<br/><em class="font-serif font-normal not-italic text-lynAccent">Empieza a vestir.</em></span>
     </h2>
-    <p class="text-white/72 text-base sm:text-lg mb-8 sm:mb-10 max-w-sm mx-auto">
+    <p class="text-white/85 text-base sm:text-lg mb-8 sm:mb-10 max-w-sm mx-auto">
       <span data-lang-text="en">Download Lynen free. No sign-up needed to start generating outfits.</span>
       <span data-lang-text="es">Descarga Lynen gratis. No necesitas registro para empezar a generar outfits.</span>
     </p>
@@ -1199,14 +1210,14 @@
 
       <div class="sm:col-span-2">
         <img src="lynen-logo.png" alt="Lynen" class="h-9 w-auto mb-4" style="filter:invert(1) saturate(0) brightness(1.2);opacity:0.85;" />
-        <p class="text-white/60 text-sm leading-relaxed max-w-xs">
+        <p class="text-white/75 text-sm leading-relaxed max-w-xs">
           <span data-lang-text="en">The AI outfit generator and personal stylist, built for men. Free on iOS and Android.</span>
           <span data-lang-text="es">El generador de outfits con IA y estilista personal, pensado para hombres. Gratis en iOS y Android.</span>
         </p>
       </div>
 
       <div>
-        <div class="text-xs font-semibold tracking-wider text-white/45 uppercase mb-4">Product</div>
+        <div class="text-xs font-semibold tracking-wider text-white/65 uppercase mb-4">Product</div>
         <ul class="space-y-3">
           <li><a href="#features" class="text-sm text-white/65 hover:text-white transition-colors">
             <span data-lang-text="en">Features</span><span data-lang-text="es">Funciones</span>
@@ -1225,7 +1236,7 @@
       </div>
 
       <div>
-        <div class="text-xs font-semibold tracking-wider text-white/45 uppercase mb-4">Legal</div>
+        <div class="text-xs font-semibold tracking-wider text-white/65 uppercase mb-4">Legal</div>
         <ul class="space-y-3">
           <li><a href="/privacy-policy.html" class="text-sm text-white/65 hover:text-white transition-colors">
             <span data-lang-text="en">Privacy Policy</span><span data-lang-text="es">Política de Privacidad</span>
@@ -1235,7 +1246,7 @@
       </div>
 
       <div>
-        <div class="text-xs font-semibold tracking-wider text-white/45 uppercase mb-4">
+        <div class="text-xs font-semibold tracking-wider text-white/65 uppercase mb-4">
           <span data-lang-text="en">Follow us</span><span data-lang-text="es">Síguenos</span>
         </div>
         <div class="flex items-center gap-4">
